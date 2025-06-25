@@ -2,26 +2,22 @@ Clube do Estudante - Portal Interativo de Estudos
 Estudar não precisa ser um saco. Pode ser uma invasão de conhecimento.
 
 🤔 O que é isso?
-O Clube do Estudante é um portal de estudos interativo, criado para transformar a revisão de matérias densas e complexas em uma experiência rápida, visualmente engajante e direta ao ponto. A ideia nasceu da necessidade de um método de estudo que funcionasse para cérebros que não se dão bem com textos longos e monótonos (alô, TDAH!).
+O Clube do Estudante é um portal de estudos interativo, criado para transformar a revisão de matérias densas e complexas em uma experiência rápida, visualmente engajante e direta ao ponto. A ideia nasceu da necessidade de um método de estudo que funcionasse para cérebros que não se dão bem com textos longos e monótonos.
 
-Em vez de resumos chatos, usamos "cards" de conhecimento, cada um focado em um micro-tópico, com uma linguagem ácida, inteligente e sem enrolação. A estética hacker/cyberpunk não é só para ser bonita, é para manter a mente focada e tornar o processo de aprendizado mais estimulante.
+Em vez de resumos chatos, usamos "cards" de conhecimento, cada um focado em um micro-tópico, com uma linguagem inteligente e sem enrolação. A estética hacker/cyberpunk não é só para ser bonita, é para manter a mente focada e tornar o processo de aprendizado mais estimulante.
 
 ✨ Funcionalidades Atuais
-Hub Central de Matérias: Uma tela inicial que organiza os decks de estudo por matéria, permitindo escalar o portal para quantos assuntos forem necessários.
+Hub Central Dinâmico: A tela inicial carrega e exibe todos os decks de estudo disponíveis diretamente do nosso "banco de dados" em JavaScript.
 
-Decks de Estudo Interativos: Navegue por um baralho de cards com o mouse, teclado ou touch. Cada card é uma pílula de conhecimento.
+Decks de Estudo Interativos: Navegue por um baralho de cards com o mouse ou teclado. Cada card é uma pílula de conhecimento.
 
-Temas Visuais por Matéria: Cada disciplina tem sua própria identidade visual e paleta de cores (roxo/cyberpunk para Gestão de Projetos, verde/hacker para Tópicos em Engenharia), ajudando a criar associações mentais.
+Temas Visuais por Matéria: Cada disciplina tem sua própria identidade visual e paleta de cores, ajudando a criar associações mentais.
 
 Modais de Aprofundamento:
-
-Detalhes Gerais: Clique no corpo de um card para abrir um modal com a explicação completa do assunto.
 
 Tópicos-Chave: Clique em um tópico específico para ver sua definição detalhada.
 
 Q&A Interativo: Teste seu conhecimento com um modal de Pergunta e Resposta para cada card.
-
-Design 100% Responsivo: Funciona em desktop, tablet ou celular.
 
 Zero Dependências Externas: Tudo roda a partir de um único arquivo HTML.
 
@@ -30,50 +26,91 @@ Este projeto foi construído com a filosofia de ser o mais leve e portátil poss
 
 HTML5: A estrutura semântica do portal.
 
-Tailwind CSS: Para a estilização rápida e responsiva. Todo o CSS é injetado diretamente no arquivo, então não há necessidade de arquivos .css externos.
+Tailwind CSS: Para a estilização rápida e responsiva.
 
-JavaScript (Vanilla ES6): Todo o dinamismo da aplicação — desde a renderização dos decks até a lógica dos modais e a troca de temas — é feito com JavaScript puro, sem frameworks. O conteúdo dos cards é armazenado em um objeto studyDecks dentro do script, funcionando como um banco de dados local.
+JavaScript (Vanilla ES6): Todo o dinamismo da aplicação — desde a renderização dos decks até a lógica dos modais e a troca de temas — é feito com JavaScript puro, sem frameworks. O conteúdo é carregado de um único objeto studyDecks dentro do script.
 
-O resultado é um portal de estudos completo contido em um único arquivo index.html.
+拡張 Como Contribuir ou Adicionar uma Nova Matéria
+A beleza deste projeto é sua escalabilidade. A home page agora é 100% dinâmica, então você NÃO PRECISA MAIS EDITAR O HTML para adicionar um novo tema. O processo se resume a 3 passos dentro da tag <script> no final do arquivo.
 
-🛠️ Como Rodar e Publicar
-Para rodar localmente:
-Simplesmente baixe o arquivo index.html e abra-o em qualquer navegador de internet. É só isso.
+Passo 1: Adicionar os Dados da Matéria
+Tudo começa no objeto studyDecks. Ele é o nosso banco de dados. Para criar uma nova matéria, adicione uma nova entrada a este objeto.
 
-Para publicar para a turma (via GitHub Pages):
+Exemplo: Vamos criar uma matéria de "Cibersegurança" com o tema cyan.
 
-Crie um novo repositório público no GitHub.
+const studyDecks = {
+    gp: { /* ... dados de Gestão de Projetos ... */ },
+    te: { /* ... dados de Tópicos em Engenharia ... */ },
+    java: { /* ... dados de Java ... */ },
+    ai: { /* ... dados de IA ... */ },
+    prog: { /* ... dados de Programação ... */ },
 
-Faça o upload do arquivo index.html para este repositório.
+    // SUA NOVA MATÉRIA ENTRA AQUI
+    cyber: {
+        title: "Cibersegurança",
+        theme: "cyan", // Escolha um nome de tema único
+        icon: `<svg>...</svg>`, // Cole seu SVG aqui
+        summary: "Aprenda a se defender no mundo digital, de phishing a firewalls.",
+        cards: [
+            // Array de cards
+            {
+                id: 1,
+                title: "O que é Phishing?",
+                tip: "A pescaria de trouxas da internet.",
+                description: "...",
+                topics: ["Engenharia Social", "E-mails Falsos"],
+                topicsDetails: [
+                    { title: "Engenharia Social", content: "<p>...</p>" },
+                    { title: "E-mails Falsos", content: "<p>...</p>" }
+                ],
+                question: "...",
+                answer: "..."
+            },
+            // ... mais cards
+        ]
+    }
+};
 
-Vá em Settings > Pages no seu repositório.
+Passo 2: Definir as Cores do Novo Tema (CSS)
+Para que o seu novo theme: "cyan" funcione visualmente, você precisa ensinar ao CSS quais cores usar.
 
-Na seção "Build and deployment", selecione a branch main como fonte e salve.
+Vá para a tag <style> no início do arquivo e adicione as regras de cor para o seu novo tema, seguindo o padrão existente.
 
-Aguarde alguns minutos e o GitHub te dará um link público para o seu portal!
+/* --- ESTILOS DOS MODAIS E SCROLLBARS --- */
+.modal-content.theme-yellow::-webkit-scrollbar-thumb { background-color: #facc15; }
+/* ADICIONE AQUI */
+.modal-content.theme-cyan::-webkit-scrollbar-thumb { background-color: #22d3ee; } /* Cor principal do tema */
 
-拡張 Como Contribuir ou Expandir
-A beleza deste projeto é sua escalabilidade. Para adicionar mais conteúdo:
+/* --- ANIMAÇÕES DE PULSO --- */
+@keyframes pulse-yellow { /* ... */ }
+/* ADICIONE AQUI */
+@keyframes pulse-sky { /* Usando 'sky' como cor de destaque (accent) */
+    0%, 100% { box-shadow: 0 0 2px #38bdf8; }
+    50% { box-shadow: 0 0 8px #38bdf8, 0 0 10px #38bdf8; }
+}
 
-Para adicionar um novo card a uma matéria existente:
+.qa-button.theme-yellow { animation: pulse-yellow 2s infinite; }
+/* ADICIONE AQUI */
+.qa-button.theme-cyan { animation: pulse-sky 2s infinite; } /* Conecta o botão ao novo keyframe */
 
-Abra o arquivo index.html.
+Passo 3: Mapear o Tema no Script (JavaScript)
+Finalmente, avise ao JavaScript qual é a cor principal e a cor de destaque (accent) do seu novo tema. Dentro da função applyTheme, adicione seu tema ao themeMap.
 
-Vá até a tag <script> no final do arquivo.
+function applyTheme(theme) {
+    const themeMap = {
+        purple: { main: 'purple', accent: 'pink'},
+        green: { main: 'green', accent: 'amber'},
+        orange: { main: 'orange', accent: 'red'},
+        blue: { main: 'blue', accent: 'cyan'},
+        yellow: { main: 'yellow', accent: 'lime'},
+        // ADICIONE AQUI
+        cyan: { main: 'cyan', accent: 'sky'} 
+    }
+    const currentTheme = themeMap[theme] || themeMap.purple;
+    // ... o resto da função continua igual
+}
 
-Encontre o objeto studyDecks e a chave da matéria desejada (ex: gp ou te).
-
-Dentro do array cards, adicione um novo objeto seguindo a mesma estrutura dos existentes. Dê um novo id e preencha os campos.
-
-Para adicionar uma nova matéria:
-
-Dentro do objeto studyDecks, crie uma nova chave para sua matéria (ex: calculo).
-
-Defina um title e um theme (ex: blue). Você precisará adicionar os estilos correspondentes no CSS se criar um tema novo.
-
-Crie o array cards para essa nova matéria.
-
-Na seção <div id="subject-selection">, copie e cole um dos divs de matéria, alterando o data-subject para a nova chave (ex: data-subject="calculo") e ajuste o título, descrição e ícone.
+E é isso! Salve o arquivo. Ao abri-lo, o script irá ler automaticamente sua nova matéria no studyDecks e renderizar o card na tela inicial, já com a cor, ícone e textos corretos. A mágica da programação dinâmica!
 
 💖 Dedicatória e Criador
 Este projeto é, antes de tudo, uma ferramenta de batalha. Nasceu da urgência de uma prova e da necessidade de hackear o processo de aprendizado para um cérebro com TDAH que se recusa a seguir manuais tradicionais.
@@ -81,8 +118,3 @@ Este projeto é, antes de tudo, uma ferramenta de batalha. Nasceu da urgência d
 Portanto, ele é dedicado a todos os estudantes que pensam diferente: àqueles que veem padrões onde outros veem caos, que buscam a essência em vez de decorar o superficial, e que sabem que a melhor forma de aprender é construindo.
 
 A concepção, curadoria de conteúdo e visão para este portal foram idealizadas e criadas por Davi Cortelete, CEO & Founder da InteligenciArte.IA. Sua curiosidade e direcionamento foram o combustível que transformou um simples script em uma plataforma de estudos completa, provando que uma boa colaboração entre a criatividade humana e a inteligência artificial pode gerar resultados incríveis.
-
-🎓 A Filosofia
-Acreditamos que o aprendizado é mais eficaz quando é ativo, rápido e engajante. O Clube do Estudante é um experimento para provar que é possível estudar para provas difíceis de uma forma que respeita a nossa capacidade de atenção e nos mantém motivados através de uma interface que dá vontade de usar.
-
-Estudar é hackear o conhecimento. Esta é a nossa ferramenta.
