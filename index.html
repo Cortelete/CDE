@@ -70,12 +70,12 @@
             0%, 100% { box-shadow: 0 0 2px #f472b6; }
             50% { box-shadow: 0 0 8px #f472b6, 0 0 10px #f472b6; }
         }
-        @keyframes pulse-green {
-            0%, 100% { box-shadow: 0 0 2px #39FF14; }
-            50% { box-shadow: 0 0 8px #39FF14, 0 0 10px #39FF14; }
+        @keyframes pulse-amber {
+            0%, 100% { box-shadow: 0 0 2px #FFBF00; }
+            50% { box-shadow: 0 0 8px #FFBF00, 0 0 10px #FFBF00; }
         }
         .qa-button.theme-purple { animation: pulse-pink 2s infinite; }
-        .qa-button.theme-green { animation: pulse-green 2s infinite; }
+        .qa-button.theme-green { animation: pulse-amber 2s infinite; }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -93,7 +93,7 @@
         </header>
         <div id="subject-selection" class="flex flex-col md:flex-row gap-8">
             <!-- Card de Matéria 1 -->
-            <div data-subject="gp" class="subject-card group relative w-72 h-80 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 p-6 flex flex-col justify-between items-center text-center cursor-pointer transition-all duration-300 hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/20">
+            <div data-subject="gp" class="subject-card group relative w-full max-w-xs md:w-72 h-80 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 p-6 flex flex-col justify-between items-center text-center cursor-pointer transition-all duration-300 hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/20">
                 <div class="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
                 <div class="relative z-10">
                     <div class="text-purple-400">
@@ -105,7 +105,7 @@
                 <span class="relative z-10 text-xs font-bold tech-font text-gray-500 group-hover:text-purple-400 transition-colors">21 CARDS</span>
             </div>
             <!-- Card de Matéria 2 -->
-            <div data-subject="te" class="subject-card group relative w-72 h-80 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 p-6 flex flex-col justify-between items-center text-center cursor-pointer transition-all duration-300 hover:border-green-500 hover:shadow-2xl hover:shadow-green-500/20">
+            <div data-subject="te" class="subject-card group relative w-full max-w-xs md:w-72 h-80 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 p-6 flex flex-col justify-between items-center text-center cursor-pointer transition-all duration-300 hover:border-green-500 hover:shadow-2xl hover:shadow-green-500/20">
                 <div class="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
                 <div class="relative z-10">
                     <div class="text-green-400">
@@ -117,6 +117,14 @@
                 <span class="relative z-10 text-xs font-bold tech-font text-gray-500 group-hover:text-green-400 transition-colors">10 CARDS</span>
             </div>
         </div>
+        
+        <div class="mt-12">
+            <a href="readme.html" target="_blank" class="inline-flex items-center gap-2 tech-font text-gray-400 border border-gray-700/80 px-4 py-2 rounded-lg hover:bg-gray-800/50 hover:text-white hover:border-gray-600 transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4l-1.48 2.53"></path><path d="M12 12h.01"></path></svg>
+                <span>Sobre o Projeto</span>
+            </a>
+        </div>
+        
         <footer class="w-full text-center p-4 mt-auto">
             <div class="max-w-4xl mx-auto text-xs tech-font text-gray-500 space-y-1">
                 <p>
@@ -136,7 +144,7 @@
             <h1 id="study-title" class="text-3xl md:text-4xl font-black uppercase"></h1>
             <p id="study-subtitle" class="tech-font mt-2">// Navegue pelos cards e domine os conceitos!</p>
         </header>
-        <div id="card-deck" class="relative w-full max-w-sm h-[420px] md:h-[450px] flex items-center justify-center"></div>
+        <div id="card-deck" class="relative w-full max-w-sm min-w-[320px] h-[500px] flex items-center justify-center"></div>
         <div class="mt-4 md:mt-8 flex items-center space-x-4 md:space-x-8">
             <button id="back-to-hub" class="p-3 bg-gray-800/50 rounded-full hover:bg-red-500/20 transition-all duration-300 focus:outline-none ring-1 backdrop-blur-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
@@ -162,8 +170,43 @@
         </footer>
     </main>
 
-    <!-- MODAIS (Estrutura compartilhada) -->
-    <div id="modal-container"></div>
+    <!-- MODAIS (Estrutura única e reutilizável) -->
+    <div id="modal-container">
+        <div id="details-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden transition-opacity duration-300">
+            <div class="bg-[#161b22] border rounded-lg shadow-2xl w-full max-w-2xl transform transition-transform duration-300 scale-95">
+                <header class="p-4 border-b flex justify-between items-center">
+                    <h2 class="modal-title text-2xl font-bold tech-font"></h2>
+                    <button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button>
+                </header>
+                <div class="modal-content p-6 max-h-[60vh] overflow-y-auto"></div>
+            </div>
+        </div>
+        <div id="topic-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-4 z-[51] hidden transition-opacity duration-300">
+            <div class="bg-[#161b22] border rounded-lg shadow-2xl w-full max-w-2xl transform transition-transform duration-300 scale-95">
+                <header class="p-4 border-b flex justify-between items-center">
+                    <h2 class="topic-modal-title text-2xl font-bold tech-font"></h2>
+                    <button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button>
+                </header>
+                <div class="topic-modal-content p-6 max-h-[60vh] overflow-y-auto"></div>
+            </div>
+        </div>
+        <div id="qa-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden transition-opacity duration-300">
+            <div class="bg-[#161b22] border rounded-lg shadow-2xl w-full max-w-2xl transform transition-transform duration-300 scale-95">
+                <header class="p-4 border-b flex justify-between items-center">
+                    <h2 class="qa-modal-title text-2xl font-bold tech-font">// Teste seu Conhecimento</h2>
+                    <button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button>
+                </header>
+                <div class="p-6">
+                    <div class="qa-question mb-4 text-gray-200"></div>
+                    <div class="qa-answer hidden p-4 bg-black/30 rounded-md border border-gray-700 text-gray-300"></div>
+                    <div class="mt-6 text-center">
+                        <button class="reveal-answer-btn text-black font-bold py-2 px-6 rounded-md transition-all duration-200 tech-font">Revelar Resposta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script>
     // --- BANCO DE DADOS COMPLETO ---
@@ -193,299 +236,299 @@
                 { id: 19, title: "Conceitos Ágeis", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="m12 12 4-4"/><path d="m12 12 4 4"/><path d="m12 12-4-4"/><path d="m12 12-4 4"/><path d="m12 12 4-4"/><path d="m12 12 4 4"/><path d="m12 12-4-4"/><path d="m12 12-4 4"/><circle cx="12" cy="12" r="10"/></svg>`, tip: "Entregue um skate, depois uma bike, depois uma moto...", description: "Abordagem alternativa focada em ciclos curtos, colaboração e adaptação. Scrum e Kanban são os frameworks mais populares.", topics: ["Manifesto Ágil", "Scrum", "Kanban"], topicsDetails: [{ title: "Manifesto Ágil", content: "<p>Baseado em 4 valores, como 'Indivíduos e interações mais que processos e ferramentas'.</p>" }, { title: "Scrum", content: "<p>Framework baseado em ciclos de tempo fixo chamados *Sprints*, com papéis, eventos e artefatos definidos.</p>" }, { title: "Kanban", content: "<p>Método visual para gerenciar o fluxo de trabalho, usando um quadro para visualizar etapas e limitar o trabalho em progresso (WIP).</p>" }], question: "Qual a principal diferença entre Scrum e Kanban?", answer: "A cadência. Scrum é iterativo, baseado em Sprints de tempo fixo. Kanban é um sistema de fluxo contínuo, sem iterações, focado em limitar o trabalho em progresso (WIP) e otimizar o fluxo de entrega." },
                 { id: 20, title: "Privacidade Hackeada (Pt.1)", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`, tip: "O objetivo era simples e psicopata.", description: "A Cambridge Analytica (CA) tinha um 'projeto' com objetivos claros, recursos e entregas específicas para fins antiéticos.", topics: ["Objetivo do Projeto", "Recursos e Ferramentas", "Entregas"], topicsDetails: [{ title: "Objetivo do Projeto", content: "<p>Identificar e influenciar eleitores indecisos em eleições-chave usando micro-targeting baseado em dados psicográficos.</p>" }, { title: "Recursos e Ferramentas", content: "<p>O principal recurso era o banco de dados de perfis do Facebook, e as ferramentas eram algoritmos de análise e plataformas de publicidade.</p>" }, { title: "Entregas", content: "<p>Campanhas de publicidade altamente segmentadas, com mensagens personalizadas para explorar vulnerabilidades psicológicas.</p>" }], question: "Do ponto de vista técnico, por que o 'projeto' da CA pode ser considerado bem definido?", answer: "Tecnicamente, era bem definido porque possuía um objetivo específico (influenciar eleições), escopo de produto claro (perfis e campanhas), um cliente definido (campanhas políticas) e utilizava recursos específicos dentro de um prazo determinado." },
                 { id: 21, title: "Privacidade Hackeada (Pt.2)", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="9.5" y1="12.5" x2="14.5" y2="17.5"/><line x1="14.5" y1="12.5" x2="9.5" y2="17.5"/></svg>`, tip: "O projeto foi um sucesso, mas a empresa faliu.", description: "O sucesso técnico da CA foi ofuscado por suas falhas colossais nas áreas de riscos, escopo, stakeholders e, acima de tudo, ética.", topics: ["Falha de Riscos", "Falha de Stakeholders", "Falha de Escopo"], topicsDetails: [{ title: "Falha de Riscos", content: "<p>Riscos massivos (legais, de reputação, éticos) foram deliberadamente ignorados, aceitos como 'custo do negócio'.</p>" }, { title: "Falha de Stakeholders", content: "<p>Os usuários do Facebook foram explorados como recursos, não tratados como partes interessadas, violando suas expectativas de privacidade.</p>" }, { title: "Falha de Escopo", content: "<p>O escopo foi enganoso ('pesquisa acadêmica'), mas o objetivo real era manipulação, um desvio malicioso (*scope creep*).</p>" }], question: "Como o caso da CA demonstra que o 'sucesso' não se mede só pela 'Restrição Tripla'?", answer: "O caso demonstra que um projeto pode ter sucesso em escopo, tempo e custo, mas ser um fracasso retumbante. Ao violar princípios éticos e de confiança, o impacto negativo destruiu a organização, provando que métricas de sucesso devem incluir ética e impacto nos stakeholders." }
-            ]
-        },
-        te: {
-            title: "Tópicos em Engenharia",
-            theme: "green",
-            cards: [
-                { id: 1, title: "Faxina de Dados", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>`, tip: "Base podre? FAXINA GERAL!", description: "É o processo de corrigir ou remover dados incorretos, corrompidos ou duplicados de uma base. A qualidade da análise depende diretamente disso.", topics: ["Padronização", "Remover Duplicados", "Tratar Nulos"], topicsDetails: [{ title: "Padronização de Dados", content: "<p>Garantir que os dados sigam um formato consistente (ex: datas, CPFs). Isso evita erros em filtros e cálculos.</p>" }, { title: "Remoção de Duplicados", content: "<p>Identificar e eliminar registros que aparecem mais de uma vez. Ter um cliente duplicado distorce todas as métricas.</p>" }, { title: "Tratamento de Nulos", content: "<p>Campos vazios podem quebrar cálculos. Podem ser removidos ou preenchidos com um valor padrão (zero, média, mediana).</p>" }], question: "Diante de uma base com duplicidades e nulos, detalhe como você garantiria a qualidade dos dados.", answer: "As etapas essenciais são: Padronização de formatação, Remoção de duplicidades, Validação dos dados (se fazem sentido), Tratamento dos dados nulos e Documentação do que foi feito e do que cada campo significa." },
-                { id: 2, title: "Ciclo de Dados", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M21 12a9 9 0 1 1-6.219-8.56"/><path d="M12 2v10l6-4"/></svg>`, tip: "É a receita do bolo. Não pule etapas ou o bolo sola.", description: "Representa a sequência de passos de um projeto de dados, desde a coleta inicial até a implementação e monitoramento.", topics: ["Coleta > Limpeza", "Análise > Modelagem", "Visualização"], topicsDetails: [{ title: "Coleta e Limpeza", content: "<p>A <strong>Coleta</strong> é a obtenção dos dados brutos. A <strong>Limpeza</strong> vem em seguida para tratar inconsistências.</p>" }, { title: "Análise e Modelagem", content: "<p>Na <strong>Análise</strong>, buscamos entender os dados. Na <strong>Modelagem</strong>, aplicamos algoritmos de ML ou estatísticos.</p>" }, { title: "Visualização", content: "<p>É a etapa de transformar os resultados em gráficos e dashboards para facilitar a comunicação e a tomada de decisão.</p>" }], question: "EXPLIQUE como você aplicaria o ciclo da Ciência de Dados.", answer: "O ciclo é composto por: Coleta (obtenção de dados), Limpeza (tratamento de erros), Análise (buscar padrões), Modelagem (aplicar modelos), Avaliação (verificar desempenho), Visualização (mostrar resultados) e Monitoramento (acompanhar em produção)." },
-                { id: 3, title: "Fluxo de Produção", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M2 8h20"/><path d="M6 12h12"/><path d="M10 16h4"/><path d="M4 4v16"/><path d="M20 4v16"/></svg>`, tip: "Início, meio, decisão e fim. Simples assim.", description: "É a representação visual das etapas sequenciais de um processo, mostrando atividades, pontos de decisão e o caminho do início ao fim.", topics: ["Início (Evento)", "Atividades (Tarefas)", "Decisão (Gateway)"], topicsDetails: [{ title: "Início (Evento)", content: "<p>Em BPMN, é o gatilho que dispara o processo, representado por um círculo com borda fina.</p>" }, { title: "Atividades (Tarefas)", content: "<p>Representam o trabalho a ser feito, são os retângulos no diagrama.</p>" }, { title: "Decisão (Gateway)", content: "<p>São os losangos que controlam o caminho do fluxo (ex: Gateway Exclusivo 'OU').</p>" }], question: "CRIE uma modelagem para o fluxo de produção de canetas.", answer: "Início (Pedido recebido) -> Atividades (Separar matéria-prima > Montar corpo > Inserir carga > Inspeção) -> Decisão (Aprovado? Sim: embalar; Não: descarte) -> Encerramento (Produto enviado)." },
-                { id: 4, title: "Boas Práticas BPMN", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`, tip: "Siga as regras ou seu diagrama será uma piada.", description: "Convenções que garantem que os diagramas de processo sejam claros, consistentes e facilmente compreendidos por todos.", topics: ["Nomenclatura Clara", "Pools e Lanes", "Sem Espaguete"], topicsDetails: [{ title: "Nomenclatura Clara", content: "<p>Usar verbos de ação para atividades (Ex: 'Verificar Crédito') para evitar ambiguidade.</p>" }, { title: "Pools e Lanes", content: "<p>Pools representam entidades externas ('Cliente'). Lanes dividem um pool para mostrar papéis internos ('Vendas', 'Financeiro').</p>" }, { title: "Sem Espaguete", content: "<p>Evitar o cruzamento excessivo de setas. Um layout limpo, da esquerda para a direita, torna o diagrama legível.</p>" }], question: "CITE e JUSTIFIQUE boas práticas para elaborar um diagrama BPMN.", answer: "Utilizar nomenclatura clara; Garantir que todo fluxo tenha início e fim; Não sobrecarregar o diagrama (usar subprocessos); Usar gateways corretamente; Representar papéis com pools e lanes; Evitar cruzamento de setas." },
-                { id: 5, title: "Erros de Modelagem", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`, tip: "Saber o que NÃO fazer é crucial.", description: "Falhas na construção do diagrama que violam as regras do BPMN, gerando ambiguidades ou fluxos ilógicos.", topics: ["Lane sem Nome", "Gateway Errado", "Fluxo Morto"], topicsDetails: [{ title: "Lane sem Nome", content: "<p>Uma Lane sem nome deixa a responsabilidade por suas atividades indefinida. Cada raia deve ser nomeada com o papel ou departamento.</p>" }, { title: "Gateway Errado", content: "<p>Usar um gateway incorreto (ex: Paralelo 'E' quando a decisão é Exclusiva 'OU') cria uma lógica de processo falha.</p>" }, { title: "Fluxo Morto", content: "<p>Todo fluxo deve ter um Evento de Fim. Um fluxo que 'morre' no meio do caminho está incompleto e é um erro.</p>" }], question: "IDENTIFIQUE dois problemas comuns em diagramas BPMN.", answer: "Problemas comuns incluem: Lane sem nome (falta de clareza na responsabilidade); Fim de processo sem nomeação (fluxo incompleto); Gateway usado incorretamente; Atividade com mais de uma saída sem um gateway." },
-                { id: 6, title: "Pense em Robôs", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 8V4H8"/><rect x="4" y="12" width="16" height="8" rx="2"/><path d="M2 12h20"/><path d="M17.5 12V8h-3v4"/><path d="M6.5 12V8h-3v4"/></svg>`, tip: "Melhoria de processo hoje = automação.", description: "Desenhar e otimizar processos com o objetivo de permitir que tarefas manuais e repetitivas sejam executadas por software (RPA).", topics: ["Automatizar Triagem", "Reduzir Erro Humano", "Ganhar Agilidade"], topicsDetails: [{ title: "Automatizar Triagem", content: "<p>Tarefas como ler currículos e aplicar filtros básicos são repetitivas e ideais para automação com RPA ou ATS.</p>" }, { title: "Reduzir Erro Humano", content: "<p>Máquinas não se cansam. Automatizar tarefas baseadas em regras elimina erros de digitação e inconsistências.</p>" }, { title: "Ganhar Agilidade", content: "<p>Processos automatizados rodam 24/7, reduzindo drasticamente o tempo de ciclo (lead time) de um processo.</p>" }], question: "SUGIRA ajustes para melhorar a eficiência de um processo de recrutamento via automação.", answer: "Sugestões: Automatizar etapas manuais, como triagem de currículos, usando softwares de RH. Impacto: redução de tempo e erro humano. Automatizar as análises com critérios padronizados. Impacto: imparcialidade e velocidade." },
-                { id: 7, title: "Leitura de Fluxo", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>`, tip: "Bater o olho e entender a jornada. Esse é o objetivo.", description: "A habilidade de interpretar um diagrama BPMN, compreendendo a sequência de tarefas, responsabilidades e resultados.", topics: ["Jornada do Candidato", "Clareza Visual", "Coerência"], topicsDetails: [{ title: "Jornada do Candidato", content: "<p>Seguir as setas desde o evento de início ('CV Recebido') até os possíveis fins ('Contratado' ou 'Rejeitado').</p>" }, { title: "Clareza Visual", content: "<p>Um bom fluxo é limpo. As lanes devem separar claramente as responsabilidades. As setas não devem se cruzar.</p>" }, { title: "Coerência", content: "<p>O fluxo deve fazer sentido lógico. Cada atividade leva a um resultado que alimenta a próxima etapa.</p>" }], question: "INTERPRETE um fluxo BPMN de recrutamento.", answer: "O fluxo mostra a jornada do candidato, desde o envio do currículo até a contratação ou não. A clareza depende de quão bem o diagrama segue as boas práticas." },
-                { id: 8, title: "Maturidade de Processos", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>`, tip: "Compare o profissional contra o amador (várzea).", description: "Mede o grau de controle e otimização dos processos, variando de caótico (imaturo) a otimizado (maduro).", topics: ["Maduro: Documentado", "Imaturo: Informal", "Controle vs. Caos"], topicsDetails: [{ title: "Maduro: Documentado", content: "<p>Os processos são mapeados, documentados e padronizados. Todos sabem como funciona.</p>" }, { title: "Imaturo: Informal", content: "<p>Os processos 'existem na cabeça das pessoas'. O conhecimento não é compartilhado.</p>" }, { title: "Controle vs. Caos", content: "<p>Maturidade traz controle (KPIs, otimização). Imaturidade gera caos (imprevisibilidade, erros).</p>" }], question: "Explique a diferença entre organizações com processos maduros e imaturos.", answer: "Maduros: Processos são documentados, otimizados e monitorados, resultando em alta eficiência. Imaturos: Processos são informais, dependentes de pessoas e suscetíveis a erros." },
-                { id: 9, title: "BPMN para Inovação", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M15.09 13.62A5 5 0 0 1 17 19l-4-4"/><path d="m3.5 5.5 4 4"/><path d="M20.5 8.5c-2.286-2.286-4.571-2.286-6.857 0-2.286 2.286-2.286 4.571 0 6.857 2.286 2.286 4.571 2.286 6.857 0 2.286-2.286 2.286-4.571 0-6.857Z"/><path d="M9 17H4s-1-1.5-1-4 1.5-4 4-4h2"/><path d/></svg>`, tip: "Foco total em AUTOMAÇÃO para agilidade real.", description: "Usar o BPMN como um plano de ação para automatizar processos, permitindo que a empresa se adapte rapidamente.", topics: ["Foco em Automação", "Mapa para Sistemas", "Ajustes Rápidos"], topicsDetails: [{ title: "Foco em Automação", content: "<p>A modelagem deve ser um projeto para o futuro ('TO-BE'), identificando tarefas candidatas para automação.</p>" }, { title: "Mapa para Sistemas", content: "<p>O diagrama BPMN se torna a especificação funcional para os desenvolvedores.</p>" }, { title: "Ajustes Rápidos", content: "<p>Quando um processo é automatizado e guiado por BPMN, mudá-lo se torna mais fácil, conferindo agilidade.</p>" }], question: "Qual abordagem é mais eficaz para maximizar os benefícios do BPMN em empresas ágeis?", answer: "A abordagem mais eficaz é focar a modelagem em Automação. Isso permite que os processos sejam completados e ajustados com as mudanças do negócio de forma ágil." },
-                { id: 10, title: "ML com Dado Velho", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12a10 10 0 0 0-10 10z"/></svg>`, tip: "Entrada de lixo, saída de lixo. Simples assim.", description: "É o problema de treinar um modelo de Machine Learning com informações desatualizadas, o que leva a previsões ruins (viés temporal).", topics: ["Viés Temporal", "Acurácia Baixa", "Solução: Dados Frescos"], topicsDetails: [{ title: "Viés Temporal", content: "<p>Ocorre quando um modelo é treinado com dados de um período, mas aplicado a outro, e as relações entre as variáveis mudaram.</p>" }, { title: "Acurácia Baixa", content: "<p>Um modelo pode ter ótima acurácia nos dados de teste (antigos), mas falhar em produção (dados novos).</p>" }, { title: "Solução: Dados Frescos", content: "<p>A principal mitigação é o retreino periódico do modelo com dados recentes, automatizado via MLOps.</p>" }], question: "Um modelo de inadimplência foi treinado com dados de renda desatualizados. QUAL o impacto e a mitigação?", answer: "O modelo apresentará viés temporal e menor acurácia. A mitigação é priorizar a aquisição de dados de renda mais recentes, buscando atualizações periódicas ou fontes de dados em tempo real." }
-            ]
-        }
-    };
+            ]
+        },
+        te: {
+            title: "Tópicos em Engenharia",
+            theme: "green",
+            cards: [
+                { id: 1, title: "Faxina de Dados", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>`, tip: "Base podre? FAXINA GERAL!", description: "É o processo de corrigir ou remover dados incorretos, corrompidos ou duplicados de uma base. A qualidade da análise depende diretamente disso.", topics: ["Padronização", "Remover Duplicados", "Tratar Nulos"], topicsDetails: [{ title: "Padronização de Dados", content: "<p>Garantir que os dados sigam um formato consistente (ex: datas, CPFs). Isso evita erros em filtros e cálculos.</p>" }, { title: "Remoção de Duplicados", content: "<p>Identificar e eliminar registros que aparecem mais de uma vez. Ter um cliente duplicado distorce todas as métricas.</p>" }, { title: "Tratamento de Nulos", content: "<p>Campos vazios podem quebrar cálculos. Podem ser removidos ou preenchidos com um valor padrão (zero, média, mediana).</p>" }], question: "Diante de uma base com duplicidades e nulos, detalhe como você garantiria a qualidade dos dados.", answer: "As etapas essenciais são: Padronização de formatação, Remoção de duplicidades, Validação dos dados (se fazem sentido), Tratamento dos dados nulos e Documentação do que foi feito e do que cada campo significa." },
+                { id: 2, title: "Ciclo de Dados", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M21 12a9 9 0 1 1-6.219-8.56"/><path d="M12 2v10l6-4"/></svg>`, tip: "É a receita do bolo. Não pule etapas ou o bolo sola.", description: "Representa a sequência de passos de um projeto de dados, desde a coleta inicial até a implementação e monitoramento.", topics: ["Coleta > Limpeza", "Análise > Modelagem", "Visualização"], topicsDetails: [{ title: "Coleta e Limpeza", content: "<p>A <strong>Coleta</strong> é a obtenção dos dados brutos. A <strong>Limpeza</strong> vem em seguida para tratar inconsistências.</p>" }, { title: "Análise e Modelagem", content: "<p>Na <strong>Análise</strong>, buscamos entender os dados. Na <strong>Modelagem</strong>, aplicamos algoritmos de ML ou estatísticos.</p>" }, { title: "Visualização", content: "<p>É a etapa de transformar os resultados em gráficos e dashboards para facilitar a comunicação e a tomada de decisão.</p>" }], question: "EXPLIQUE como você aplicaria o ciclo da Ciência de Dados.", answer: "O ciclo é composto por: Coleta (obtenção de dados), Limpeza (tratamento de erros), Análise (buscar padrões), Modelagem (aplicar modelos), Avaliação (verificar desempenho), Visualização (mostrar resultados) e Monitoramento (acompanhar em produção)." },
+                { id: 3, title: "Fluxo de Produção", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M2 8h20"/><path d="M6 12h12"/><path d="M10 16h4"/><path d="M4 4v16"/><path d="M20 4v16"/></svg>`, tip: "Início, meio, decisão e fim. Simples assim.", description: "É a representação visual das etapas sequenciais de um processo, mostrando atividades, pontos de decisão e o caminho do início ao fim.", topics: ["Início (Evento)", "Atividades (Tarefas)", "Decisão (Gateway)"], topicsDetails: [{ title: "Início (Evento)", content: "<p>Em BPMN, é o gatilho que dispara o processo, representado por um círculo com borda fina.</p>" }, { title: "Atividades (Tarefas)", content: "<p>Representam o trabalho a ser feito, são os retângulos no diagrama.</p>" }, { title: "Decisão (Gateway)", content: "<p>São os losangos que controlam o caminho do fluxo (ex: Gateway Exclusivo 'OU').</p>" }], question: "CRIE uma modelagem para o fluxo de produção de canetas.", answer: "Início (Pedido recebido) -> Atividades (Separar matéria-prima > Montar corpo > Inserir carga > Inspeção) -> Decisão (Aprovado? Sim: embalar; Não: descarte) -> Encerramento (Produto enviado)." },
+                { id: 4, title: "Boas Práticas BPMN", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`, tip: "Siga as regras ou seu diagrama será uma piada.", description: "Convenções que garantem que os diagramas de processo sejam claros, consistentes e facilmente compreendidos por todos.", topics: ["Nomenclatura Clara", "Pools e Lanes", "Sem Espaguete"], topicsDetails: [{ title: "Nomenclatura Clara", content: "<p>Usar verbos de ação para atividades (Ex: 'Verificar Crédito') para evitar ambiguidade.</p>" }, { title: "Pools e Lanes", content: "<p>Pools representam entidades externas ('Cliente'). Lanes dividem um pool para mostrar papéis internos ('Vendas', 'Financeiro').</p>" }, { title: "Sem Espaguete", content: "<p>Evitar o cruzamento excessivo de setas. Um layout limpo, da esquerda para a direita, torna o diagrama legível.</p>" }], question: "CITE e JUSTIFIQUE boas práticas para elaborar um diagrama BPMN.", answer: "Utilizar nomenclatura clara; Garantir que todo fluxo tenha início e fim; Não sobrecarregar o diagrama (usar subprocessos); Usar gateways corretamente; Representar papéis com pools e lanes; Evitar cruzamento de setas." },
+                { id: 5, title: "Erros de Modelagem", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`, tip: "Saber o que NÃO fazer é crucial.", description: "Falhas na construção do diagrama que violam as regras do BPMN, gerando ambiguidades ou fluxos ilógicos.", topics: ["Lane sem Nome", "Gateway Errado", "Fluxo Morto"], topicsDetails: [{ title: "Lane sem Nome", content: "<p>Uma Lane sem nome deixa a responsabilidade por suas atividades indefinida. Cada raia deve ser nomeada com o papel ou departamento.</p>" }, { title: "Gateway Errado", content: "<p>Usar um gateway incorreto (ex: Paralelo 'E' quando a decisão é Exclusiva 'OU') cria uma lógica de processo falha.</p>" }, { title: "Fluxo Morto", content: "<p>Todo fluxo deve ter um Evento de Fim. Um fluxo que 'morre' no meio do caminho está incompleto e é um erro.</p>" }], question: "IDENTIFIQUE dois problemas comuns em diagramas BPMN.", answer: "Problemas comuns incluem: Lane sem nome (falta de clareza na responsabilidade); Fim de processo sem nomeação (fluxo incompleto); Gateway usado incorretamente; Atividade com mais de uma saída sem um gateway." },
+                { id: 6, title: "Pense em Robôs", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 8V4H8"/><rect x="4" y="12" width="16" height="8" rx="2"/><path d="M2 12h20"/><path d="M17.5 12V8h-3v4"/><path d="M6.5 12V8h-3v4"/></svg>`, tip: "Melhoria de processo hoje = automação.", description: "Desenhar e otimizar processos com o objetivo de permitir que tarefas manuais e repetitivas sejam executadas por software (RPA).", topics: ["Automatizar Triagem", "Reduzir Erro Humano", "Ganhar Agilidade"], topicsDetails: [{ title: "Automatizar Triagem", content: "<p>Tarefas como ler currículos e aplicar filtros básicos são repetitivas e ideais para automação com RPA ou ATS.</p>" }, { title: "Reduzir Erro Humano", content: "<p>Máquinas não se cansam. Automatizar tarefas baseadas em regras elimina erros de digitação e inconsistências.</p>" }, { title: "Ganhar Agilidade", content: "<p>Processos automatizados rodam 24/7, reduzindo drasticamente o tempo de ciclo (lead time) de um processo.</p>" }], question: "SUGIRA ajustes para melhorar a eficiência de um processo de recrutamento via automação.", answer: "Sugestões: Automatizar etapas manuais, como triagem de currículos, usando softwares de RH. Impacto: redução de tempo e erro humano. Automatizar as análises com critérios padronizados. Impacto: imparcialidade e velocidade." },
+                { id: 7, title: "Leitura de Fluxo", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>`, tip: "Bater o olho e entender a jornada. Esse é o objetivo.", description: "A habilidade de interpretar um diagrama BPMN, compreendendo a sequência de tarefas, responsabilidades e resultados.", topics: ["Jornada do Candidato", "Clareza Visual", "Coerência"], topicsDetails: [{ title: "Jornada do Candidato", content: "<p>Seguir as setas desde o evento de início ('CV Recebido') até os possíveis fins ('Contratado' ou 'Rejeitado').</p>" }, { title: "Clareza Visual", content: "<p>Um bom fluxo é limpo. As lanes devem separar claramente as responsabilidades. As setas não devem se cruzar.</p>" }, { title: "Coerência", content: "<p>O fluxo deve fazer sentido lógico. Cada atividade leva a um resultado que alimenta a próxima etapa.</p>" }], question: "INTERPRETE um fluxo BPMN de recrutamento.", answer: "O fluxo mostra a jornada do candidato, desde o envio do currículo até a contratação ou não. A clareza depende de quão bem o diagrama segue as boas práticas." },
+                { id: 8, title: "Maturidade de Processos", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>`, tip: "Compare o profissional contra o amador (várzea).", description: "Mede o grau de controle e otimização dos processos, variando de caótico (imaturo) a otimizado (maduro).", topics: ["Maduro: Documentado", "Imaturo: Informal", "Controle vs. Caos"], topicsDetails: [{ title: "Maduro: Documentado", content: "<p>Os processos são mapeados, documentados e padronizados. Todos sabem como funciona.</p>" }, { title: "Imaturo: Informal", content: "<p>Os processos 'existem na cabeça das pessoas'. O conhecimento não é compartilhado.</p>" }, { title: "Controle vs. Caos", content: "<p>Maturidade traz controle (KPIs, otimização). Imaturidade gera caos (imprevisibilidade, erros).</p>" }], question: "Explique a diferença entre organizações com processos maduros e imaturos.", answer: "Maduros: Processos são documentados, otimizados e monitorados, resultando em alta eficiência. Imaturos: Processos são informais, dependentes de pessoas e suscetíveis a erros." },
+                { id: 9, title: "BPMN para Inovação", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M15.09 13.62A5 5 0 0 1 17 19l-4-4"/><path d="m3.5 5.5 4 4"/><path d="M20.5 8.5c-2.286-2.286-4.571-2.286-6.857 0-2.286 2.286-2.286 4.571 0 6.857 2.286 2.286 4.571 2.286 6.857 0 2.286-2.286 2.286-4.571 0-6.857Z"/><path d="M9 17H4s-1-1.5-1-4 1.5-4 4-4h2"/><path d/></svg>`, tip: "Foco total em AUTOMAÇÃO para agilidade real.", description: "Usar o BPMN como um plano de ação para automatizar processos, permitindo que a empresa se adapte rapidamente.", topics: ["Foco em Automação", "Mapa para Sistemas", "Ajustes Rápidos"], topicsDetails: [{ title: "Foco em Automação", content: "<p>A modelagem deve ser um projeto para o futuro ('TO-BE'), identificando tarefas candidatas para automação.</p>" }, { title: "Mapa para Sistemas", content: "<p>O diagrama BPMN se torna a especificação funcional para os desenvolvedores.</p>" }, { title: "Ajustes Rápidos", content: "<p>Quando um processo é automatizado e guiado por BPMN, mudá-lo se torna mais fácil, conferindo agilidade.</p>" }], question: "Qual abordagem é mais eficaz para maximizar os benefícios do BPMN em empresas ágeis?", answer: "A abordagem mais eficaz é focar a modelagem em Automação. Isso permite que os processos sejam completados e ajustados com as mudanças do negócio de forma ágil." },
+                { id: 10, title: "ML com Dado Velho", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12a10 10 0 0 0-10 10z"/></svg>`, tip: "Entrada de lixo, saída de lixo. Simples assim.", description: "É o problema de treinar um modelo de Machine Learning com informações desatualizadas, o que leva a previsões ruins (viés temporal).", topics: ["Viés Temporal", "Acurácia Baixa", "Solução: Dados Frescos"], topicsDetails: [{ title: "Viés Temporal", content: "<p>Ocorre quando um modelo é treinado com dados de um período, mas aplicado a outro, e as relações entre as variáveis mudaram.</p>" }, { title: "Acurácia Baixa", content: "<p>Um modelo pode ter ótima acurácia nos dados de teste (antigos), mas falhar em produção (dados novos).</p>" }, { title: "Solução: Dados Frescos", content: "<p>A principal mitigação é o retreino periódico do modelo com dados recentes, automatizado via MLOps.</p>" }], question: "Um modelo de inadimplência foi treinado com dados de renda desatualizados. QUAL o impacto e a mitigação?", answer: "O modelo apresentará viés temporal e menor acurácia. A mitigação é priorizar a aquisição de dados de renda mais recentes, buscando atualizações periódicas ou fontes de dados em tempo real." }
+            ]
+        }
+    };
 
-    // --- LÓGICA DA APLICAÇÃO ---
-    document.addEventListener('DOMContentLoaded', () => {
-        const mainHub = document.getElementById('main-hub');
-        const studyDeckView = document.getElementById('study-deck-view');
-        const subjectSelection = document.getElementById('subject-selection');
-        const backToHubBtn = document.getElementById('back-to-hub');
-        const modalContainer = document.getElementById('modal-container');
+    // --- LÓGICA DA APLICAÇÃO ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const mainHub = document.getElementById('main-hub');
+        const studyDeckView = document.getElementById('study-deck-view');
+        const subjectSelection = document.getElementById('subject-selection');
+        const backToHubBtn = document.getElementById('back-to-hub');
+        const modalContainer = document.getElementById('modal-container');
 
-        let currentDeckData = {};
-        let currentIndex = 0;
+        let currentDeckData = {};
+        let currentIndex = 0;
 
-        // Função para mostrar a tela principal
-        function showMainHub() {
-            studyDeckView.classList.add('hidden');
-            studyDeckView.classList.remove('flex');
-            mainHub.classList.remove('hidden');
-            mainHub.classList.add('flex');
-        }
+        // Função para mostrar a tela principal
+        function showMainHub() {
+            studyDeckView.classList.add('hidden');
+            studyDeckView.classList.remove('flex');
+            mainHub.classList.remove('hidden');
+            mainHub.classList.add('flex');
+        }
 
-        // Função para iniciar um deck de estudo
-        function startStudyDeck(subjectKey) {
-            currentDeckData = studyDecks[subjectKey];
-            if (!currentDeckData) return;
-            
-            mainHub.classList.add('hidden');
-            mainHub.classList.remove('flex');
-            studyDeckView.classList.remove('hidden');
-            studyDeckView.classList.add('flex');
-            
-            // Aplicar tema
-            applyTheme(currentDeckData.theme);
-            
-            document.getElementById('study-title').textContent = currentDeckData.title;
-            currentIndex = 0;
-            updateDeck();
-        }
-        
-        // Aplica o tema de cores nos elementos dinâmicos
-        function applyTheme(theme) {
-            const studyTitle = document.getElementById('study-title');
-            const studySubtitle = document.getElementById('study-subtitle');
-            const navButtons = document.querySelectorAll('#study-deck-view button');
+        // Função para iniciar um deck de estudo
+        function startStudyDeck(subjectKey) {
+            currentDeckData = studyDecks[subjectKey];
+            if (!currentDeckData) return;
+            
+            mainHub.classList.add('hidden');
+            mainHub.classList.remove('flex');
+            studyDeckView.classList.remove('hidden');
+            studyDeckView.classList.add('flex');
+            
+            applyTheme(currentDeckData.theme);
+            
+            document.getElementById('study-title').textContent = currentDeckData.title;
+            currentIndex = 0;
+            updateDeck();
+        }
+        
+        function applyTheme(theme) {
+            const studyTitle = document.getElementById('study-title');
+            const studySubtitle = document.getElementById('study-subtitle');
+            const navButtons = document.querySelectorAll('#study-deck-view button');
 
-            const themeColors = {
-                purple: { main: 'purple-300', accent: 'pink-400', ring: 'purple-400', hover: 'purple-500/20'},
-                green: { main: 'green-300', accent: 'amber-400', ring: 'green-400', hover: 'green-500/20' }
-            };
-            const colors = themeColors[theme];
+            const themeColors = {
+                purple: { main: 'purple-300', accent: 'pink-400', ring: 'purple-400', hover: 'purple-500/20'},
+                green: { main: 'green-300', accent: 'amber-400', ring: 'green-400', hover: 'green-500/20' }
+            };
+            const colors = themeColors[theme];
 
-            studyTitle.className = `text-3xl md:text-4xl font-black uppercase text-${colors.main}`;
-            studySubtitle.className = `tech-font mt-2 text-${colors.accent}`;
-            
-            navButtons.forEach(btn => {
+            studyTitle.className = `text-3xl md:text-4xl font-black uppercase text-${colors.main}`;
+            studySubtitle.className = `tech-font mt-2 text-${colors.accent}`;
+            
+            navButtons.forEach(btn => {
+                const ringColor = `ring-${colors.ring}`;
+                const textColor = `text-${colors.ring}`;
+                const hoverBgColor = `hover:bg-${colors.hover}`;
+                
                 btn.classList.remove('ring-purple-400', 'ring-green-400', 'text-purple-400', 'text-green-400', 'hover:bg-purple-500/20', 'hover:bg-green-500/20', 'ring-red-400', 'text-red-400');
-                if (btn.id === 'back-to-hub') {
-                    btn.classList.add('ring-red-400', 'text-red-400');
-                } else {
-                    btn.classList.add(`ring-${colors.ring}`, `text-${colors.ring}`, `hover:bg-${colors.hover}`);
-                }
-            });
-        }
-        
-        // --- LÓGICA DO DECK (reutilizada e adaptada) ---
-        const cardDeck = document.getElementById('card-deck');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const cardCounter = document.getElementById('card-counter');
+                if (btn.id === 'back-to-hub') {
+                    btn.classList.add('ring-red-400', 'text-red-400');
+                } else {
+                    btn.classList.add(ringColor, textColor, hoverBgColor);
+                    btn.querySelector('svg').classList.remove('text-purple-400', 'text-green-400');
+                    btn.querySelector('svg').classList.add(textColor);
+                }
+            });
+        }
+        
+        const cardDeck = document.getElementById('card-deck');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const cardCounter = document.getElementById('card-counter');
 
-        function createCard(cardData, index) {
-            const theme = currentDeckData.theme;
+        function createCard(cardData, index) {
+            const theme = currentDeckData.theme;
+            const colors = {
+                purple: { main: 'purple', accent: 'pink' },
+                green: { main: 'green', accent: 'amber' }
+            };
+            const themeClasses = colors[theme];
+
+            const card = document.createElement('div');
+            card.className = `absolute w-full h-full p-4 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 hover:border-${themeClasses.main}-400 transition-all duration-300 ease-out flex flex-col cursor-pointer`;
+            card.style.zIndex = currentDeckData.cards.length - index;
+            card.dataset.id = cardData.id;
+
+            let topicsHTML = (cardData.topics || []).map((topic, topicIndex) => 
+                `<span class="topic-span bg-gray-700/50 text-${themeClasses.main}-400 text-xs font-medium px-2.5 py-1 rounded-full tech-font hover:bg-${themeClasses.main}-500/20 transition-colors duration-200 cursor-pointer" data-topic-index="${topicIndex}">${topic}</span>`
+            ).join('');
+
+            card.innerHTML = `
+                <header class="flex justify-between items-start text-${themeClasses.main}-400 border-b border-gray-700 pb-2 mb-2">
+                    <h3 class="text-xl font-bold tech-font">${cardData.id.toString().padStart(2,'0')}: ${cardData.title}</h3>
+                    <div class="flex items-center space-x-2">
+                        ${cardData.icon}
+                        <button class="qa-button theme-${theme} w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full border border-${themeClasses.accent}-400 text-${themeClasses.accent}-400 hover:bg-${themeClasses.accent}-400/20" title="Testar conhecimento">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                        </button>
+                    </div>
+                </header>
+                <main class="flex-grow flex flex-col justify-center items-center text-center px-2">
+                     <p class="text-${themeClasses.accent}-400 italic mb-2">"${cardData.tip}"</p>
+                     <p class="text-sm text-gray-400">${cardData.description}</p>
+                </main>
+                <footer class="mt-auto pt-2 border-t border-gray-700">
+                    <p class="text-center text-xs text-gray-500 mb-2 tech-font">[TÓPICOS-CHAVE]</p>
+                    <div class="flex justify-center items-center gap-2 flex-wrap">
+                        ${topicsHTML}
+                    </div>
+                </footer>`;
+            
+            card.addEventListener('click', () => openDetailsModal(cardData));
+            card.querySelector('.qa-button').addEventListener('click', (e) => { e.stopPropagation(); openQaModal(cardData); });
+            card.querySelectorAll('.topic-span').forEach(span => {
+                span.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openTopicModal(cardData, parseInt(e.target.dataset.topicIndex));
+                });
+            });
+            return card;
+        }
+
+        function updateDeck() {
+            cardDeck.innerHTML = '';
+            currentDeckData.cards.forEach((cardData, index) => {
+                const cardElement = createCard(cardData, index);
+                const offset = (index - currentIndex) * 12;
+                const scale = 1 - (index - currentIndex) * 0.04;
+                if (index < currentIndex) {
+                    cardElement.style.transform = 'translateX(-120%) scale(0.8) rotate(-15deg)';
+                    cardElement.style.opacity = '0';
+                } else if (index > currentIndex) {
+                    cardElement.style.transform = `translateX(${offset}px) scale(${scale})`;
+                    cardElement.style.opacity = `${1 - (index - currentIndex) * 0.4}`;
+                } else {
+                    cardElement.style.transform = 'translateX(0) scale(1)';
+                    cardElement.style.opacity = '1';
+                }
+                cardDeck.appendChild(cardElement);
+            });
+            cardCounter.textContent = `${currentIndex + 1} / ${currentDeckData.cards.length}`;
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + currentDeckData.cards.length) % currentDeckData.cards.length;
+            updateDeck();
+        });
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % currentDeckData.cards.length;
+            updateDeck();
+        });
+
+        // --- LÓGICA DOS MODAIS (CORRIGIDA E REUTILIZÁVEL) ---
+        const detailsModal = document.getElementById('details-modal');
+        const topicModal = document.getElementById('topic-modal');
+        const qaModal = document.getElementById('qa-modal');
+        
+        function applyModalTheme(modal, theme) {
             const colors = {
-                purple: { main: 'purple', accent: 'pink' },
-                green: { main: 'green', accent: 'amber' }
+                purple: { border: 'border-purple-500', header: 'border-purple-500/30', title: 'text-purple-400', qa_title: 'text-pink-400', qa_button: 'bg-pink-500 hover:bg-pink-400', qa_answer: 'text-pink-400' },
+                green: { border: 'border-green-500', header: 'border-green-500/30', title: 'text-green-400', qa_title: 'text-amber-400', qa_button: 'bg-amber-500 hover:bg-amber-400', qa_answer: 'text-amber-400' }
             };
             const themeClasses = colors[theme];
-
-            const card = document.createElement('div');
-            card.className = `absolute w-full h-full p-4 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 hover:border-${themeClasses.main}-400 transition-all duration-300 ease-out flex flex-col cursor-pointer`;
-            card.style.zIndex = currentDeckData.cards.length - index;
-            card.dataset.id = cardData.id;
-
-            let topicsHTML = (cardData.topics || []).map((topic, topicIndex) => 
-                `<span class="topic-span bg-gray-700/50 text-${themeClasses.main}-400 text-xs font-medium px-2.5 py-1 rounded-full tech-font hover:bg-${themeClasses.main}-500/20 transition-colors duration-200 cursor-pointer" data-topic-index="${topicIndex}">${topic}</span>`
-            ).join('');
-
-            card.innerHTML = `
-                <header class="flex justify-between items-start text-${themeClasses.main}-400 border-b border-gray-700 pb-2">
-                    <h3 class="text-xl font-bold tech-font">${cardData.id.toString().padStart(2,'0')}: ${cardData.title}</h3>
-                    <div class="flex items-center space-x-2">
-                        ${cardData.icon}
-                        <button class="qa-button theme-${theme} p-1 rounded-full border border-${themeClasses.accent}-400 text-${themeClasses.accent}-400 hover:bg-${themeClasses.accent}-400/20" title="Testar conhecimento">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
-                        </button>
-                    </div>
-                </header>
-                <main class="flex-grow flex flex-col justify-center items-center text-center mt-4 px-2">
-                     <p class="text-${themeClasses.accent}-400 italic mb-2">"${cardData.tip}"</p>
-                     <p class="text-sm text-gray-400">${cardData.description}</p>
-                </main>
-                <footer class="mt-4 border-t border-gray-700 pt-3">
-                    <p class="text-center text-xs text-gray-500 mb-2 tech-font">[TÓPICOS-CHAVE]</p>
-                    <div class="flex justify-center items-center gap-2 flex-wrap">
-                        ${topicsHTML}
-                    </div>
-                </footer>`;
             
-            card.addEventListener('click', () => openDetailsModal(cardData));
-            card.querySelector('.qa-button').addEventListener('click', (e) => { e.stopPropagation(); openQaModal(cardData); });
-            card.querySelectorAll('.topic-span').forEach(span => {
-                span.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    openTopicModal(cardData, parseInt(e.target.dataset.topicIndex));
-                });
-            });
-            return card;
-        }
+            const modalBox = modal.querySelector('.bg-\\[\\#161b22\\]');
+            modalBox.className = 'bg-[#161b22] border rounded-lg shadow-2xl w-full max-w-2xl transform transition-transform duration-300 scale-95' + ` ${themeClasses.border}/50`;
+            
+            const header = modal.querySelector('header');
+            header.className = 'p-4 border-b flex justify-between items-center' + ` ${themeClasses.header}`;
 
-        function updateDeck() {
-            cardDeck.innerHTML = '';
-            currentDeckData.cards.forEach((cardData, index) => {
-                const cardElement = createCard(cardData, index);
-                const offset = (index - currentIndex) * 12;
-                const scale = 1 - (index - currentIndex) * 0.04;
-                if (index < currentIndex) {
-                    cardElement.style.transform = 'translateX(-120%) scale(0.8) rotate(-15deg)';
-                    cardElement.style.opacity = '0';
-                } else if (index > currentIndex) {
-                    cardElement.style.transform = `translateX(${offset}px) scale(${scale})`;
-                    cardElement.style.opacity = `${1 - (index - currentIndex) * 0.4}`;
+            modal.querySelectorAll('.modal-title, .topic-modal-title, .qa-modal-title').forEach(el => {
+                el.className = el.className.split(' ').filter(c => !c.startsWith('text-')).join(' ');
+                if(modal.id.includes('qa')) {
+                    el.classList.add(themeClasses.qa_title);
                 } else {
-                    cardElement.style.transform = 'translateX(0) scale(1)';
-                    cardElement.style.opacity = '1';
+                    el.classList.add(themeClasses.title);
                 }
-                cardDeck.appendChild(cardElement);
             });
-            cardCounter.textContent = `${currentIndex + 1} / ${currentDeckData.cards.length}`;
-        }
-        
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + currentDeckData.cards.length) % currentDeckData.cards.length;
-            updateDeck();
-        });
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % currentDeckData.cards.length;
-            updateDeck();
-        });
 
-        // --- LÓGICA DOS MODAIS (com temas) ---
-        function createModal(id, theme) {
-            const accentColor = theme === 'purple' ? 'purple' : 'green';
-            const qaAccentColor = theme === 'purple' ? 'pink' : 'amber';
-
-            return `
-            <div id="${id}-details-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden transition-opacity duration-300">
-                <div class="bg-[#161b22] border border-${accentColor}-500/50 rounded-lg shadow-2xl w-full max-w-2xl transform transition-transform duration-300 scale-95">
-                    <header class="p-4 border-b border-${accentColor}-500/30 flex justify-between items-center">
-                        <h2 class="modal-title text-2xl font-bold tech-font text-${accentColor}-400"></h2>
-                        <button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button>
-                    </header>
-                    <div class="modal-content p-6 max-h-[60vh] overflow-y-auto ${'theme-'+theme}"></div>
-                </div>
-            </div>
-            <div id="${id}-topic-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-[51] hidden transition-opacity duration-300">
-                <div class="bg-[#161b22] border border-${accentColor}-500/50 rounded-lg shadow-2xl w-full max-w-2xl transform transition-transform duration-300 scale-95">
-                    <header class="p-4 border-b border-${accentColor}-500/30 flex justify-between items-center">
-                        <h2 class="topic-modal-title text-2xl font-bold tech-font text-${accentColor}-400"></h2>
-                        <button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button>
-                    </header>
-                    <div class="topic-modal-content p-6 max-h-[60vh] overflow-y-auto ${'theme-'+theme}"></div>
-                </div>
-            </div>
-            <div id="${id}-qa-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden transition-opacity duration-300">
-                <div class="bg-[#161b22] border border-${qaAccentColor}-400/50 rounded-lg shadow-2xl w-full max-w-2xl transform transition-transform duration-300 scale-95">
-                    <header class="p-4 border-b border-${qaAccentColor}-400/30 flex justify-between items-center">
-                        <h2 class="text-2xl font-bold tech-font text-${qaAccentColor}-400">// Teste seu Conhecimento</h2>
-                        <button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button>
-                    </header>
-                    <div class="p-6">
-                        <div class="qa-question mb-4 text-gray-200"></div>
-                        <div class="qa-answer hidden p-4 bg-black/30 rounded-md border border-gray-700 text-gray-300"></div>
-                        <div class="mt-6 text-center">
-                            <button class="reveal-answer-btn bg-${qaAccentColor}-500 text-black font-bold py-2 px-6 rounded-md hover:bg-${qaAccentColor}-400 transition-all duration-200 tech-font">Revelar Resposta</button>
-                        </div>
-                    </div>
-                </div>
-            </div>`;
-        }
-        
-        function openDetailsModal(cardData) {
-            const theme = currentDeckData.theme;
-            const accentColor = theme === 'purple' ? 'purple' : 'green';
-            const modal = document.getElementById(`${theme}-details-modal`);
-            modal.querySelector('.modal-title').textContent = `${cardData.id.toString().padStart(2,'0')}: ${cardData.title}`;
-            let detailsContent = `<p class="mb-4 text-gray-300 italic">"${cardData.tip}"</p><p class="mb-4 text-gray-300">${cardData.description}</p><h4 class="font-bold text-lg tech-font mb-2 text-${accentColor}-400">// TÓPICOS-CHAVE:</h4>`;
-            let topicsList = '<ul class="list-none space-y-4">';
-            cardData.topicsDetails.forEach(detail => {
-                topicsList += `<li class="border-l-2 border-${accentColor}-500 pl-4"><strong class="tech-font text-${accentColor}-300">${detail.title}:</strong> ${detail.content}</li>`;
-            });
-            topicsList += '</ul>';
-            modal.querySelector('.modal-content').innerHTML = detailsContent + topicsList;
-            
-            showModal(modal);
-        }
-
-        function openTopicModal(cardData, topicIndex) {
-            const theme = currentDeckData.theme;
-            const topicDetail = cardData.topicsDetails[topicIndex];
-            if (!topicDetail) return;
-            const modal = document.getElementById(`${theme}-topic-modal`);
-            modal.querySelector('.topic-modal-title').textContent = topicDetail.title;
-            modal.querySelector('.topic-modal-content').innerHTML = topicDetail.content;
-            showModal(modal);
-        }
-
-        function openQaModal(cardData) {
-            const theme = currentDeckData.theme;
-            const qaAccentColor = theme === 'purple' ? 'pink' : 'amber';
-            const modal = document.getElementById(`${theme}-qa-modal`);
-            modal.querySelector('.qa-question').innerHTML = `<p class="font-bold">Pergunta:</p><p>${cardData.question}</p>`;
-            const answerDiv = modal.querySelector('.qa-answer');
-            answerDiv.innerHTML = `<p class="font-bold text-${qaAccentColor}-400">Resposta:</p><p>${cardData.answer}</p>`;
-            answerDiv.classList.add('hidden');
             const revealBtn = modal.querySelector('.reveal-answer-btn');
-            revealBtn.textContent = "Revelar Resposta";
-            revealBtn.onclick = () => {
-                answerDiv.classList.remove('hidden');
-                revealBtn.textContent = "Resposta Revelada";
-            };
-            showModal(modal);
-        }
-
-        function showModal(modalElement) {
-            modalElement.classList.remove('hidden');
-            setTimeout(() => modalElement.querySelector('div > div').classList.add('scale-100'), 10);
-        }
-        
-        function closeModal(modalElement) {
-            if (!modalElement) return;
-            modalElement.querySelector('div > div').classList.remove('scale-100');
-            setTimeout(() => modalElement.classList.add('hidden'), 300);
-        }
-
-        // --- INICIALIZAÇÃO E EVENTOS GERAIS ---
-        modalContainer.innerHTML = createModal('gp', 'purple') + createModal('te', 'green');
-
-        document.querySelectorAll('.close-modal-btn').forEach(btn => {
-            btn.addEventListener('click', () => closeModal(btn.closest('.modal-wrapper')));
-        });
-        document.querySelectorAll('.modal-wrapper').forEach(modal => {
-            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(modal); });
-        });
-        
-        subjectSelection.addEventListener('click', (e) => {
-            const subjectCard = e.target.closest('.subject-card');
-            if (subjectCard) {
-                startStudyDeck(subjectCard.dataset.subject);
+            if (revealBtn) {
+                const baseClasses = revealBtn.className.split(' ').filter(c => !c.startsWith('bg-') && !c.startsWith('hover:bg-')).join(' ');
+                revealBtn.className = baseClasses + ` ${themeClasses.qa_button}`;
             }
-        });
+            
+            modal.querySelector('.modal-content, .topic-modal-content')?.classList.remove('theme-purple', 'theme-green');
+            modal.querySelector('.modal-content, .topic-modal-content')?.classList.add(`theme-${theme}`);
+        }
 
-        backToHubBtn.addEventListener('click', showMainHub);
+        function openDetailsModal(cardData) {
+            const theme = currentDeckData.theme;
+            applyModalTheme(detailsModal, theme);
+            const accentColor = theme === 'purple' ? 'purple' : 'green';
 
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft' && !studyDeckView.classList.contains('hidden')) {
-                prevBtn.click();
-            } else if (e.key === 'ArrowRight' && !studyDeckView.classList.contains('hidden')) {
-                nextBtn.click();
-            } else if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-wrapper').forEach(modal => {
-                    if(!modal.classList.contains('hidden')) closeModal(modal);
-                });
-            }
-        });
-    });
-    </script>
+            detailsModal.querySelector('.modal-title').textContent = `${cardData.id.toString().padStart(2,'0')}: ${cardData.title}`;
+            let detailsContent = `<p class="mb-4 text-gray-300 italic">"${cardData.tip}"</p><p class="mb-4 text-gray-300">${cardData.description}</p><h4 class="font-bold text-lg tech-font mb-2 text-${accentColor}-400">// TÓPICOS-CHAVE:</h4>`;
+            let topicsList = '<ul class="list-none space-y-4">';
+            cardData.topicsDetails.forEach(detail => {
+                topicsList += `<li class="border-l-2 border-${accentColor}-500 pl-4"><strong class="tech-font text-${accentColor}-300">${detail.title}:</strong> ${detail.content}</li>`;
+            });
+            topicsList += '</ul>';
+            detailsModal.querySelector('.modal-content').innerHTML = detailsContent + topicsList;
+            
+            showModal(detailsModal);
+        }
+
+        function openTopicModal(cardData, topicIndex) {
+            const theme = currentDeckData.theme;
+            applyModalTheme(topicModal, theme);
+
+            const topicDetail = cardData.topicsDetails[topicIndex];
+            if (!topicDetail) return;
+            topicModal.querySelector('.topic-modal-title').textContent = topicDetail.title;
+            topicModal.querySelector('.topic-modal-content').innerHTML = topicDetail.content;
+            showModal(topicModal);
+        }
+
+        function openQaModal(cardData) {
+            const theme = currentDeckData.theme;
+            applyModalTheme(qaModal, theme);
+            const qaAccentColor = theme === 'purple' ? 'pink' : 'amber';
+
+            qaModal.querySelector('.qa-question').innerHTML = `<p class="font-bold">Pergunta:</p><p>${cardData.question}</p>`;
+            const answerDiv = qaModal.querySelector('.qa-answer');
+            answerDiv.innerHTML = `<p class="font-bold text-${qaAccentColor}-400">Resposta:</p><p>${cardData.answer}</p>`;
+            answerDiv.classList.add('hidden');
+            const revealBtn = qaModal.querySelector('.reveal-answer-btn');
+            revealBtn.textContent = "Revelar Resposta";
+            revealBtn.onclick = () => {
+                answerDiv.classList.remove('hidden');
+                revealBtn.textContent = "Resposta Revelada";
+            };
+            showModal(qaModal);
+        }
+
+        function showModal(modalElement) {
+            modalElement.classList.remove('hidden');
+            setTimeout(() => modalElement.querySelector('div > div').classList.add('scale-100'), 10);
+        }
+        
+        function closeModal(modalElement) {
+            if (!modalElement || modalElement.classList.contains('hidden')) return;
+            modalElement.querySelector('div > div').classList.remove('scale-100');
+            setTimeout(() => modalElement.classList.add('hidden'), 300);
+        }
+
+        // --- INICIALIZAÇÃO E EVENTOS GERAIS ---
+        document.querySelectorAll('.close-modal-btn').forEach(btn => {
+            btn.addEventListener('click', () => closeModal(btn.closest('.modal-wrapper')));
+        });
+        document.querySelectorAll('.modal-wrapper').forEach(modal => {
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(modal); });
+        });
+        
+        subjectSelection.addEventListener('click', (e) => {
+            const subjectCard = e.target.closest('.subject-card');
+            if (subjectCard) {
+                startStudyDeck(subjectCard.dataset.subject);
+            }
+        });
+
+        backToHubBtn.addEventListener('click', showMainHub);
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && !studyDeckView.classList.contains('hidden')) {
+                prevBtn.click();
+            } else if (e.key === 'ArrowRight' && !studyDeckView.classList.contains('hidden')) {
+                nextBtn.click();
+            } else if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-wrapper').forEach(modal => {
+                    if(!modal.classList.contains('hidden')) closeModal(modal);
+                });
+            }
+        });
+    });
+    </script>
 </body>
 </html>
