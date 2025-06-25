@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>README - Clube do Estudante</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+        
+        .tech-font { font-family: 'Share Tech Mono', monospace; }
+
+        @keyframes move-twink-back {
+            from {background-position:0 0;}
+            to {background-position:-10000px 5000px;}
+        }
+        .stars, .twinkling, .scanlines {
+            position:fixed; top:0; left:0; right:0; bottom:0;
+            width:100%; height:100%; display:block;
+        }
+        .stars {
+            background:#000 url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+            z-index:-3;
+        }
+        .twinkling{
+            background:transparent url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+            z-index:-2;
+            animation:move-twink-back 200s linear infinite;
+        }
+        .scanlines {
+            z-index: -1;
+            background: linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        .glitch {
+            font-size: 3.5rem; font-weight: 900; text-transform: uppercase;
+            position: relative; color: #fff;
+            text-shadow: 0.05em 0 0 rgba(192, 132, 252, 0.75), -0.025em -0.05em 0 rgba(244, 114, 182, 0.75), 0.025em 0.05em 0 rgba(59, 130, 246, 0.75);
+            animation: glitch 700ms infinite;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 0.05em 0 0 #00fffc, -0.025em -0.05em 0 #fc00ff, 0.025em 0.05em 0 #fffc00;}
+            15% { text-shadow: 0.05em 0 0 #00fffc, -0.025em -0.05em 0 #fc00ff, 0.025em 0.05em 0 #fffc00;}
+            16% { text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.05em 0 #fc00ff, -0.05em -0.05em 0 #fffc00;}
+            49% { text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.05em 0 #fc00ff, -0.05em -0.05em 0 #fffc00;}
+            50% { text-shadow: 0.05em 0.025em 0 #00fffc, 0.05em -0.05em 0 #fc00ff, 0 -0.025em 0 #fffc00;}
+            99% { text-shadow: 0.05em 0.025em 0 #00fffc, 0.05em -0.05em 0 #fc00ff, 0 -0.025em 0 #fffc00;}
+            100% { text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.05em 0 #fc00ff, -0.025em -0.05em 0 #fffc00;}
+        }
+
+        .section-title {
+            @apply text-2xl font-bold tech-font text-purple-400 mb-4 flex items-center gap-3;
+        }
+        .section-content {
+            @apply bg-[#161b22]/70 backdrop-blur-sm border border-gray-800 rounded-lg p-6;
+        }
+        .section-content p, .section-content li {
+            @apply text-gray-300 leading-relaxed;
+        }
+        .section-content ul {
+            @apply list-disc list-inside space-y-2 mt-4;
+        }
+        .section-content ol {
+            @apply list-decimal list-inside space-y-2 mt-4;
+        }
+        .section-content a {
+            @apply text-pink-400 hover:underline hover:text-pink-300 transition-colors;
+        }
+        .section-content strong {
+            @apply text-purple-300;
+        }
+        .section-content code {
+            @apply bg-gray-900 text-green-400 px-2 py-1 rounded-md text-sm tech-font;
+        }
+        hr {
+            border-color: rgba(192, 132, 252, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+
+    <!-- Fundo animado -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="scanlines"></div>
+
+    <!-- Conteúdo do README -->
+    <div class="relative max-w-4xl mx-auto p-4 md:p-8">
+        
+        <header class="text-center my-8">
+            <h1 class="glitch" data-text="Clube do Estudante">Clube do Estudante</h1>
+            <blockquote class="mt-4 text-xl italic text-gray-400 tech-font">
+                "Estudar não precisa ser um saco. Pode ser uma invasão de conhecimento."
+            </blockquote>
+        </header>
+
+        <hr class="my-12">
+
+        <section id="o-que-e" class="mb-12">
+            <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                <span>O que é isso?</span>
+            </h2>
+            <div class="section-content space-y-4">
+                <p>O <strong>Clube do Estudante</strong> é um portal de estudos interativo, criado para transformar a revisão de matérias densas e complexas em uma experiência rápida, visualmente engajante e direta ao ponto. A ideia nasceu da necessidade de um método de estudo que funcionasse para cérebros que não se dão bem com textos longos e monótonos (alô, TDAH!).</p>
+                <p>Em vez de resumos chatos, usamos "cards" de conhecimento, cada um focado em um micro-tópico, com uma linguagem ácida, inteligente e sem enrolação. A estética hacker/cyberpunk não é só para ser bonita, é para manter a mente focada e tornar o processo de aprendizado mais estimulante.</p>
+            </div>
+        </section>
+
+        <section id="funcionalidades" class="mb-12">
+            <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2.2l-.15.1a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1 0-2.2l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>Funcionalidades Atuais</span>
+            </h2>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Hub Central de Matérias:</strong> Uma tela inicial que organiza os decks de estudo por matéria.</li>
+                    <li><strong>Decks de Estudo Interativos:</strong> Navegue por um baralho de cards com mouse, teclado ou touch.</li>
+                    <li><strong>Temas Visuais por Matéria:</strong> Cada disciplina com sua própria identidade visual e paleta de cores.</li>
+                    <li><strong>Modais de Aprofundamento:</strong> Detalhes gerais, tópicos-chave e Q&A interativo para cada card.</li>
+                    <li><strong>Design 100% Responsivo:</strong> Funciona em desktop, tablet ou celular.</li>
+                    <li><strong>Zero Dependências Externas:</strong> Tudo roda a partir de um único arquivo HTML.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tecnologia" class="mb-12">
+            <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <span>Tecnologia por Trás do Caos</span>
+            </h2>
+            <div class="section-content space-y-4">
+                <p>Este projeto foi construído com a filosofia de ser o mais leve e portátil possível, seguindo o princípio <strong>DRY (Don't Repeat Yourself)</strong>.</p>
+                <ul>
+                    <li><strong>HTML5:</strong> A estrutura semântica do portal.</li>
+                    <li><strong>Tailwind CSS:</strong> Para a estilização rápida e responsiva, injetado diretamente no arquivo.</li>
+                    <li><strong>JavaScript (Vanilla ES6):</strong> Todo o dinamismo da aplicação é feito com JavaScript puro, sem frameworks.</li>
+                </ul>
+                <p>O resultado é um portal de estudos completo contido em <strong>um único arquivo <code>index.html</code></strong>.</p>
+            </div>
+        </section>
+
+        <section id="como-usar" class="mb-12">
+            <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h6"/><polyline points="18 14 22 10 18 6"/><line x1="22" y1="10" x2="10" y2="10"/></svg>
+                <span>Como Rodar e Publicar</span>
+            </h2>
+            <div class="section-content space-y-4">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-200 tech-font mb-2">// Rodar Localmente</h3>
+                    <p>Simplesmente baixe o arquivo <code>index.html</code> e abra-o em qualquer navegador de internet. É só isso.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-gray-200 tech-font mb-2">// Publicar para a Turma (via GitHub Pages)</h3>
+                    <ol>
+                        <li>Crie um novo repositório <strong>público</strong> no GitHub.</li>
+                        <li>Faça o upload do arquivo <code>index.html</code> para este repositório.</li>
+                        <li>Vá em <code>Settings > Pages</code> no seu repositório.</li>
+                        <li>Na seção "Build and deployment", selecione a branch <code>main</code> como fonte e salve.</li>
+                        <li>Aguarde alguns minutos e o GitHub te dará um link público para o seu portal!</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contribuir" class="mb-12">
+            <h2 class="section-title">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20v-4a6 6 0 1 1 12 0v4"/><path d="M6 12a6 6 0 0 1 12 0Z"/></svg>
+                <span>Como Contribuir ou Expandir</span>
+            </h2>
+            <div class="section-content space-y-4">
+                 <p>A beleza deste projeto é sua escalabilidade. Para adicionar mais conteúdo:</p>
+                 <div>
+                    <h3 class="text-lg font-bold text-gray-200 tech-font mb-2">// Adicionar um Novo Card</h3>
+                    <ol>
+                        <li>Abra o arquivo <code>index.html</code>.</li>
+                        <li>Vá até a tag <code>&lt;script&gt;</code> e encontre o objeto <code>studyDecks</code>.</li>
+                        <li>Na matéria desejada, dentro do array <code>cards</code>, adicione um novo objeto seguindo a estrutura existente.</li>
+                    </ol>
+                 </div>
+                 <div>
+                    <h3 class="text-lg font-bold text-gray-200 tech-font mb-2">// Adicionar uma Nova Matéria</h3>
+                    <ol>
+                        <li>No objeto <code>studyDecks</code>, crie uma nova chave para sua matéria (ex: <code>calculo: { ... }</code>).</li>
+                        <li>Defina um <code>title</code>, <code>theme</code> e crie o array <code>cards</code> para ela.</li>
+                        <li>Na seção <code>&lt;div id="subject-selection"&gt;</code>, copie um dos cards de matéria e altere o <code>data-subject</code> e os textos.</li>
+                    </ol>
+                 </div>
+            </div>
+        </section>
+
+        <section id="dedicatoria" class="mb-12">
+            <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                <span>Dedicatória e Criador</span>
+            </h2>
+            <div class="section-content space-y-4">
+                <p>Este projeto é, antes de tudo, uma ferramenta de batalha. Nasceu da urgência de uma prova e da necessidade de hackear o processo de aprendizado para um cérebro com TDAH que se recusa a seguir manuais tradicionais.</p>
+                <p>Portanto, ele é dedicado a <strong>todos os estudantes que pensam diferente</strong>: àqueles que veem padrões onde outros veem caos, que buscam a essência em vez de decorar o superficial, e que sabem que a melhor forma de aprender é construindo.</p>
+                <p>A concepção, curadoria de conteúdo e visão para este portal foram idealizadas e criadas por <strong>Davi Cortelete</strong>, CEO & Founder da <a href="https://www.instagram.com/inteligenciarte.ia/" target="_blank" rel="noopener noreferrer"><strong>InteligenciArte.IA</strong></a>. Sua curiosidade e direcionamento foram o combustível que transformou um simples script em uma plataforma de estudos completa, provando que uma boa colaboração entre a criatividade humana e a inteligência artificial pode gerar resultados incríveis.</p>
+            </div>
+        </section>
+
+        <hr class="my-12">
+
+        <footer class="text-center">
+            <h3 class="text-2xl font-bold tech-font text-gray-400">A Filosofia</h3>
+            <blockquote class="mt-4 text-lg italic text-gray-500 max-w-2xl mx-auto">
+                "Acreditamos que o aprendizado é mais eficaz quando é ativo, rápido e engajante. O Clube do Estudante é um experimento para provar que é possível estudar para provas difíceis de uma forma que respeita a nossa capacidade de atenção e nos mantém motivados através de uma interface que dá vontade de usar."
+            </blockquote>
+            <p class="mt-8 text-2xl font-black text-purple-400 tech-font">Estudar é hackear o conhecimento. Esta é a nossa ferramenta.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clube do Estudante - Portal de Estudos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Exo 2', sans-serif;
+            overflow-x: hidden;
+            background-color: #0d1117;
+        }
+        
+        /* --- ESTILOS GERAIS --- */
+        .tech-font { font-family: 'Share Tech Mono', monospace; }
+
+        @keyframes move-twink-back {
+            from {background-position:0 0;}
+            to {background-position:-10000px 5000px;}
+        }
+        .stars, .twinkling, .scanlines {
+            position:fixed; top:0; left:0; right:0; bottom:0;
+            width:100%; height:100%; display:block;
+        }
+        .stars {
+            background:#000 url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+            z-index:-3;
+        }
+        .twinkling{
+            background:transparent url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+            z-index:-2;
+            animation:move-twink-back 200s linear infinite;
+        }
+        .scanlines {
+            z-index: -1;
+            background: linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        .glitch {
+            font-size: 3rem; font-weight: 900; text-transform: uppercase;
+            position: relative; color: #fff;
+            text-shadow: 0.05em 0 0 rgba(192, 132, 252, 0.75), -0.025em -0.05em 0 rgba(244, 114, 182, 0.75), 0.025em 0.05em 0 rgba(59, 130, 246, 0.75);
+            animation: glitch 500ms infinite;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 0.05em 0 0 #00fffc, -0.025em -0.05em 0 #fc00ff, 0.025em 0.05em 0 #fffc00;}
+            15% { text-shadow: 0.05em 0 0 #00fffc, -0.025em -0.05em 0 #fc00ff, 0.025em 0.05em 0 #fffc00;}
+            16% { text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.05em 0 #fc00ff, -0.05em -0.05em 0 #fffc00;}
+            49% { text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.05em 0 #fc00ff, -0.05em -0.05em 0 #fffc00;}
+            50% { text-shadow: 0.05em 0.025em 0 #00fffc, 0.05em -0.05em 0 #fc00ff, 0 -0.025em 0 #fffc00;}
+            99% { text-shadow: 0.05em 0.025em 0 #00fffc, 0.05em -0.05em 0 #fc00ff, 0 -0.025em 0 #fffc00;}
+            100% { text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.05em 0 #fc00ff, -0.025em -0.05em 0 #fffc00;}
+        }
+
+        /* --- ESTILOS DOS MODAIS E SCROLLBARS --- */
+        .modal-content.theme-purple::-webkit-scrollbar-thumb { background-color: #c084fc; }
+        .modal-content.theme-green::-webkit-scrollbar-thumb { background-color: #39FF14; }
+        .modal-content::-webkit-scrollbar { width: 8px; }
+        .modal-content::-webkit-scrollbar-track { background: #1c2128; }
+        .modal-content::-webkit-scrollbar-thumb { border-radius: 20px; border: 3px solid #1c2128; }
+
+        /* --- ANIMAÇÕES DE PULSO --- */
+        @keyframes pulse-pink {
+            0%, 100% { box-shadow: 0 0 2px #f472b6; }
+            50% { box-shadow: 0 0 8px #f472b6, 0 0 10px #f472b6; }
+        }
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 0 2px #39FF14; }
+            50% { box-shadow: 0 0 8px #39FF14, 0 0 10px #39FF14; }
+        }
+        .qa-button.theme-purple { animation: pulse-pink 2s infinite; }
+        .qa-button.theme-green { animation: pulse-green 2s infinite; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Fundo animado (compartilhado) -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="scanlines"></div>
+
+    <!-- TELA PRINCIPAL - O CLUBE DO ESTUDANTE -->
+    <div id="main-hub" class="relative min-h-screen w-full flex flex-col items-center justify-center p-4">
+        <header class="text-center mb-12">
+            <h1 class="glitch text-4xl md:text-5xl" data-text="Clube do Estudante">Clube do Estudante</h1>
+            <p class="tech-font text-purple-400 mt-2">// Selecione a matéria para iniciar os estudos.</p>
+        </header>
+        <div id="subject-selection" class="flex flex-col md:flex-row gap-8">
+            <!-- Card de Matéria 1 -->
+            <div data-subject="gp" class="subject-card group relative w-72 h-80 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 p-6 flex flex-col justify-between items-center text-center cursor-pointer transition-all duration-300 hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/20">
+                <div class="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+                <div class="relative z-10">
+                    <div class="text-purple-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold tech-font text-purple-300">Gestão de Projetos</h2>
+                    <p class="mt-2 text-sm text-gray-400">Domine o PMBOK, Riscos, Escopo e os segredos para não deixar seu projeto virar um caos.</p>
+                </div>
+                <span class="relative z-10 text-xs font-bold tech-font text-gray-500 group-hover:text-purple-400 transition-colors">21 CARDS</span>
+            </div>
+            <!-- Card de Matéria 2 -->
+            <div data-subject="te" class="subject-card group relative w-72 h-80 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 p-6 flex flex-col justify-between items-center text-center cursor-pointer transition-all duration-300 hover:border-green-500 hover:shadow-2xl hover:shadow-green-500/20">
+                <div class="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+                <div class="relative z-10">
+                    <div class="text-green-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4"><path d="M2 8h20"/><path d="M6 12h12"/><path d="M10 16h4"/><path d="M4 4v16"/><path d="M20 4v16"/></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold tech-font text-green-300">Tópicos em Engenharia</h2>
+                    <p class="mt-2 text-sm text-gray-400">Entenda o fluxo de produção, BPMN, faxina de dados e os principais erros e acertos em modelagem.</p>
+                </div>
+                <span class="relative z-10 text-xs font-bold tech-font text-gray-500 group-hover:text-green-400 transition-colors">10 CARDS</span>
+            </div>
+        </div>
+        <footer class="w-full text-center p-4 mt-auto">
+            <div class="max-w-4xl mx-auto text-xs tech-font text-gray-500 space-y-1">
+                <p>
+                    Desenvolvido por Davi Cortelete (CEO & Founder
+                    <a href="https://www.instagram.com/inteligenciarte.ia/" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-pink-400 transition-colors">@inteligenciarte.ia</a>).
+                </p>
+                <p>
+                    Direitos reservados para fins comerciais. Liberado para produção e uso independente sem fins lucrativos.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- TELA DE ESTUDO (DECK DE CARDS) - Escondida por padrão -->
+    <main id="study-deck-view" class="hidden relative min-h-screen w-full flex-col items-center justify-center p-4 overflow-hidden">
+        <header class="text-center mb-4 md:mb-8">
+            <h1 id="study-title" class="text-3xl md:text-4xl font-black uppercase"></h1>
+            <p id="study-subtitle" class="tech-font mt-2">// Navegue pelos cards e domine os conceitos!</p>
+        </header>
+        <div id="card-deck" class="relative w-full max-w-sm h-[420px] md:h-[450px] flex items-center justify-center"></div>
+        <div class="mt-4 md:mt-8 flex items-center space-x-4 md:space-x-8">
+            <button id="back-to-hub" class="p-3 bg-gray-800/50 rounded-full hover:bg-red-500/20 transition-all duration-300 focus:outline-none ring-1 backdrop-blur-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            </button>
+            <button id="prev-btn" class="p-3 bg-gray-800/50 rounded-full hover:bg-gray-500/20 transition-all duration-300 focus:outline-none ring-1 backdrop-blur-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <span id="card-counter" class="text-xl font-bold tech-font text-gray-300"></span>
+            <button id="next-btn" class="p-3 bg-gray-800/50 rounded-full hover:bg-gray-500/20 transition-all duration-300 focus:outline-none ring-1 backdrop-blur-sm">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+        </div>
+        <footer class="w-full text-center p-4 mt-auto">
+            <div class="max-w-4xl mx-auto text-xs tech-font text-gray-500 space-y-1">
+                <p>
+                    Desenvolvido por Davi Cortelete (CEO & Founder
+                    <a href="https://www.instagram.com/inteligenciarte.ia/" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-pink-400 transition-colors">@inteligenciarte.ia</a>).
+                </p>
+                <p>
+                    Direitos reservados para fins comerciais. Liberado para produção e uso independente sem fins lucrativos.
+                </p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- MODAIS (Estrutura compartilhada) -->
+    <div id="modal-container"></div>
+
+    <script>
+    // --- BANCO DE DADOS COMPLETO ---
+    const studyDecks = {
+        gp: {
+            title: "Gestão de Projetos",
+            theme: "purple",
+            cards: [
+                { id: 1, title: "Definição de Projeto", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12a10 10 0 0 0-10 10z"/></svg>`, tip: "É a missão com data de validade que a empresa te dá.", description: "Um esforço planejado e temporário para criar um produto, serviço ou resultado que é único, diferenciando-se das operações de rotina.", topics: ["Temporário", "Único", "Elaboração Progressiva"], topicsDetails: [{ title: "Temporário", content: "<p>Significa que o projeto não dura para sempre. Ele tem uma data de início e uma data de término bem definidas.</p>" }, { title: "Resultado Único", content: "<p>O produto ou serviço gerado é diferente de todos os outros. Mesmo projetos parecidos terão resultados únicos.</p>" }, { title: "Elaboração Progressiva", content: "<p>Conforme o projeto avança, o entendimento melhora e os detalhes são refinados.</p>" }], question: "Defina o que é um projeto, usando suas duas características mais importantes.", answer: "Um projeto é um esforço **temporário**, pois possui um início e um fim definidos, e que visa criar um resultado **único**, ou seja, um produto ou serviço que não foi feito exatamente da mesma forma antes." },
+                { id: 2, title: "Restrição Tripla", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 2L2 22h20L12 2z"/></svg>`, tip: "O cobertor é sempre curto: Escopo, Tempo e Custo.", description: "Representa as três principais limitações de qualquer projeto: Escopo, Tempo e Custo. Alterar uma afeta as outras.", topics: ["Escopo", "Tempo", "Custo"], topicsDetails: [{ title: "Escopo", content: "<p>Refere-se a 'o que' será feito. São todas as tarefas e entregas do projeto.</p>" }, { title: "Tempo", content: "<p>É o cronograma do projeto, o tempo disponível para completar o trabalho.</p>" }, { title: "Custo", content: "<p>É o orçamento do projeto, incluindo todos os recursos financeiros.</p>" }], question: "Como uma mudança no escopo afeta as outras duas pontas da Restrição Tripla?", answer: "Se o escopo aumenta, será necessário mais **tempo** para desenvolver as novas funcionalidades e mais **custo** para pagar pelas horas extras da equipe ou por mais recursos. Tentar manter o mesmo tempo e custo com mais escopo geralmente resulta em queda na qualidade." },
+                { id: 3, title: "PMI e Guia PMBOK", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`, tip: "O PMBOK não é um manual, é a enciclopédia.", description: "O PMI (Project Management Institute) é a maior associação global de GP, e o PMBOK (Project Management Body of Knowledge) é seu guia de boas práticas.", topics: ["Guia, Não Metodologia", "Boas Práticas", "Padronização"], topicsDetails: [{ title: "Guia, Não Metodologia", content: "<p>O PMBOK descreve 'o quê' e 'por quê', mas não o 'como' passo a passo. Cabe ao gerente escolher as ferramentas adequadas.</p>" }, { title: "Boas Práticas", content: "<p>O conhecimento no PMBOK é um compilado da experiência de milhares de profissionais, representando um consenso sobre o que geralmente funciona.</p>" }, { title: "Padronização", content: "<p>Seu principal objetivo é criar um vocabulário comum e uma base de conhecimento compartilhada para a profissão.</p>" }], question: "Qual o principal objetivo do PMBOK e por que ele não é considerado uma metodologia?", answer: "O principal objetivo é identificar e padronizar o conjunto de conhecimentos e boas práticas em gerenciamento de projetos. Ele não é uma metodologia porque não prescreve uma única maneira de gerenciar um projeto; em vez disso, serve como um guia de referência flexível." },
+                { id: 4, title: "Entidades: PRINCE2 vs. IPMA", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 12h.01"/><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M6 18v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"/></svg>`, tip: "PRINCE2 é o mapa; IPMA é a habilidade do pirata.", description: "PRINCE2 foca no processo, enquanto a IPMA foca nas competências das pessoas.", topics: ["PRINCE2", "IPMA", "Foco Distinto"], topicsDetails: [{ title: "PRINCE2", content: "<p>É uma metodologia de gerenciamento focada em processos, prescritiva e com foco no controle e na justificativa contínua do negócio.</p>" }, { title: "IPMA", content: "<p>É uma federação de associações que foca nas competências do gerente de projetos, descrevendo as habilidades necessárias para o sucesso.</p>" }, { title: "Foco Distinto", content: "<p>PRINCE2 se preocupa com o **processo**. A IPMA se preocupa com o **profissional**.</p>" }], question: "Explique brevemente sobre as entidades PRINCE2 e IPMA, destacando suas abordagens distintas.", answer: "**PRINCE2** é uma metodologia britânica focada em processos. Em contraste, a **IPMA** é uma instituição europeia focada em competências, cuja finalidade é avaliar e certificar as habilidades das pessoas." },
+                { id: 5, title: "Ciclo de Vida (5 Grupos)", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M21 21v-5h-5"/></svg>`, tip: "Nascer, planejar, trabalhar, vigiar e morrer.", description: "O PMBOK organiza o ciclo de vida de qualquer projeto em cinco grandes fases lógicas, chamadas de Grupos de Processos.", topics: ["Iniciação", "Planejamento", "Execução", "Monitoramento", "Encerramento"], topicsDetails: [{ title: "Iniciação", content: "<p>É a certidão de nascimento do projeto, onde se obtém a autorização formal para começar.</p>" }, { title: "Planejamento", content: "<p>É o cérebro da operação, onde se detalha todo o plano de gerenciamento.</p>" }, { title: "Execução", content: "<p>É botar a mão na massa, realizando o trabalho definido no plano.</p>" }, { title: "Monitoramento e Controle", content: "<p>É o 'big brother' do projeto, medindo o progresso e corrigindo desvios.</p>" }, { title: "Encerramento", content: "<p>É o atestado de óbito ou vitória, formalizando a entrega e documentando as lições.</p>" }], question: "Por que o grupo de processos de Monitoramento e Controle é tão crucial e se sobrepõe ao de Execução?", answer: "Porque a execução nunca sai exatamente como o planejado. O Monitoramento e Controle atua como o GPS do projeto, verificando constantemente a posição real contra a rota planejada e permitindo ao gerente fazer correções em tempo real." },
+                { id: 6, title: "Termo de Abertura", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M10.42 12.61a2.1 2.1 0 1 1 2.97 2.97L7.95 21 4 22l.99-3.95Z"/></svg>`, tip: "A certidão de nascimento oficial do projeto.", description: "O Termo de Abertura (Project Charter) é o documento que autoriza formalmente a existência do projeto e concede autoridade ao gerente.", topics: ["Autorização Formal", "Conteúdo Essencial", "Não é o Plano"], topicsDetails: [{ title: "Autorização Formal", content: "<p>É a luz verde oficial. Sem ele, o projeto não existe formalmente.</p>" }, { title: "Conteúdo Essencial", content: "<p>Inclui justificativa, objetivos, riscos, resumo de cronograma e orçamento.</p>" }, { title: "Não é o Plano do Projeto", content: "<p>O Termo de Abertura é de alto nível (Iniciação). O Plano é detalhado (Planejamento).</p>" }], question: "Quem deve assinar o Termo de Abertura do Projeto e por quê?", answer: "Deve ser assinado pelo patrocinador (*sponsor*) ou pela entidade iniciadora. O gerente de projeto **não** o assina como autoridade, pois o documento é o que *lhe concede* autoridade." },
+                { id: 7, title: "Estruturas Organizacionais", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>`, tip: "Define se você é o chefe, tem dois chefes ou ninguém sabe quem é.", description: "A estrutura da organização (Funcional, Projetizada, Matricial) influencia a autoridade do gerente, os recursos e a comunicação.", topics: ["Funcional", "Projetizada", "Matricial"], topicsDetails: [{ title: "Funcional", content: "<p>Organizada por departamentos. O gerente de projeto tem pouca autoridade.</p>" }, { title: "Projetizada", content: "<p>Organizada em torno de projetos. O gerente tem autoridade total.</p>" }, { title: "Matricial", content: "<p>Um híbrido. A equipe responde a dois chefes: gerente funcional e de projetos.</p>" }], question: "Qual a principal desvantagem de uma estrutura matricial para os membros da equipe?", answer: "A principal desvantagem é a **duplicidade de comando**. Os membros da equipe têm dois chefes, o que pode gerar conflitos de lealdade e prioridades." },
+                { id: 8, title: "Gestão da Integração", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2.2l-.15.1a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1 0-2.2l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>`, tip: "A cola que une todas as partes do projeto.", description: "A área que garante que todas as partes do projeto trabalhem juntas, gerenciando interdependências e decisões.", topics: ["Plano do Projeto", "Gerenciar Execução", "Controle de Mudanças"], topicsDetails: [{ title: "Plano do Projeto", content: "<p>Consolida todos os planos das outras áreas em um único documento coeso.</p>" }, { title: "Gerenciar Execução", content: "<p>Realiza o trabalho definido no plano, coordenando a equipe e os recursos.</p>" }, { title: "Controle de Mudanças", content: "<p>Gerencia e aprova/rejeita todas as solicitações de mudança, avaliando seu impacto no todo.</p>" }], question: "Por que o Controle Integrado de Mudanças é um processo da Integração e não de Escopo?", answer: "Porque uma mudança raramente afeta apenas o escopo; ela impacta tempo, custo e riscos. A Integração garante uma análise holística do impacto antes da decisão." },
+                { id: 9, title: "Gestão do Escopo e a EAP", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>`, tip: "A cerca que você coloca em volta do projeto.", description: "Garante que o projeto inclua todo o trabalho necessário, e apenas o necessário. A EAP (Estrutura Analítica do Projeto) é a ferramenta central.", topics: ["Escopo Produto/Projeto", "Criar a EAP", "Dicionário da EAP"], topicsDetails: [{ title: "Escopo Produto vs. Projeto", content: "<p>O escopo do produto são as características do resultado final. O escopo do projeto é todo o trabalho para entregar esse produto.</p>" }, { title: "Criar a EAP (WBS)", content: "<p>É o processo de subdividir as entregas em pacotes de trabalho menores e gerenciáveis.</p>" }, { title: "Dicionário da EAP", content: "<p>É um documento que detalha cada componente da EAP, com descrições, critérios de aceitação e responsáveis.</p>" }], question: "O que é a EAP (WBS) e por que ela é fundamental?", answer: "A EAP é uma decomposição hierárquica de todo o trabalho a ser executado. Ela é fundamental porque transforma o escopo em pacotes concretos, garantindo que nada seja esquecido e servindo de base para estimativas de tempo, custo e riscos." },
+                { id: 10, title: "Gestão do Tempo", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`, tip: "Sua paranoia deve morar no Caminho Crítico.", description: "Inclui os processos para gerenciar o término do projeto no prazo. A técnica mais importante é o Método do Caminho Crítico (CPM).", topics: ["Diagrama de Rede", "Caminho Crítico", "Folga (Float)"], topicsDetails: [{ title: "Diagrama de Rede", content: "<p>Uma representação visual das dependências entre as atividades, mostrando a ordem lógica.</p>" }, { title: "Caminho Crítico", content: "<p>É a sequência de atividades mais longa no diagrama. Sua duração determina a menor duração possível para o projeto.</p>" }, { title: "Folga (Float)", content: "<p>É o tempo que uma atividade pode atrasar sem afetar a data final. Atividades no caminho crítico têm folga zero.</p>" }], question: "Por que o 'Caminho Crítico' é vital para o cronograma?", answer: "É vital porque determina a menor duração possível para o projeto. Qualquer atraso em suas atividades impactará diretamente a data de entrega final. Ele aponta exatamente quais tarefas são as mais sensíveis ao tempo." },
+                { id: 11, title: "Estimativas PERT", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M16 8h.01"/><path d="M12 12h.01"/><path d="M8 8h.01"/><path d="M12 16h.01"/><path d="M16 16h.01"/><path d="M8 12h.01"/></svg>`, tip: "Ser pessimista, otimista e realista ao mesmo tempo.", description: "A técnica PERT usa três estimativas de tempo (Otimista, Mais Provável, Pessimista) para calcular uma duração ponderada, lidando com a incerteza.", topics: ["Estimativa de 3 Pontos", "Duração Esperada", "Lidando com Incerteza"], topicsDetails: [{ title: "Estimativa de 3 Pontos", content: "<p>O PERT usa uma estimativa **Otimista (O)**, uma **Mais Provável (M)** e uma **Pessimista (P)**.</p>" }, { title: "Duração Esperada", content: "<p>Calculada pela fórmula: **Duração = (O + 4M + P) / 6**.</p>" }, { title: "Lidando com a Incerteza", content: "<p>Reconhece que o futuro é incerto, ideal para projetos inovadores onde não há dados históricos.</p>" }], question: "Para qual tipo de projeto a técnica PERT é mais adequada do que o CPM e por quê?", answer: "O PERT é mais adequado para projetos com alta incerteza e inovação (P&D), onde a duração das atividades é difícil de prever, pois o uso de três estimativas incorpora essa incerteza no cálculo do cronograma." },
+                { id: 12, title: "Gestão de Custos e EVA", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`, tip: "Gastou pouco porque foi eficiente ou porque não fez nada?", description: "A Análise de Valor Agregado (EVA) integra escopo, custo e tempo para medir o desempenho real do projeto em relação ao plano.", topics: ["Valor Planejado (PV)", "Custo Real (AC)", "Valor Agregado (EV)", "Índices (CPI/SPI)"], topicsDetails: [{ title: "Valor Planejado (PV)", content: "<p>Orçamento autorizado para o trabalho que **deveria ter sido** concluído.</p>" }, { title: "Custo Real (AC)", content: "<p>Custo total realmente incorrido pelo trabalho realizado.</p>" }, { title: "Valor Agregado (EV)", content: "<p>Valor do trabalho **efetivamente** concluído, expresso em termos do orçamento.</p>" }, { title: "Índices de Desempenho", content: "<p>**CPI = EV / AC** (custo, >1 é bom). **SPI = EV / PV** (prazo, >1 é bom).</p>" }], question: "Um projeto tem um CPI de 0.8 e um SPI de 1.2. Qual é a situação?", answer: "A situação é mista. Um **SPI de 1.2** (>1) significa que o projeto está **adiantado**. No entanto, um **CPI de 0.8** (<1) significa que está **acima do orçamento**." },
+                { id: 13, title: "Gestão da Qualidade", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>`, tip: "Garantir que a brincadeira não quebre na primeira usada.", description: "Foca em garantir que o projeto e seu produto final atendam aos requisitos e expectativas, priorizando a prevenção de defeitos.", topics: ["Prevenção > Inspeção", "Custo da Qualidade", "Satisfação do Cliente"], topicsDetails: [{ title: "Prevenção > Inspeção", content: "<p>É mais barato e eficaz projetar a qualidade nos processos para evitar erros do que encontrar e corrigir defeitos no final.</p>" }, { title: "Custo da Qualidade", content: "<p>Inclui o custo da conformidade (prevenção, avaliação) e o custo da não conformidade (falhas internas e externas).</p>" }, { title: "Satisfação do Cliente", content: "<p>A qualidade final é medida pelo grau em que o projeto atende ou excede as expectativas negociadas com os stakeholders.</p>" }], question: "Explique o princípio 'prevenção sobre inspeção'.", answer: "Significa que é mais inteligente e econômico investir em atividades que previnam a ocorrência de defeitos (como treinamento) do que gastar recursos para inspecionar o trabalho no final e corrigir os erros. Prevenção age na causa; inspeção age no sintoma." },
+                { id: 14, title: "Gestão de Riscos", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`, tip: "É ser o vidente pessimista que leva um guarda-chuva no sol.", description: "O processo de identificar, analisar e responder às incertezas do projeto, sejam elas negativas (ameaças) ou positivas (oportunidades).", topics: ["Ameaças/Oportunidades", "Análise Qualitativa", "Estratégias de Resposta"], topicsDetails: [{ title: "Ameaças e Oportunidades", content: "<p>Gerenciamento de riscos não é só sobre coisas ruins; também envolve identificar e potencializar eventos positivos.</p>" }, { title: "Análise Qualitativa", content: "<p>Prioriza os riscos com base em sua probabilidade e impacto, usando uma matriz para focar nos mais críticos.</p>" }, { title: "Estratégias de Resposta (Ameaças)", content: "<p>São: **Prevenir** (eliminar), **Transferir** (passar para terceiro, ex: seguro), **Mitigar** (reduzir probabilidade/impacto) e **Aceitar**.</p>" }], question: "Qual a diferença entre mitigar e transferir um risco? Dê um exemplo.", answer: "Mitigar um risco é tomar ações para reduzir sua probabilidade/impacto (ex: testar um software exaustivamente). Transferir é passar a responsabilidade para um terceiro (ex: comprar um seguro para a obra)." },
+                { id: 15, title: "Stakeholders e Comunicações", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`, tip: "Stakeholders podem te ajudar ou te foder. Escolha como se comunicar.", description: "Gerenciar Stakeholders é identificar todos que são impactados e gerenciar suas expectativas através de uma comunicação eficaz.", topics: ["Identificar Stakeholders", "Matriz Poder x Interesse", "Plano de Comunicações"], topicsDetails: [{ title: "Identificar Stakeholders", content: "<p>Mapear todos (cliente, equipe, governo, etc.) e analisar seu poder, interesse e influência.</p>" }, { title: "Matriz Poder x Interesse", content: "<p>Uma ferramenta para classificar os stakeholders e definir a estratégia de comunicação (ex: Gerenciar de perto, Manter satisfeito).</p>" }, { title: "Plano de Comunicações", content: "<p>Define quem precisa receber qual informação, quando, como (e-mail, reunião) e quem é o responsável.</p>" }], question: "Por que um stakeholder com alto poder e baixo interesse pode ser perigoso?", answer: "Porque, embora não preste atenção no dia a dia, ele tem a capacidade (alto poder) de tomar decisões drásticas que podem impactar ou cancelar o projeto se algo chamar sua atenção negativamente. A estratégia é 'mantê-lo satisfeito'." },
+                { id: 16, title: "Tipologias de Projetos", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M8.27 10h7.46"/></svg>`, tip: "Entenda o bicho, depois escolha a jaula.", description: "Classificar um projeto (complexidade, tecnologia, novidade) para escolher a abordagem gerencial mais adequada.", topics: ["Complexidade", "Modelo Diamante", "Projetos Hard vs. Soft"], topicsDetails: [{ title: "Complexidade", content: "<p>Um projeto pode ser tecnicamente simples mas ter um ambiente de negócio complexo, ou vice-versa.</p>" }, { title: "Modelo Diamante", content: "<p>Avalia o projeto em 4 dimensões: **N**ovidade, **T**ecnologia, **C**omplexidade e **P**asso (urgência).</p>" }, { title: "Hard vs. Soft", content: "<p>Projetos **Hard** têm objetivos tangíveis (prédio). Projetos **Soft** têm objetivos abstratos (mudar cultura).</p>" }], question: "Por que é importante usar uma tipologia para classificar um projeto?", answer: "Porque a classificação ajuda a definir a 'personalidade' do projeto, permitindo escolher as ferramentas e processos mais adequados. Aplicar uma metodologia pesada a um projeto simples pode matar a agilidade, enquanto uma abordagem flexível para um complexo pode levar ao caos." },
+                { id: 17, title: "Maturidade e o PMO", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 11v-1"/><path d="M14.5 13.5a2.5 2.5 0 0 1-5 0 3.5 3.5 0 0 1 5 3.5v-1.5a2.5 2.5 0 0 0-5 0"/></svg>`, tip: "Empresa madura não repete as mesmas cagadas.", description: "Maturidade é o nível em que uma organização padronizou e otimizou seus processos. O PMO é a estrutura que impulsiona essa maturidade.", topics: ["Modelos de Maturidade", "PMO", "Benefícios"], topicsDetails: [{ title: "Modelos de Maturidade", content: "<p>Descrevem níveis de maturidade, de 1 (caótico) a 5 (otimizado), permitindo que uma empresa se autoavalie.</p>" }, { title: "PMO", content: "<p>Departamento que centraliza e padroniza a governança dos projetos, atuando com suporte, controle ou de forma diretiva.</p>" }, { title: "Benefícios", content: "<p>Empresas maduras têm maiores taxas de sucesso, mais previsibilidade e menos caos.</p>" }], question: "Qual a relação entre um PMO e o aumento da maturidade de uma organização?", answer: "O PMO é o principal motor para o aumento da maturidade. Ele atua como o guardião das boas práticas, implementando metodologias, ferramentas e templates padronizados, forçando a organização a sair do caos para processos mais consistentes." },
+                { id: 18, title: "Gestão de Portfólio", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2Z"/><path d="M12 10v4h4"/></svg>`, tip: "A arte de dizer 'não' para projetos bons para fazer os essenciais.", description: "É o processo de selecionar e gerenciar o conjunto de projetos para garantir o alinhamento com a estratégia do negócio.", topics: ["Alinhamento Estratégico", "Balanceamento", "Processo Contínuo"], topicsDetails: [{ title: "Alinhamento Estratégico", content: "<p>Garante que os recursos sejam investidos em projetos que contribuam para os objetivos da empresa.</p>" }, { title: "Balanceamento", content: "<p>Equilibra o portfólio entre diferentes tipos de projetos (ex: alto risco/alto retorno vs. baixo risco/baixo retorno).</p>" }, { title: "Processo Contínuo", content: "<p>O portfólio é revisado periodicamente, e projetos podem ser iniciados, adiados ou cancelados com base nas mudanças do mercado.</p>" }], question: "Qual a diferença entre gerenciar um projeto e um portfólio?", answer: "Gerenciar um projeto é sobre 'fazer o trabalho direito' (entregar no escopo, prazo e custo). Gerenciar um portfólio é sobre 'fazer o trabalho certo' (selecionar os projetos corretos que maximizam o valor para a organização)." },
+                { id: 19, title: "Conceitos Ágeis", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="m12 12 4-4"/><path d="m12 12 4 4"/><path d="m12 12-4-4"/><path d="m12 12-4 4"/><path d="m12 12 4-4"/><path d="m12 12 4 4"/><path d="m12 12-4-4"/><path d="m12 12-4 4"/><circle cx="12" cy="12" r="10"/></svg>`, tip: "Entregue um skate, depois uma bike, depois uma moto...", description: "Abordagem alternativa focada em ciclos curtos, colaboração e adaptação. Scrum e Kanban são os frameworks mais populares.", topics: ["Manifesto Ágil", "Scrum", "Kanban"], topicsDetails: [{ title: "Manifesto Ágil", content: "<p>Baseado em 4 valores, como 'Indivíduos e interações mais que processos e ferramentas'.</p>" }, { title: "Scrum", content: "<p>Framework baseado em ciclos de tempo fixo chamados *Sprints*, com papéis, eventos e artefatos definidos.</p>" }, { title: "Kanban", content: "<p>Método visual para gerenciar o fluxo de trabalho, usando um quadro para visualizar etapas e limitar o trabalho em progresso (WIP).</p>" }], question: "Qual a principal diferença entre Scrum e Kanban?", answer: "A cadência. Scrum é iterativo, baseado em Sprints de tempo fixo. Kanban é um sistema de fluxo contínuo, sem iterações, focado em limitar o trabalho em progresso (WIP) e otimizar o fluxo de entrega." },
+                { id: 20, title: "Privacidade Hackeada (Pt.1)", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`, tip: "O objetivo era simples e psicopata.", description: "A Cambridge Analytica (CA) tinha um 'projeto' com objetivos claros, recursos e entregas específicas para fins antiéticos.", topics: ["Objetivo do Projeto", "Recursos e Ferramentas", "Entregas"], topicsDetails: [{ title: "Objetivo do Projeto", content: "<p>Identificar e influenciar eleitores indecisos em eleições-chave usando micro-targeting baseado em dados psicográficos.</p>" }, { title: "Recursos e Ferramentas", content: "<p>O principal recurso era o banco de dados de perfis do Facebook, e as ferramentas eram algoritmos de análise e plataformas de publicidade.</p>" }, { title: "Entregas", content: "<p>Campanhas de publicidade altamente segmentadas, com mensagens personalizadas para explorar vulnerabilidades psicológicas.</p>" }], question: "Do ponto de vista técnico, por que o 'projeto' da CA pode ser considerado bem definido?", answer: "Tecnicamente, era bem definido porque possuía um objetivo específico (influenciar eleições), escopo de produto claro (perfis e campanhas), um cliente definido (campanhas políticas) e utilizava recursos específicos dentro de um prazo determinado." },
+                { id: 21, title: "Privacidade Hackeada (Pt.2)", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="9.5" y1="12.5" x2="14.5" y2="17.5"/><line x1="14.5" y1="12.5" x2="9.5" y2="17.5"/></svg>`, tip: "O projeto foi um sucesso, mas a empresa faliu.", description: "O sucesso técnico da CA foi ofuscado por suas falhas colossais nas áreas de riscos, escopo, stakeholders e, acima de tudo, ética.", topics: ["Falha de Riscos", "Falha de Stakeholders", "Falha de Escopo"], topicsDetails: [{ title: "Falha de Riscos", content: "<p>Riscos massivos (legais, de reputação, éticos) foram deliberadamente ignorados, aceitos como 'custo do negócio'.</p>" }, { title: "Falha de Stakeholders", content: "<p>Os usuários do Facebook foram explorados como recursos, não tratados como partes interessadas, violando suas expectativas de privacidade.</p>" }, { title: "Falha de Escopo", content: "<p>O escopo foi enganoso ('pesquisa acadêmica'), mas o objetivo real era manipulação, um desvio malicioso (*scope creep*).</p>" }], question: "Como o caso da CA demonstra que o 'sucesso' não se mede só pela 'Restrição Tripla'?", answer: "O caso demonstra que um projeto pode ter sucesso em escopo, tempo e custo, mas ser um fracasso retumbante. Ao violar princípios éticos e de confiança, o impacto negativo destruiu a organização, provando que métricas de sucesso devem incluir ética e impacto nos stakeholders." }
+            ]
+        },
+        te: {
+            title: "Tópicos em Engenharia",
+            theme: "green",
+            cards: [
+                { id: 1, title: "Faxina de Dados", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>`, tip: "Base podre? FAXINA GERAL!", description: "É o processo de corrigir ou remover dados incorretos, corrompidos ou duplicados de uma base. A qualidade da análise depende diretamente disso.", topics: ["Padronização", "Remover Duplicados", "Tratar Nulos"], topicsDetails: [{ title: "Padronização de Dados", content: "<p>Garantir que os dados sigam um formato consistente (ex: datas, CPFs). Isso evita erros em filtros e cálculos.</p>" }, { title: "Remoção de Duplicados", content: "<p>Identificar e eliminar registros que aparecem mais de uma vez. Ter um cliente duplicado distorce todas as métricas.</p>" }, { title: "Tratamento de Nulos", content: "<p>Campos vazios podem quebrar cálculos. Podem ser removidos ou preenchidos com um valor padrão (zero, média, mediana).</p>" }], question: "Diante de uma base com duplicidades e nulos, detalhe como você garantiria a qualidade dos dados.", answer: "As etapas essenciais são: Padronização de formatação, Remoção de duplicidades, Validação dos dados (se fazem sentido), Tratamento dos dados nulos e Documentação do que foi feito e do que cada campo significa." },
+                { id: 2, title: "Ciclo de Dados", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M21 12a9 9 0 1 1-6.219-8.56"/><path d="M12 2v10l6-4"/></svg>`, tip: "É a receita do bolo. Não pule etapas ou o bolo sola.", description: "Representa a sequência de passos de um projeto de dados, desde a coleta inicial até a implementação e monitoramento.", topics: ["Coleta > Limpeza", "Análise > Modelagem", "Visualização"], topicsDetails: [{ title: "Coleta e Limpeza", content: "<p>A <strong>Coleta</strong> é a obtenção dos dados brutos. A <strong>Limpeza</strong> vem em seguida para tratar inconsistências.</p>" }, { title: "Análise e Modelagem", content: "<p>Na <strong>Análise</strong>, buscamos entender os dados. Na <strong>Modelagem</strong>, aplicamos algoritmos de ML ou estatísticos.</p>" }, { title: "Visualização", content: "<p>É a etapa de transformar os resultados em gráficos e dashboards para facilitar a comunicação e a tomada de decisão.</p>" }], question: "EXPLIQUE como você aplicaria o ciclo da Ciência de Dados.", answer: "O ciclo é composto por: Coleta (obtenção de dados), Limpeza (tratamento de erros), Análise (buscar padrões), Modelagem (aplicar modelos), Avaliação (verificar desempenho), Visualização (mostrar resultados) e Monitoramento (acompanhar em produção)." },
+                { id: 3, title: "Fluxo de Produção", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M2 8h20"/><path d="M6 12h12"/><path d="M10 16h4"/><path d="M4 4v16"/><path d="M20 4v16"/></svg>`, tip: "Início, meio, decisão e fim. Simples assim.", description: "É a representação visual das etapas sequenciais de um processo, mostrando atividades, pontos de decisão e o caminho do início ao fim.", topics: ["Início (Evento)", "Atividades (Tarefas)", "Decisão (Gateway)"], topicsDetails: [{ title: "Início (Evento)", content: "<p>Em BPMN, é o gatilho que dispara o processo, representado por um círculo com borda fina.</p>" }, { title: "Atividades (Tarefas)", content: "<p>Representam o trabalho a ser feito, são os retângulos no diagrama.</p>" }, { title: "Decisão (Gateway)", content: "<p>São os losangos que controlam o caminho do fluxo (ex: Gateway Exclusivo 'OU').</p>" }], question: "CRIE uma modelagem para o fluxo de produção de canetas.", answer: "Início (Pedido recebido) -> Atividades (Separar matéria-prima > Montar corpo > Inserir carga > Inspeção) -> Decisão (Aprovado? Sim: embalar; Não: descarte) -> Encerramento (Produto enviado)." },
+                { id: 4, title: "Boas Práticas BPMN", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`, tip: "Siga as regras ou seu diagrama será uma piada.", description: "Convenções que garantem que os diagramas de processo sejam claros, consistentes e facilmente compreendidos por todos.", topics: ["Nomenclatura Clara", "Pools e Lanes", "Sem Espaguete"], topicsDetails: [{ title: "Nomenclatura Clara", content: "<p>Usar verbos de ação para atividades (Ex: 'Verificar Crédito') para evitar ambiguidade.</p>" }, { title: "Pools e Lanes", content: "<p>Pools representam entidades externas ('Cliente'). Lanes dividem um pool para mostrar papéis internos ('Vendas', 'Financeiro').</p>" }, { title: "Sem Espaguete", content: "<p>Evitar o cruzamento excessivo de setas. Um layout limpo, da esquerda para a direita, torna o diagrama legível.</p>" }], question: "CITE e JUSTIFIQUE boas práticas para elaborar um diagrama BPMN.", answer: "Utilizar nomenclatura clara; Garantir que todo fluxo tenha início e fim; Não sobrecarregar o diagrama (usar subprocessos); Usar gateways corretamente; Representar papéis com pools e lanes; Evitar cruzamento de setas." },
+                { id: 5, title: "Erros de Modelagem", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`, tip: "Saber o que NÃO fazer é crucial.", description: "Falhas na construção do diagrama que violam as regras do BPMN, gerando ambiguidades ou fluxos ilógicos.", topics: ["Lane sem Nome", "Gateway Errado", "Fluxo Morto"], topicsDetails: [{ title: "Lane sem Nome", content: "<p>Uma Lane sem nome deixa a responsabilidade por suas atividades indefinida. Cada raia deve ser nomeada com o papel ou departamento.</p>" }, { title: "Gateway Errado", content: "<p>Usar um gateway incorreto (ex: Paralelo 'E' quando a decisão é Exclusiva 'OU') cria uma lógica de processo falha.</p>" }, { title: "Fluxo Morto", content: "<p>Todo fluxo deve ter um Evento de Fim. Um fluxo que 'morre' no meio do caminho está incompleto e é um erro.</p>" }], question: "IDENTIFIQUE dois problemas comuns em diagramas BPMN.", answer: "Problemas comuns incluem: Lane sem nome (falta de clareza na responsabilidade); Fim de processo sem nomeação (fluxo incompleto); Gateway usado incorretamente; Atividade com mais de uma saída sem um gateway." },
+                { id: 6, title: "Pense em Robôs", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 8V4H8"/><rect x="4" y="12" width="16" height="8" rx="2"/><path d="M2 12h20"/><path d="M17.5 12V8h-3v4"/><path d="M6.5 12V8h-3v4"/></svg>`, tip: "Melhoria de processo hoje = automação.", description: "Desenhar e otimizar processos com o objetivo de permitir que tarefas manuais e repetitivas sejam executadas por software (RPA).", topics: ["Automatizar Triagem", "Reduzir Erro Humano", "Ganhar Agilidade"], topicsDetails: [{ title: "Automatizar Triagem", content: "<p>Tarefas como ler currículos e aplicar filtros básicos são repetitivas e ideais para automação com RPA ou ATS.</p>" }, { title: "Reduzir Erro Humano", content: "<p>Máquinas não se cansam. Automatizar tarefas baseadas em regras elimina erros de digitação e inconsistências.</p>" }, { title: "Ganhar Agilidade", content: "<p>Processos automatizados rodam 24/7, reduzindo drasticamente o tempo de ciclo (lead time) de um processo.</p>" }], question: "SUGIRA ajustes para melhorar a eficiência de um processo de recrutamento via automação.", answer: "Sugestões: Automatizar etapas manuais, como triagem de currículos, usando softwares de RH. Impacto: redução de tempo e erro humano. Automatizar as análises com critérios padronizados. Impacto: imparcialidade e velocidade." },
+                { id: 7, title: "Leitura de Fluxo", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>`, tip: "Bater o olho e entender a jornada. Esse é o objetivo.", description: "A habilidade de interpretar um diagrama BPMN, compreendendo a sequência de tarefas, responsabilidades e resultados.", topics: ["Jornada do Candidato", "Clareza Visual", "Coerência"], topicsDetails: [{ title: "Jornada do Candidato", content: "<p>Seguir as setas desde o evento de início ('CV Recebido') até os possíveis fins ('Contratado' ou 'Rejeitado').</p>" }, { title: "Clareza Visual", content: "<p>Um bom fluxo é limpo. As lanes devem separar claramente as responsabilidades. As setas não devem se cruzar.</p>" }, { title: "Coerência", content: "<p>O fluxo deve fazer sentido lógico. Cada atividade leva a um resultado que alimenta a próxima etapa.</p>" }], question: "INTERPRETE um fluxo BPMN de recrutamento.", answer: "O fluxo mostra a jornada do candidato, desde o envio do currículo até a contratação ou não. A clareza depende de quão bem o diagrama segue as boas práticas." },
+                { id: 8, title: "Maturidade de Processos", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>`, tip: "Compare o profissional contra o amador (várzea).", description: "Mede o grau de controle e otimização dos processos, variando de caótico (imaturo) a otimizado (maduro).", topics: ["Maduro: Documentado", "Imaturo: Informal", "Controle vs. Caos"], topicsDetails: [{ title: "Maduro: Documentado", content: "<p>Os processos são mapeados, documentados e padronizados. Todos sabem como funciona.</p>" }, { title: "Imaturo: Informal", content: "<p>Os processos 'existem na cabeça das pessoas'. O conhecimento não é compartilhado.</p>" }, { title: "Controle vs. Caos", content: "<p>Maturidade traz controle (KPIs, otimização). Imaturidade gera caos (imprevisibilidade, erros).</p>" }], question: "Explique a diferença entre organizações com processos maduros e imaturos.", answer: "Maduros: Processos são documentados, otimizados e monitorados, resultando em alta eficiência. Imaturos: Processos são informais, dependentes de pessoas e suscetíveis a erros." },
+                { id: 9, title: "BPMN para Inovação", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M15.09 13.62A5 5 0 0 1 17 19l-4-4"/><path d="m3.5 5.5 4 4"/><path d="M20.5 8.5c-2.286-2.286-4.571-2.286-6.857 0-2.286 2.286-2.286 4.571 0 6.857 2.286 2.286 4.571 2.286 6.857 0 2.286-2.286 2.286-4.571 0-6.857Z"/><path d="M9 17H4s-1-1.5-1-4 1.5-4 4-4h2"/><path d/></svg>`, tip: "Foco total em AUTOMAÇÃO para agilidade real.", description: "Usar o BPMN como um plano de ação para automatizar processos, permitindo que a empresa se adapte rapidamente.", topics: ["Foco em Automação", "Mapa para Sistemas", "Ajustes Rápidos"], topicsDetails: [{ title: "Foco em Automação", content: "<p>A modelagem deve ser um projeto para o futuro ('TO-BE'), identificando tarefas candidatas para automação.</p>" }, { title: "Mapa para Sistemas", content: "<p>O diagrama BPMN se torna a especificação funcional para os desenvolvedores.</p>" }, { title: "Ajustes Rápidos", content: "<p>Quando um processo é automatizado e guiado por BPMN, mudá-lo se torna mais fácil, conferindo agilidade.</p>" }], question: "Qual abordagem é mais eficaz para maximizar os benefícios do BPMN em empresas ágeis?", answer: "A abordagem mais eficaz é focar a modelagem em Automação. Isso permite que os processos sejam completados e ajustados com as mudanças do negócio de forma ágil." },
+                { id: 10, title: "ML com Dado Velho", icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12a10 10 0 0 0-10 10z"/></svg>`, tip: "Entrada de lixo, saída de lixo. Simples assim.", description: "É o problema de treinar um modelo de Machine Learning com informações desatualizadas, o que leva a previsões ruins (viés temporal).", topics: ["Viés Temporal", "Acurácia Baixa", "Solução: Dados Frescos"], topicsDetails: [{ title: "Viés Temporal", content: "<p>Ocorre quando um modelo é treinado com dados de um período, mas aplicado a outro, e as relações entre as variáveis mudaram.</p>" }, { title: "Acurácia Baixa", content: "<p>Um modelo pode ter ótima acurácia nos dados de teste (antigos), mas falhar em produção (dados novos).</p>" }, { title: "Solução: Dados Frescos", content: "<p>A principal mitigação é o retreino periódico do modelo com dados recentes, automatizado via MLOps.</p>" }], question: "Um modelo de inadimplência foi treinado com dados de renda desatualizados. QUAL o impacto e a mitigação?", answer: "O modelo apresentará viés temporal e menor acurácia. A mitigação é priorizar a aquisição de dados de renda mais recentes, buscando atualizações periódicas ou fontes de dados em tempo real." }
+            ]
+        }
+    };
+
+    // --- LÓGICA DA APLICAÇÃO ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const mainHub = document.getElementById('main-hub');
+        const studyDeckView = document.getElementById('study-deck-view');
+        const subjectSelection = document.getElementById('subject-selection');
+        const backToHubBtn = document.getElementById('back-to-hub');
+        const modalContainer = document.getElementById('modal-container');
+
+        let currentDeckData = {};
+        let currentIndex = 0;
+
+        // Função para mostrar a tela principal
+        function showMainHub() {
+            studyDeckView.classList.add('hidden');
+            studyDeckView.classList.remove('flex');
+            mainHub.classList.remove('hidden');
+            mainHub.classList.add('flex');
+        }
+
+        // Função para iniciar um deck de estudo
+        function startStudyDeck(subjectKey) {
+            currentDeckData = studyDecks[subjectKey];
+            if (!currentDeckData) return;
+            
+            mainHub.classList.add('hidden');
+            mainHub.classList.remove('flex');
+            studyDeckView.classList.remove('hidden');
+            studyDeckView.classList.add('flex');
+            
+            // Aplicar tema
+            applyTheme(currentDeckData.theme);
+            
+            document.getElementById('study-title').textContent = currentDeckData.title;
+            currentIndex = 0;
+            updateDeck();
+        }
+        
+        // Aplica o tema de cores nos elementos dinâmicos
+        function applyTheme(theme) {
+            const studyTitle = document.getElementById('study-title');
+            const studySubtitle = document.getElementById('study-subtitle');
+            const navButtons = document.querySelectorAll('#study-deck-view button');
+
+            const themeColors = {
+                purple: { main: 'purple-300', accent: 'pink-400', ring: 'purple-400', hover: 'purple-500/20'},
+                green: { main: 'green-300', accent: 'amber-400', ring: 'green-400', hover: 'green-500/20' }
+            };
+            const colors = themeColors[theme];
+
+            studyTitle.className = `text-3xl md:text-4xl font-black uppercase text-${colors.main}`;
+            studySubtitle.className = `tech-font mt-2 text-${colors.accent}`;
+            
+            navButtons.forEach(btn => {
+                btn.classList.remove('ring-purple-400', 'ring-green-400', 'text-purple-400', 'text-green-400', 'hover:bg-purple-500/20', 'hover:bg-green-500/20', 'ring-red-400', 'text-red-400');
+                if (btn.id === 'back-to-hub') {
+                    btn.classList.add('ring-red-400', 'text-red-400');
+                } else {
+                    btn.classList.add(`ring-${colors.ring}`, `text-${colors.ring}`, `hover:bg-${colors.hover}`);
+                }
+            });
+        }
+        
+        // --- LÓGICA DO DECK (reutilizada e adaptada) ---
+        const cardDeck = document.getElementById('card-deck');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const cardCounter = document.getElementById('card-counter');
+
+        function createCard(cardData, index) {
+            const theme = currentDeckData.theme;
+            const colors = {
+                purple: { main: 'purple', accent: 'pink' },
+                green: { main: 'green', accent: 'amber' }
+            };
+            const themeClasses = colors[theme];
+
+            const card = document.createElement('div');
+            card.className = `absolute w-full h-full p-4 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 hover:border-${themeClasses.main}-400 transition-all duration-300 ease-out flex flex-col cursor-pointer`;
+            card.style.zIndex = currentDeckData.cards.length - index;
+            card.dataset.id = cardData.id;
+
+            let topicsHTML = (cardData.topics || []).map((topic, topicIndex) => 
+                `<span class="topic-span bg-gray-700/50 text-${themeClasses.main}-400 text-xs font-medium px-2.5 py-1 rounded-full tech-font hover:bg-${themeClasses.main}-500/20 transition-colors duration-200 cursor-pointer" data-topic-index="${topicIndex}">${topic}</span>`
+            ).join('');
+
+            card.innerHTML = `
+                <header class="flex justify-between items-start text-${themeClasses.main}-400 border-b border-gray-700 pb-2">
+                    <h3 class="text-xl font-bold tech-font">${cardData.id.toString().padStart(2,'0')}: ${cardData.title}</h3>
+                    <div class="flex items-center space-x-2">
+                        ${cardData.icon}
+                        <button class="qa-button theme-${theme} p-1 rounded-full border border-${themeClasses.accent}-400 text-${themeClasses.accent}-400 hover:bg-${themeClasses.accent}-400/20" title="Testar conhecimento">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                        </button>
+                    </div>
+                </header>
+                <main class="flex-grow flex flex-col justify-center items-center text-center mt-4 px-2">
+                     <p class="text-${themeClasses.accent}-400 italic mb-2">"${cardData.tip}"</p>
+                     <p class="text-sm text-gray-400">${cardData.description}</p>
+                </main>
+                <footer class="mt-4 border-t border-gray-700 pt-3">
+                    <p class="text-center text-xs text-gray-500 mb-2 tech-font">[TÓPICOS-CHAVE]</p>
+                    <div class="flex justify-center items-center gap-2 flex-wrap">
+                        ${topicsHTML}
+                    </div>
+                </footer>`;
+            
+            card.addEventListener('click', () => openDetailsModal(cardData));
+            card.querySelector('.qa-button').addEventListener('click', (e) => { e.stopPropagation(); openQaModal(cardData); });
+            card.querySelectorAll('.topic-span').forEach(span => {
+                span.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openTopicModal(cardData, parseInt(e.target.dataset.topicIndex));
+                });
+            });
+            return card;
+        }
+
+        function updateDeck() {
+            cardDeck.innerHTML = '';
+            currentDeckData.cards.forEach((cardData, index) => {
+                const cardElement = createCard(cardData, index);
+                const offset = (index - currentIndex) * 12;
+                const scale = 1 - (index - currentIndex) * 0.04;
+                if (index < currentIndex) {
+                    cardElement.style.transform = 'translateX(-120%) scale(0.8) rotate(-15deg)';
+                    cardElement.style.opacity = '0';
+                } else if (index > currentIndex) {
+                    cardElement.style.transform = `translateX(${offset}px) scale(${scale})`;
+                    cardElement.style.opacity = `${1 - (index - currentIndex) * 0.4}`;
+                } else {
+                    cardElement.style.transform = 'translateX(0) scale(1)';
+                    cardElement.style.opacity = '1';
+                }
+                cardDeck.appendChild(cardElement);
+            });
+            cardCounter.textContent = `${currentIndex + 1} / ${currentDeckData.cards.length}`;
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + currentDeckData.cards.length) % currentDeckData.cards.length;
+            updateDeck();
+        });
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % currentDeckData.cards.length;
+            updateDeck();
+        });
+
+        // --- LÓGICA DOS MODAIS (com temas) ---
+        function createModal(id, theme) {
+            const accentColor = theme === 'purple' ? 'purple' : 'green';
+            const qaAccentColor = theme === 'purple' ? 'pink' : 'amber';
+
+            return `
+            <div id="${id}-details-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden transition-opacity duration-300">
+                <div class="bg-[#161b22] border border-${accentColor}-500/50 rounded-lg shadow-2xl w-full max-w-2xl transform transition-transform duration-300 scale-95">
+                    <header class="p-4 border-b border-${accentColor}-500/30 flex justify-between items-center">
+                        <h2 class="modal-title text-2xl font-bold tech-font text-${accentColor}-400"></h2>
+                        <button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button>
+                    </header>
+                    <div class="modal-content p-6 max-h-[60vh] overflow-y-auto ${'theme-'+theme}"></div>
+                </div>
+            </div>
+            <div id="${id}-topic-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-[51] hidden transition-opacity duration-300">
+                <div class="bg-[#161b22] border border-${accentColor}-500/50 rounded-lg shadow-2xl w-full max-w-2xl transform transition-transform duration-300 scale-95">
+                    <header class="p-4 border-b border-${accentColor}-500/30 flex justify-between items-center">
+                        <h2 class="topic-modal-title text-2xl font-bold tech-font text-${accentColor}-400"></h2>
+                        <button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button>
+                    </header>
+                    <div class="topic-modal-content p-6 max-h-[60vh] overflow-y-auto ${'theme-'+theme}"></div>
+                </div>
+            </div>
+            <div id="${id}-qa-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden transition-opacity duration-300">
+                <div class="bg-[#161b22] border border-${qaAccentColor}-400/50 rounded-lg shadow-2xl w-full max-w-2xl transform transition-transform duration-300 scale-95">
+                    <header class="p-4 border-b border-${qaAccentColor}-400/30 flex justify-between items-center">
+                        <h2 class="text-2xl font-bold tech-font text-${qaAccentColor}-400">// Teste seu Conhecimento</h2>
+                        <button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button>
+                    </header>
+                    <div class="p-6">
+                        <div class="qa-question mb-4 text-gray-200"></div>
+                        <div class="qa-answer hidden p-4 bg-black/30 rounded-md border border-gray-700 text-gray-300"></div>
+                        <div class="mt-6 text-center">
+                            <button class="reveal-answer-btn bg-${qaAccentColor}-500 text-black font-bold py-2 px-6 rounded-md hover:bg-${qaAccentColor}-400 transition-all duration-200 tech-font">Revelar Resposta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        }
+        
+        function openDetailsModal(cardData) {
+            const theme = currentDeckData.theme;
+            const accentColor = theme === 'purple' ? 'purple' : 'green';
+            const modal = document.getElementById(`${theme}-details-modal`);
+            modal.querySelector('.modal-title').textContent = `${cardData.id.toString().padStart(2,'0')}: ${cardData.title}`;
+            let detailsContent = `<p class="mb-4 text-gray-300 italic">"${cardData.tip}"</p><p class="mb-4 text-gray-300">${cardData.description}</p><h4 class="font-bold text-lg tech-font mb-2 text-${accentColor}-400">// TÓPICOS-CHAVE:</h4>`;
+            let topicsList = '<ul class="list-none space-y-4">';
+            cardData.topicsDetails.forEach(detail => {
+                topicsList += `<li class="border-l-2 border-${accentColor}-500 pl-4"><strong class="tech-font text-${accentColor}-300">${detail.title}:</strong> ${detail.content}</li>`;
+            });
+            topicsList += '</ul>';
+            modal.querySelector('.modal-content').innerHTML = detailsContent + topicsList;
+            
+            showModal(modal);
+        }
+
+        function openTopicModal(cardData, topicIndex) {
+            const theme = currentDeckData.theme;
+            const topicDetail = cardData.topicsDetails[topicIndex];
+            if (!topicDetail) return;
+            const modal = document.getElementById(`${theme}-topic-modal`);
+            modal.querySelector('.topic-modal-title').textContent = topicDetail.title;
+            modal.querySelector('.topic-modal-content').innerHTML = topicDetail.content;
+            showModal(modal);
+        }
+
+        function openQaModal(cardData) {
+            const theme = currentDeckData.theme;
+            const qaAccentColor = theme === 'purple' ? 'pink' : 'amber';
+            const modal = document.getElementById(`${theme}-qa-modal`);
+            modal.querySelector('.qa-question').innerHTML = `<p class="font-bold">Pergunta:</p><p>${cardData.question}</p>`;
+            const answerDiv = modal.querySelector('.qa-answer');
+            answerDiv.innerHTML = `<p class="font-bold text-${qaAccentColor}-400">Resposta:</p><p>${cardData.answer}</p>`;
+            answerDiv.classList.add('hidden');
+            const revealBtn = modal.querySelector('.reveal-answer-btn');
+            revealBtn.textContent = "Revelar Resposta";
+            revealBtn.onclick = () => {
+                answerDiv.classList.remove('hidden');
+                revealBtn.textContent = "Resposta Revelada";
+            };
+            showModal(modal);
+        }
+
+        function showModal(modalElement) {
+            modalElement.classList.remove('hidden');
+            setTimeout(() => modalElement.querySelector('div > div').classList.add('scale-100'), 10);
+        }
+        
+        function closeModal(modalElement) {
+            if (!modalElement) return;
+            modalElement.querySelector('div > div').classList.remove('scale-100');
+            setTimeout(() => modalElement.classList.add('hidden'), 300);
+        }
+
+        // --- INICIALIZAÇÃO E EVENTOS GERAIS ---
+        modalContainer.innerHTML = createModal('gp', 'purple') + createModal('te', 'green');
+
+        document.querySelectorAll('.close-modal-btn').forEach(btn => {
+            btn.addEventListener('click', () => closeModal(btn.closest('.modal-wrapper')));
+        });
+        document.querySelectorAll('.modal-wrapper').forEach(modal => {
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(modal); });
+        });
+        
+        subjectSelection.addEventListener('click', (e) => {
+            const subjectCard = e.target.closest('.subject-card');
+            if (subjectCard) {
+                startStudyDeck(subjectCard.dataset.subject);
+            }
+        });
+
+        backToHubBtn.addEventListener('click', showMainHub);
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && !studyDeckView.classList.contains('hidden')) {
+                prevBtn.click();
+            } else if (e.key === 'ArrowRight' && !studyDeckView.classList.contains('hidden')) {
+                nextBtn.click();
+            } else if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-wrapper').forEach(modal => {
+                    if(!modal.classList.contains('hidden')) closeModal(modal);
+                });
+            }
+        });
+    });
+    </script>
+</body>
+</html>
