@@ -86,37 +86,53 @@
     <div class="scanlines"></div>
 
     <!-- TELA PRINCIPAL - O CLUBE DO ESTUDANTE -->
-    <div id="main-hub" class="relative h-screen w-full flex flex-col items-center justify-center p-4">
-        <header class="text-center mb-12">
-            <h1 class="glitch" data-text="Clube do Estudante">Clube do Estudante</h1>
-            <p class="tech-font text-purple-400 mt-2">// Selecione a matéria para iniciar os estudos.</p>
-        </header>
-        <div id="subject-selection" class="flex flex-col md:flex-row gap-8">
-            <!-- Card de Matéria 1 -->
-            <div data-subject="gp" class="subject-card group relative w-72 h-80 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 p-6 flex flex-col justify-between items-center text-center cursor-pointer transition-all duration-300 hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/20">
-                <div class="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="relative z-10">
-                    <div class="text-purple-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+    <div id="main-hub" class="relative h-screen w-full flex flex-col items-center p-4">
+        <!-- Wrapper para centralizar o conteúdo principal e permitir que ele cresça -->
+        <div class="flex-grow flex flex-col items-center justify-center">
+            <header class="text-center mb-12">
+                <h1 class="glitch" data-text="Clube do Estudante">Clube do Estudante</h1>
+                <p class="tech-font text-purple-400 mt-2">// Selecione a matéria para iniciar os estudos.</p>
+            </header>
+            <!-- Seleção de Matérias (sem responsividade de coluna/linha) -->
+            <div id="subject-selection" class="flex gap-8">
+                <!-- Card de Matéria 1 -->
+                <div data-subject="gp" class="subject-card group relative w-72 h-80 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 p-6 flex flex-col justify-between items-center text-center cursor-pointer transition-all duration-300 hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/20">
+                    <div class="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="text-purple-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+                        </div>
+                        <h2 class="text-2xl font-bold tech-font text-purple-300">Gestão de Projetos</h2>
+                        <p class="mt-2 text-sm text-gray-400">Domine o PMBOK, Riscos, Escopo e os segredos para não deixar seu projeto virar um caos.</p>
                     </div>
-                    <h2 class="text-2xl font-bold tech-font text-purple-300">Gestão de Projetos</h2>
-                    <p class="mt-2 text-sm text-gray-400">Domine o PMBOK, Riscos, Escopo e os segredos para não deixar seu projeto virar um caos.</p>
+                    <span class="relative z-10 text-xs font-bold tech-font text-gray-500 group-hover:text-purple-400 transition-colors">21 CARDS</span>
                 </div>
-                <span class="relative z-10 text-xs font-bold tech-font text-gray-500 group-hover:text-purple-400 transition-colors">21 CARDS</span>
-            </div>
-            <!-- Card de Matéria 2 -->
-            <div data-subject="te" class="subject-card group relative w-72 h-80 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 p-6 flex flex-col justify-between items-center text-center cursor-pointer transition-all duration-300 hover:border-green-500 hover:shadow-2xl hover:shadow-green-500/20">
-                <div class="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="relative z-10">
-                    <div class="text-green-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4"><path d="M2 8h20"/><path d="M6 12h12"/><path d="M10 16h4"/><path d="M4 4v16"/><path d="M20 4v16"/></svg>
+                <!-- Card de Matéria 2 -->
+                <div data-subject="te" class="subject-card group relative w-72 h-80 bg-[#161b22]/80 backdrop-blur-md rounded-lg border border-gray-700 p-6 flex flex-col justify-between items-center text-center cursor-pointer transition-all duration-300 hover:border-green-500 hover:shadow-2xl hover:shadow-green-500/20">
+                    <div class="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="text-green-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4"><path d="M2 8h20"/><path d="M6 12h12"/><path d="M10 16h4"/><path d="M4 4v16"/><path d="M20 4v16"/></svg>
+                        </div>
+                        <h2 class="text-2xl font-bold tech-font text-green-300">Tópicos em Engenharia</h2>
+                        <p class="mt-2 text-sm text-gray-400">Entenda o fluxo de produção, BPMN, faxina de dados e os principais erros e acertos em modelagem.</p>
                     </div>
-                    <h2 class="text-2xl font-bold tech-font text-green-300">Tópicos em Engenharia</h2>
-                    <p class="mt-2 text-sm text-gray-400">Entenda o fluxo de produção, BPMN, faxina de dados e os principais erros e acertos em modelagem.</p>
+                    <span class="relative z-10 text-xs font-bold tech-font text-gray-500 group-hover:text-green-400 transition-colors">10 CARDS</span>
                 </div>
-                <span class="relative z-10 text-xs font-bold tech-font text-gray-500 group-hover:text-green-400 transition-colors">10 CARDS</span>
             </div>
         </div>
+        <!-- Rodapé -->
+        <footer class="w-full text-center p-4">
+            <div class="max-w-4xl mx-auto text-xs tech-font text-gray-500 space-y-1">
+                <p>
+                    Desenvolvido por Davi Cortelete (CEO & Founder
+                    <a href="https://www.instagram.com/inteligenciarte.ia/" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-pink-400 transition-colors">@inteligenciarte.ia</a>).
+                </p>
+                <p>
+                    Direitos reservados para fins comerciais. Liberado para produção e uso independente sem fins lucrativos.
+                </p>
+            </div>
+        </footer>
     </div>
 
     <!-- TELA DE ESTUDO (DECK DE CARDS) - Escondida por padrão -->
