@@ -117,4 +117,8 @@ Este projeto é, antes de tudo, uma ferramenta de batalha. Nasceu da urgência d
 
 Portanto, ele é dedicado a todos os estudantes que pensam diferente: àqueles que veem padrões onde outros veem caos, que buscam a essência em vez de decorar o superficial, e que sabem que a melhor forma de aprender é construindo.
 
+<<<<<<< HEAD
 A concepção, curadoria de conteúdo e visão para este portal foram idealizadas e criadas por Davi Cortelete, CEO & Founder da InteligenciArte.IA. Sua curiosidade e direcionamento foram o combustível que transformou um simples script em uma plataforma de estudos completa, provando que uma boa colaboração entre a criatividade humana e a inteligência artificial pode gerar resultados incríveis.
+=======
+A concepção, curadoria de conteúdo e visão para este portal foram idealizadas e criadas por Davi Cortelete, CEO & Founder da InteligenciArte.IA. Sua curiosidade e direcionamento foram o combustível que transformou um simples script em uma plataforma de estudos completa, provando que uma boa colaboração entre a criatividade humana e a inteligência artificial pode gerar resultados incríveis.
+>>>>>>> 939e36dd17971ef7c0537b80edd8b2eb63fec103
