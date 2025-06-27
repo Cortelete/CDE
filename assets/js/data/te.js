@@ -1,5 +1,5 @@
 // Arquivo: data/te.js
-// Contém os dados exclusivamente para o deck de "Tópicos em Engenharia".
+// Contém os dados para o baralho de "Tópicos em Engenharia", com o campo 'details' reestruturado.
 
 export const te = {
     title: "Tópicos em Engenharia",
@@ -19,7 +19,15 @@ export const te = {
                 { title: "Tratamento de Nulos", content: "<p>Campos vazios podem quebrar cálculos. Podem ser removidos ou preenchidos com um valor padrão (zero, média, mediana).</p>" }
             ],
             question: "Diante de uma base com duplicidades e nulos, detalhe como você garantiria a qualidade dos dados.",
-            answer: "As etapas essenciais são: Padronização de formatação, Remoção de duplicidades, Validação dos dados (se fazem sentido), Tratamento dos dados nulos e Documentação do que foi feito e do que cada campo significa."
+            answer: "As etapas essenciais são: Padronização de formatação, Remoção de duplicidades, Validação dos dados (se fazem sentido), Tratamento dos dados nulos e Documentação do que foi feito e do que cada campo significa.",
+            details: {
+                subtitle: "// Etapas Essenciais:",
+                points: [
+                    "<strong>Padronização de Dados:</strong> Garantir que os dados sigam um formato consistente (ex: datas, CPFs). Isso evita erros em filtros e cálculos.",
+                    "<strong>Remoção de Duplicados:</strong> Identificar e eliminar registros que aparecem mais de uma vez. Ter um cliente duplicado distorce todas as métricas.",
+                    "<strong>Tratamento de Nulos:</strong> Campos vazios podem quebrar cálculos. Podem ser removidos ou preenchidos com um valor padrão (zero, média, mediana)."
+                ]
+            }
         },
         {
             id: 2,
@@ -33,7 +41,15 @@ export const te = {
                 { title: "Visualização", content: "<p>É a etapa de transformar os resultados em gráficos e dashboards para facilitar a comunicação e a tomada de decisão.</p>" }
             ],
             question: "EXPLIQUE como você aplicaria o ciclo da Ciência de Dados.",
-            answer: "O ciclo é composto por: Coleta (obtenção de dados), Limpeza (tratamento de erros), Análise (buscar padrões), Modelagem (aplicar modelos), Avaliação (verificar desempenho), Visualização (mostrar resultados) e Monitoramento (acompanhar em produção)."
+            answer: "O ciclo é composto por: Coleta, Limpeza, Análise, Modelagem, Avaliação, Visualização e Monitoramento.",
+            details: {
+                subtitle: "// Fases do Ciclo:",
+                points: [
+                    "<strong>Coleta e Limpeza:</strong> A Coleta é a obtenção dos dados brutos. A Limpeza vem em seguida para tratar inconsistências.",
+                    "<strong>Análise e Modelagem:</strong> Na Análise, buscamos entender os dados. Na Modelagem, aplicamos algoritmos de ML ou estatísticos.",
+                    "<strong>Visualização:</strong> É a etapa de transformar os resultados em gráficos e dashboards para facilitar a comunicação e a tomada de decisão."
+                ]
+            }
         },
         {
             id: 3,
@@ -47,7 +63,15 @@ export const te = {
                 { title: "Decisão (Gateway)", content: "<p>São os losangos que controlam o caminho do fluxo (ex: Gateway Exclusivo 'OU').</p>" }
             ],
             question: "CRIE uma modelagem para o fluxo de produção de canetas.",
-            answer: "Início (Pedido recebido) -> Atividades (Separar matéria-prima > Montar corpo > Inserir carga > Inspeção) -> Decisão (Aprovado? Sim: embalar; Não: descarte) -> Encerramento (Produto enviado)."
+            answer: "Início (Pedido recebido) -> Atividades (Separar matéria-prima > Montar corpo > Inserir carga > Inspeção) -> Decisão (Aprovado? Sim: embalar; Não: descarte) -> Encerramento (Produto enviado).",
+            details: {
+                subtitle: "// Elementos do Fluxo:",
+                points: [
+                    "<strong>Início (Evento):</strong> Em BPMN, é o gatilho que dispara o processo, representado por um círculo com borda fina.",
+                    "<strong>Atividades (Tarefas):</strong> Representam o trabalho a ser feito, são os retângulos no diagrama.",
+                    "<strong>Decisão (Gateway):</strong> São os losangos que controlam o caminho do fluxo (ex: Gateway Exclusivo 'OU')."
+                ]
+            }
         },
         {
             id: 4,
@@ -61,7 +85,15 @@ export const te = {
                 { title: "Sem Espaguete", content: "<p>Evitar o cruzamento excessivo de setas. Um layout limpo, da esquerda para a direita, torna o diagrama legível.</p>" }
             ],
             question: "CITE e JUSTIFIQUE boas práticas para elaborar um diagrama BPMN.",
-            answer: "Utilizar nomenclatura clara; Garantir que todo fluxo tenha início e fim; Não sobrecarregar o diagrama (usar subprocessos); Usar gateways corretamente; Representar papéis com pools e lanes; Evitar cruzamento de setas."
+            answer: "Utilizar nomenclatura clara; Garantir que todo fluxo tenha início e fim; Não sobrecarregar o diagrama (usar subprocessos); Usar gateways corretamente; Representar papéis com pools e lanes; Evitar cruzamento de setas.",
+            details: {
+                subtitle: "// Práticas Essenciais:",
+                points: [
+                    "<strong>Nomenclatura Clara:</strong> Usar verbos de ação para atividades (Ex: 'Verificar Crédito') para evitar ambiguidade.",
+                    "<strong>Pools e Lanes:</strong> Pools representam entidades externas ('Cliente'). Lanes dividem um pool para mostrar papéis internos ('Vendas', 'Financeiro').",
+                    "<strong>Sem Espaguete:</strong> Evitar o cruzamento excessivo de setas. Um layout limpo, da esquerda para a direita, torna o diagrama legível."
+                ]
+            }
         },
         {
             id: 5,
@@ -75,7 +107,15 @@ export const te = {
                 { title: "Fluxo Morto", content: "<p>Todo fluxo deve ter um Evento de Fim. Um fluxo que 'morre' no meio do caminho está incompleto e é um erro.</p>" }
             ],
             question: "IDENTIFIQUE dois problemas comuns em diagramas BPMN.",
-            answer: "Problemas comuns incluem: Lane sem nome (falta de clareza na responsabilidade); Fim de processo sem nomeação (fluxo incompleto); Gateway usado incorretamente; Atividade com mais de uma saída sem um gateway."
+            answer: "Problemas comuns incluem: Lane sem nome (falta de clareza na responsabilidade); Fim de processo sem nomeação (fluxo incompleto); Gateway usado incorretamente; Atividade com mais de uma saída sem um gateway.",
+            details: {
+                subtitle: "// Erros Comuns:",
+                points: [
+                    "<strong>Lane sem Nome:</strong> Uma Lane sem nome deixa a responsabilidade por suas atividades indefinida. Cada raia deve ser nomeada com o papel ou departamento.",
+                    "<strong>Gateway Errado:</strong> Usar um gateway incorreto (ex: Paralelo 'E' quando a decisão é Exclusiva 'OU') cria uma lógica de processo falha.",
+                    "<strong>Fluxo Morto:</strong> Todo fluxo deve ter um Evento de Fim. Um fluxo que 'morre' no meio do caminho está incompleto e é um erro."
+                ]
+            }
         },
         {
             id: 6,
@@ -89,7 +129,15 @@ export const te = {
                 { title: "Ganhar Agilidade", content: "<p>Processos automatizados rodam 24/7, reduzindo drasticamente o tempo de ciclo (lead time) de um processo.</p>" }
             ],
             question: "SUGIRA ajustes para melhorar a eficiência de um processo de recrutamento via automação.",
-            answer: "Sugestões: Automatizar etapas manuais, como triagem de currículos, usando softwares de RH. Impacto: redução de tempo e erro humano. Automatizar as análises com critérios padronizados. Impacto: imparcialidade e velocidade."
+            answer: "Sugestões: Automatizar etapas manuais, como triagem de currículos, usando softwares de RH. Impacto: redução de tempo e erro humano. Automatizar as análises com critérios padronizados. Impacto: imparcialidade e velocidade.",
+            details: {
+                subtitle: "// Benefícios da Automação:",
+                points: [
+                    "<strong>Automatizar Triagem:</strong> Tarefas como ler currículos e aplicar filtros básicos são repetitivas e ideais para automação com RPA ou ATS.",
+                    "<strong>Reduzir Erro Humano:</strong> Máquinas não se cansam. Automatizar tarefas baseadas em regras elimina erros de digitação e inconsistências.",
+                    "<strong>Ganhar Agilidade:</strong> Processos automatizados rodam 24/7, reduzindo drasticamente o tempo de ciclo (lead time) de um processo."
+                ]
+            }
         },
         {
             id: 7,
@@ -103,7 +151,15 @@ export const te = {
                 { title: "Coerência", content: "<p>O fluxo deve fazer sentido lógico. Cada atividade leva a um resultado que alimenta a próxima etapa.</p>" }
             ],
             question: "INTERPRETE um fluxo BPMN de recrutamento.",
-            answer: "O fluxo mostra a jornada do candidato, desde o envio do currículo até a contratação ou não. A clareza depende de quão bem o diagrama segue as boas práticas."
+            answer: "O fluxo mostra a jornada do candidato, desde o envio do currículo até a contratação ou não. A clareza depende de quão bem o diagrama segue as boas práticas.",
+            details: {
+                subtitle: "// Pontos de Foco na Leitura:",
+                points: [
+                    "<strong>Jornada do Candidato:</strong> Seguir as setas desde o evento de início ('CV Recebido') até os possíveis fins ('Contratado' ou 'Rejeitado').",
+                    "<strong>Clareza Visual:</strong> Um bom fluxo é limpo. As lanes devem separar claramente as responsabilidades. As setas não devem se cruzar.",
+                    "<strong>Coerência:</strong> O fluxo deve fazer sentido lógico. Cada atividade leva a um resultado que alimenta a próxima etapa."
+                ]
+            }
         },
         {
             id: 8,
@@ -117,7 +173,15 @@ export const te = {
                 { title: "Controle vs. Caos", content: "<p>Maturidade traz controle (KPIs, otimização). Imaturidade gera caos (imprevisibilidade, erros).</p>" }
             ],
             question: "Explique a diferença entre organizações com processos maduros e imaturos.",
-            answer: "Maduros: Processos são documentados, otimizados e monitorados, resultando em alta eficiência. Imaturos: Processos são informais, dependentes de pessoas e suscetíveis a erros."
+            answer: "Maduros: Processos são documentados, otimizados e monitorados, resultando em alta eficiência. Imaturos: Processos são informais, dependentes de pessoas e suscetíveis a erros.",
+            details: {
+                subtitle: "// Níveis de Maturidade:",
+                points: [
+                    "<strong>Maduro: Documentado:</strong> Os processos são mapeados, documentados e padronizados. Todos sabem como funciona.",
+                    "<strong>Imaturo: Informal:</strong> Os processos 'existem na cabeça das pessoas'. O conhecimento não é compartilhado.",
+                    "<strong>Controle vs. Caos:</strong> Maturidade traz controle (KPIs, otimização). Imaturidade gera caos (imprevisibilidade, erros)."
+                ]
+            }
         },
         {
             id: 9,
@@ -131,7 +195,15 @@ export const te = {
                 { title: "Ajustes Rápidos", content: "<p>Quando um processo é automatizado e guiado por BPMN, mudá-lo se torna mais fácil, conferindo agilidade.</p>" }
             ],
             question: "Qual abordagem é mais eficaz para maximizar os benefícios do BPMN em empresas ágeis?",
-            answer: "A abordagem mais eficaz é focar a modelagem em Automação. Isso permite que os processos sejam completados e ajustados com as mudanças do negócio de forma ágil."
+            answer: "A abordagem mais eficaz é focar a modelagem em Automação. Isso permite que os processos sejam completados e ajustados com as mudanças do negócio de forma ágil.",
+            details: {
+                subtitle: "// BPMN como Ferramenta Ágil:",
+                points: [
+                    "<strong>Foco em Automação:</strong> A modelagem deve ser um projeto para o futuro ('TO-BE'), identificando tarefas candidatas para automação.",
+                    "<strong>Mapa para Sistemas:</strong> O diagrama BPMN se torna a especificação funcional para os desenvolvedores.",
+                    "<strong>Ajustes Rápidos:</strong> Quando um processo é automatizado e guiado por BPMN, mudá-lo se torna mais fácil, conferindo agilidade."
+                ]
+            }
         },
         {
             id: 10,
@@ -145,7 +217,15 @@ export const te = {
                 { title: "Solução: Dados Frescos", content: "<p>A principal mitigação é o retreino periódico do modelo com dados recentes, automatizado via MLOps.</p>" }
             ],
             question: "Um modelo de inadimplência foi treinado com dados de renda desatualizados. QUAL o impacto e a mitigação?",
-            answer: "O modelo apresentará viés temporal e menor acurácia. A mitigação é priorizar a aquisição de dados de renda mais recentes, buscando atualizações periódicas ou fontes de dados em tempo real."
+            answer: "O modelo apresentará viés temporal e menor acurácia. A mitigação é priorizar a aquisição de dados de renda mais recentes, buscando atualizações periódicas ou fontes de dados em tempo real.",
+            details: {
+                subtitle: "// Conceitos Chave do Viés Temporal:",
+                points: [
+                    "<strong>Viés Temporal:</strong> Ocorre quando um modelo é treinado com dados de um período, mas aplicado a outro, e as relações entre as variáveis mudaram.",
+                    "<strong>Acurácia Baixa:</strong> Um modelo pode ter ótima acurácia nos dados de teste (antigos), mas falhar em produção (dados novos).",
+                    "<strong>Solução: Dados Frescos:</strong> A principal mitigação é o retreino periódico do modelo com dados recentes, automatizado via MLOps."
+                ]
+            }
         }
     ]
 };

@@ -4,16 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clube do Estudante - Portal de Estudos</title>
-
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
-    <!-- Custom Stylesheet (Caminho corrigido) -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -24,15 +18,14 @@
     <div class="scanlines"></div>
 
     <!-- Tela Principal (Hub de Matérias) -->
-    <div id="main-hub" class="relative h-screen w-full flex flex-col items-center">
-        <div class="content-wrapper flex-grow flex flex-col items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <header class="text-center py-12 flex-shrink-0">
+    <div id="main-hub" class="relative min-h-screen w-full flex flex-col items-center">
+        <div class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
+             <header class="text-center py-12 flex-shrink-0">
                 <h1 class="glitch" data-text="Clube do Estudante">Clube do Estudante</h1>
                 <p id="hub-subtitle" class="tech-font mt-2">// Selecione a matéria para iniciar os estudos.</p>
             </header>
             
-            <!-- CORREÇÃO: Removidas as classes de grid do Tailwind para controle via CSS -->
-            <div id="subject-selection" class="w-full">
+            <div id="subject-selection" class="flex-grow w-full">
                 <!-- Cards das matérias serão inseridos aqui pelo JavaScript -->
             </div>
             
@@ -43,7 +36,7 @@
             </div>
         </div>
         
-        <footer class="w-full text-center p-4 flex-shrink-0 bg-[#0d1117]">
+        <footer class="w-full text-center p-4 flex-shrink-0 bg-[#0d1117] relative">
             <div class="max-w-4xl mx-auto text-xs tech-font text-gray-500 space-y-1">
                 <p>
                     Desenvolvido por Davi Cortelete (CEO & Founder
@@ -56,8 +49,8 @@
         </footer>
     </div>
 
-    <!-- Tela de Estudo (Deck de Cards) -->
-    <main id="study-deck-view" class="hidden relative h-screen w-full flex-col items-center justify-center p-4 overflow-hidden">
+    <!-- CORREÇÃO: Adicionada a classe 'flex' para ativar o alinhamento -->
+    <main id="study-deck-view" class="hidden fixed inset-0 flex flex-col items-center justify-center p-4 overflow-hidden z-20 bg-gray-900/50 backdrop-blur-sm">
         <header class="text-center mb-4 md:mb-8">
             <h1 id="study-title" class="text-4xl font-black uppercase"></h1>
             <p id="study-subtitle" class="tech-font mt-2">// Navegue pelos cards e domine os conceitos!</p>
@@ -76,11 +69,18 @@
             </button>
         </div>
     </main>
-
-    <!-- Contêiner para os Modais -->
-    <div id="modal-container"></div>
-
-    <!-- Nosso script principal -->
+    
+    <div id="modal-container">
+        <div id="details-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
+             <div class="modal-content-wrapper bg-[#161b22] rounded-lg shadow-2xl w-full max-w-2xl transform scale-95">
+                <header class="modal-header p-4 flex justify-between items-center">
+                    <h2 id="details-modal-title" class="modal-title text-2xl font-bold tech-font"></h2>
+                    <button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button>
+                </header>
+                <div id="details-modal-content" class="modal-content p-6 max-h-[60vh] overflow-y-auto text-gray-300 prose prose-invert prose-p:my-2 prose-strong:text-white"></div>
+            </div>
+        </div>
+    </div>
     <script src="assets/js/script.js" type="module"></script>
 </body>
 </html>

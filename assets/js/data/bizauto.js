@@ -1,5 +1,5 @@
 // Arquivo: data/bizauto.js
-// Contém os dados exclusivamente para o deck de "Automação de Negócios".
+// Contém os dados para o deck de "Automação de Negócios", com o campo 'details' reestruturado e completo.
 
 export const bizauto = {
     title: "Automação de Negócios",
@@ -19,7 +19,15 @@ export const bizauto = {
                 { title: "Escalabilidade", content: "<p>Um processo automatizado pode ser executado centenas de vezes com o mesmo esforço de configurar uma vez.</p>" }
             ],
             question: "Qual o tipo de tarefa ideal para ser automatizada?",
-            answer: "Tarefas repetitivas, baseadas em regras claras, que consomem muito tempo e são propensas a erro humano. Por exemplo, copiar e colar dados de um e-mail para uma planilha."
+            answer: "Tarefas repetitivas, baseadas em regras claras, que consomem muito tempo e são propensas a erro humano. Por exemplo, copiar e colar dados de um e-mail para uma planilha.",
+            details: {
+                subtitle: "// Objetivos Principais:",
+                points: [
+                    "<strong>Eficiência:</strong> Libera tempo humano para tarefas mais estratégicas e criativas, em vez de trabalho repetitivo.",
+                    "<strong>Redução de Erros:</strong> Máquinas não se cansam nem se distraem. A automação elimina o erro humano em tarefas baseadas em regras.",
+                    "<strong>Escalabilidade:</strong> Um processo automatizado pode ser executado centenas de vezes com o mesmo esforço de configurar uma vez."
+                ]
+            }
         },
         {
             id: 2,
@@ -33,7 +41,15 @@ export const bizauto = {
                 { title: "Para Quem?", content: "<p>No-Code é ideal para usuários de negócio e empreendedores. Low-Code é ideal para times de TI que querem acelerar o desenvolvimento.</p>" }
             ],
             question: "Uma pessoa de marketing sem saber programar pode criar um app com No-Code?",
-            answer: "Sim, absolutamente. Esse é o principal objetivo das plataformas No-Code: capacitar 'citizen developers', pessoas que entendem do negócio, a construir suas próprias ferramentas sem depender de um time de TI."
+            answer: "Sim, absolutamente. Esse é o principal objetivo das plataformas No-Code: capacitar 'citizen developers', pessoas que entendem do negócio, a construir suas próprias ferramentas sem depender de um time de TI.",
+            details: {
+                subtitle: "// Diferenças e Públicos:",
+                points: [
+                    "<strong>No-Code:</strong> Plataformas puramente visuais, baseadas em arrastar e soltar. Permitem que pessoas sem conhecimento técnico criem aplicações e automações. Ex: Bubble, Glide.",
+                    "<strong>Low-Code:</strong> Oferecem componentes visuais, mas permitem que desenvolvedores adicionem código customizado para estender a funcionalidade. Ex: Retool, OutSystems.",
+                    "<strong>Para Quem?:</strong> No-Code é ideal para usuários de negócio e empreendedores. Low-Code é ideal para times de TI que querem acelerar o desenvolvimento."
+                ]
+            }
         },
         {
             id: 3,
@@ -47,7 +63,15 @@ export const bizauto = {
                 { title: "Gatilho e Ação (Trigger/Action)", content: "<p>É o conceito fundamental. O <strong>Gatilho</strong> é o evento que inicia a automação (ex: 'Novo e-mail recebido no Gmail'). A <strong>Ação</strong> é o que acontece em seguida (ex: 'Adicionar uma linha em uma planilha do Google Sheets').</p>" }
             ],
             question: "Dê um exemplo de uma automação útil para um vendedor usando Zapier.",
-            answer: "Um bom exemplo é: Gatilho: 'Novo lead preenche formulário no site'. Ação 1: 'Adicionar o lead como um novo contato no CRM'. Ação 2: 'Enviar um e-mail de boas-vindas personalizado para o lead'. Ação 3: 'Enviar uma notificação no Slack para o time de vendas'."
+            answer: "Um bom exemplo é: Gatilho: 'Novo lead preenche formulário no site'. Ação 1: 'Adicionar o lead como um novo contato no CRM'. Ação 2: 'Enviar um e-mail de boas-vindas personalizado para o lead'. Ação 3: 'Enviar uma notificação no Slack para o time de vendas'.",
+            details: {
+                subtitle: "// Principais Plataformas e Conceitos:",
+                points: [
+                    "<strong>Zapier:</strong> Uma das mais populares e fáceis de usar. Focada em automações lineares simples: 'Se isso acontecer, faça aquilo'.",
+                    "<strong>Make (Integromat):</strong> Mais visual e poderosa, permite criar cenários complexos com múltiplos caminhos, loops e lógica avançada.",
+                    "<strong>Gatilho e Ação (Trigger/Action):</strong> É o conceito fundamental. O <strong>Gatilho</strong> é o evento que inicia a automação (ex: 'Novo e-mail recebido no Gmail'). A <strong>Ação</strong> é o que acontece em seguida (ex: 'Adicionar uma linha em uma planilha do Google Sheets')."
+                ]
+            }
         },
         {
             id: 4,
@@ -61,7 +85,15 @@ export const bizauto = {
                 { title: "Exemplos", content: "<p>Copiar dados de um PDF para um sistema antigo, preencher formulários em múltiplos sistemas, fazer login em portais para baixar relatórios.</p>" }
             ],
             question: "Por que o RPA é considerado uma solução mais 'frágil' que a integração via API?",
-            answer: "Porque o robô de RPA depende da interface gráfica do usuário. Se um botão mudar de lugar ou de cor em uma atualização do sistema, a automação quebra. A integração via API é mais robusta, pois se baseia em um 'contrato' de comunicação mais estável."
+            answer: "Porque o robô de RPA depende da interface gráfica do usuário. Se um botão mudar de lugar ou de cor em uma atualização do sistema, a automação quebra. A integração via API é mais robusta, pois se baseia em um 'contrato' de comunicação mais estável.",
+            details: {
+                subtitle: "// Características do RPA:",
+                points: [
+                    "<strong>Sistemas Legados:</strong> RPA é ideal para automatizar tarefas em sistemas antigos que não possuem APIs para integração. O robô simplesmente 'olha' para a tela e clica e digita como uma pessoa faria.",
+                    "<strong>Diferença de iPaaS:</strong> iPaaS conecta sistemas através de suas APIs (a porta da frente). RPA interage com sistemas através de sua interface de usuário (a janela).",
+                    "<strong>Exemplos:</strong> Copiar dados de um PDF para um sistema antigo, preencher formulários em múltiplos sistemas, fazer login em portais para baixar relatórios."
+                ]
+            }
         },
         {
             id: 5,
@@ -75,7 +107,15 @@ export const bizauto = {
                 { title: "Ferramentas", content: "<p>Existem ferramentas No-Code como Octoparse e Axiom, ou bibliotecas de programação como BeautifulSoup (Python) e Puppeteer (JavaScript).</p>" }
             ],
             question: "Qual é o objetivo do arquivo `robots.txt` em um site?",
-            answer: "O `robots.txt` é um arquivo de texto que instrui os robôs (como os do Google ou scrapers) sobre quais páginas ou seções do site eles têm permissão para acessar e quais devem evitar. É uma diretriz, não uma barreira técnica."
+            answer: "O `robots.txt` é um arquivo de texto que instrui os robôs (como os do Google ou scrapers) sobre quais páginas ou seções do site eles têm permissão para acessar e quais devem evitar. É uma diretriz, não uma barreira técnica.",
+            details: {
+                subtitle: "// Pontos Importantes:",
+                points: [
+                    "<strong>Como Funciona:</strong> Um 'scraper' (raspador) é um script que navega até uma página web, analisa seu código HTML e extrai as informações desejadas com base em padrões.",
+                    "<strong>Legalidade e Ética:</strong> É uma área cinzenta. É crucial respeitar os termos de serviço do site e o arquivo `robots.txt`.",
+                    "<strong>Ferramentas:</strong> Existem ferramentas No-Code como Octoparse e Axiom, ou bibliotecas de programação como BeautifulSoup (Python) e Puppeteer (JavaScript)."
+                ]
+            }
         },
         {
             id: 6,
@@ -86,10 +126,18 @@ export const bizauto = {
             topicsDetails: [
                 { title: "API (Polling)", content: "<p>Com uma API, seu aplicativo precisa perguntar ativamente ao outro sistema se há novas informações. É como ligar para a pizzaria a cada 5 minutos para saber se a pizza está pronta.</p>" },
                 { title: "Webhook (Pushing)", content: "<p>Com um webhook, o outro sistema avisa o seu aplicativo assim que algo novo acontece. A pizzaria te liga quando a pizza sai do forno. É muito mais eficiente.</p>" },
-                { title: "Qual é Melhor?", content: "Webhooks são quase sempre mais eficientes, pois economizam recursos ao evitar chamadas desnecessárias. Use APIs quando o outro serviço não oferece webhooks." }
+                { title: "Qual é Melhor?", content: "<p>Webhooks são quase sempre mais eficientes, pois economizam recursos ao evitar chamadas desnecessárias. Use APIs quando o outro serviço não oferece webhooks.</p>" }
             ],
             question: "Em termos de eficiência de recursos, qual é melhor: API polling ou Webhook? Por quê?",
-            answer: "Webhook. Porque ele opera em um modelo 'push' (envio de dados quando há um evento), enquanto o API polling opera em um modelo 'pull' (pedidos constantes para verificar se há novos dados), o que consome muito mais recursos do servidor."
+            answer: "Webhook. Porque ele opera em um modelo 'push' (envio de dados quando há um evento), enquanto o API polling opera em um modelo 'pull' (pedidos constantes para verificar se há novos dados), o que consome muito mais recursos do servidor.",
+            details: {
+                subtitle: "// Comparativo:",
+                points: [
+                    "<strong>API (Polling):</strong> Seu aplicativo pergunta ativamente se há novas informações. É como ligar para a pizzaria a cada 5 minutos para saber se a pizza está pronta.",
+                    "<strong>Webhook (Pushing):</strong> O outro sistema avisa o seu aplicativo assim que algo novo acontece. A pizzaria te liga quando a pizza sai do forno. É muito mais eficiente.",
+                    "<strong>Qual é Melhor?:</strong> Webhooks são quase sempre mais eficientes, pois economizam recursos ao evitar chamadas desnecessárias. Use APIs quando o outro serviço não oferece webhooks."
+                ]
+            }
         },
         {
             id: 7,
@@ -103,7 +151,15 @@ export const bizauto = {
                 { title: "Integração", content: "<p>Um bom chatbot se integra com seu CRM, seu sistema de e-mail marketing e outras ferramentas para criar uma experiência unificada.</p>" }
             ],
             question: "Qual o principal benefício de um chatbot para a equipe de suporte humano?",
-            answer: "Ele atua como um filtro de primeira linha, resolvendo as dúvidas mais simples e repetitivas. Isso permite que os agentes humanos se concentrem nos problemas mais complexos e de alto valor, onde sua expertise é realmente necessária."
+            answer: "Ele atua como um filtro de primeira linha, resolvendo as dúvidas mais simples e repetitivas. Isso permite que os agentes humanos se concentrem nos problemas mais complexos e de alto valor, onde sua expertise é realmente necessária.",
+            details: {
+                subtitle: "// Aplicações de Chatbots:",
+                points: [
+                    "<strong>Qualificação de Leads:</strong> Um chatbot pode fazer as perguntas iniciais a um visitante do site (Nome? Empresa? Necessidade?) e, com base nas respostas, direcioná-lo para o vendedor certo.",
+                    "<strong>Suporte 24/7:</strong> Responde às perguntas mais comuns dos clientes a qualquer hora do dia, melhorando a satisfação e reduzindo a carga da equipe de suporte.",
+                    "<strong>Integração com Ferramentas:</strong> Um bom chatbot se integra com seu CRM, seu sistema de e-mail marketing e outras ferramentas para criar uma experiência unificada."
+                ]
+            }
         },
         {
             id: 8,
@@ -114,10 +170,18 @@ export const bizauto = {
             topicsDetails: [
                 { title: "Fluxos de Nutrição", content: "<p>Criação de sequências de e-mails automáticos que são enviados a um lead com base em suas ações (ex: baixou um e-book, visitou a página de preços).</p>" },
                 { title: "Segmentação", content: "<p>Agrupar contatos em listas com base em seus interesses, comportamento ou demografia para enviar mensagens mais relevantes.</p>" },
-                { title: "Lead Scoring", content: "Atribuir pontos a cada lead com base em seu perfil e engajamento. Leads com pontuação alta são enviados automaticamente para a equipe de vendas." }
+                { title: "Lead Scoring", content: "<p>Atribuir pontos a cada lead com base em seu perfil e engajamento. Leads com pontuação alta são enviados automaticamente para a equipe de vendas.</p>" }
             ],
             question: "O que é um fluxo de nutrição de leads?",
-            answer: "É uma sequência de comunicações automatizadas (geralmente e-mails) projetada para guiar um potencial cliente através do funil de vendas, fornecendo conteúdo relevante e construindo um relacionamento ao longo do tempo, até que ele esteja pronto para comprar."
+            answer: "É uma sequência de comunicações automatizadas (geralmente e-mails) projetada para guiar um potencial cliente através do funil de vendas, fornecendo conteúdo relevante e construindo um relacionamento ao longo do tempo, até que ele esteja pronto para comprar.",
+            details: {
+                subtitle: "// Ferramentas de Marketing Automation:",
+                points: [
+                    "<strong>Fluxos de Nutrição:</strong> Criação de sequências de e-mails automáticos que são enviados a um lead com base em suas ações (ex: baixou um e-book, visitou a página de preços).",
+                    "<strong>Segmentação:</strong> Agrupar contatos em listas com base em seus interesses, comportamento ou demografia para enviar mensagens mais relevantes.",
+                    "<strong>Lead Scoring:</strong> Atribuir pontos a cada lead com base em seu perfil e engajamento. Leads com pontuação alta são enviados automaticamente para a equipe de vendas."
+                ]
+            }
         },
         {
             id: 9,
@@ -131,7 +195,15 @@ export const bizauto = {
                 { title: "API Pronta", content: "<p>Cada base no Airtable gera automaticamente sua própria API, facilitando a integração com ferramentas como Zapier, Make ou com seu próprio código.</p>" }
             ],
             question: "Qual a principal vantagem do Airtable sobre o Google Sheets para gerenciar um projeto?",
-            answer: "A capacidade de criar relacionamentos entre tabelas. Enquanto no Sheets você repetiria o nome do cliente em cada tarefa, no Airtable você pode linkar tarefas a um único registro de cliente, mantendo os dados consistentes e organizados."
+            answer: "A capacidade de criar relacionamentos entre tabelas. Enquanto no Sheets você repetiria o nome do cliente em cada tarefa, no Airtable você pode linkar tarefas a um único registro de cliente, mantendo os dados consistentes e organizados.",
+            details: {
+                subtitle: "// Superpoderes do Airtable:",
+                points: [
+                    "<strong>Banco de Dados Relacional:</strong> Diferente do Excel, você pode criar links entre tabelas (ex: uma tabela de Clientes e outra de Projetos, com cada projeto linkado a um cliente).",
+                    "<strong>Views Customizadas:</strong> Crie diferentes visualizações (Grid, Calendário, Kanban, Galeria) para os mesmos dados, sem alterar a tabela original.",
+                    "<strong>API Pronta:</strong> Cada base no Airtable gera automaticamente sua própria API, facilitando a integração com ferramentas como Zapier, Make ou com seu próprio código."
+                ]
+            }
         },
         {
             id: 10,
@@ -145,7 +217,15 @@ export const bizauto = {
                 { title: "Foco em ROI", content: "<p>A decisão de automatizar é baseada em um cálculo claro de Retorno sobre o Investimento, garantindo que os esforços sejam direcionados para onde geram mais valor.</p>" }
             ],
             question: "Qual a diferença entre Automação e Hiperautomação?",
-            answer: "Automação foca em automatizar tarefas específicas e discretas. Hiperautomação é uma abordagem estratégica que visa automatizar processos de negócio inteiros, de ponta a ponta, usando uma combinação orquestrada de múltiplas tecnologias, incluindo IA e ML, para tomar decisões mais inteligentes."
+            answer: "Automação foca em automatizar tarefas específicas e discretas. Hiperautomação é uma abordagem estratégica que visa automatizar processos de negócio inteiros, de ponta a ponta, usando uma combinação orquestrada de múltiplas tecnologias, incluindo IA e ML, para tomar decisões mais inteligentes.",
+            details: {
+                subtitle: "// Pilares da Hiperautomação:",
+                points: [
+                    "<strong>Combinação de Tecnologias:</strong> A hiperautomação não se prende a uma única ferramenta, mas usa a melhor tecnologia para cada parte do processo.",
+                    "<strong>Process Mining:</strong> Usa IA para analisar os logs dos sistemas e descobrir automaticamente como os processos realmente funcionam (e onde estão os gargalos), identificando as melhores oportunidades para automação.",
+                    "<strong>Foco em ROI:</strong> A decisão de automatizar é baseada em um cálculo claro de Retorno sobre o Investimento, garantindo que os esforços sejam direcionados para onde geram mais valor."
+                ]
+            }
         }
     ]
 };

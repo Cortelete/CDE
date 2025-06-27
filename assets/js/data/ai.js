@@ -1,5 +1,5 @@
 // Arquivo: data/ai.js
-// Contém os dados exclusivamente para o deck de "Inteligência Artificial".
+// Contém os dados para o baralho de "Inteligência Artificial", com o campo 'details' reestruturado.
 
 export const ai = {
     title: "Inteligência Artificial",
@@ -19,7 +19,15 @@ export const ai = {
                 { title: "IA Forte (General AI)", content: "<p>É a IA hipotética com consciência e capacidade cognitiva semelhante à humana, capaz de realizar qualquer tarefa intelectual. Ainda é ficção científica.</p>" }
             ],
             question: "A Siri ou a Alexa são exemplos de IA Forte? Por quê?",
-            answer: "Não. Elas são exemplos de IA Fraca (ou Estreita), pois são especializadas em um conjunto de tarefas (responder perguntas, tocar música) e não possuem consciência ou capacidade de aprendizado geral como um ser humano."
+            answer: "Não. Elas são exemplos de IA Fraca (ou Estreita), pois são especializadas em um conjunto de tarefas (responder perguntas, tocar música) e não possuem consciência ou capacidade de aprendizado geral como um ser humano.",
+            details: {
+                subtitle: "// Conceitos Fundamentais:",
+                points: [
+                    "<strong>Tarefas 'Humanas':</strong> Isso inclui aprendizado, raciocínio, resolução de problemas, percepção (visual, auditiva) e compreensão de linguagem.",
+                    "<strong>IA Fraca (Narrow AI):</strong> É a IA que temos hoje. Especializada em uma tarefa específica, como jogar xadrez (Deep Blue) ou recomendar filmes (Netflix).",
+                    "<strong>IA Forte (General AI):</strong> É a IA hipotética com consciência e capacidade cognitiva semelhante à humana, capaz de realizar qualquer tarefa intelectual. Ainda é ficção científica."
+                ]
+            }
         },
         {
             id: 2,
@@ -33,13 +41,21 @@ export const ai = {
                 { title: "Modelo", content: "<p>O resultado do treinamento é um 'modelo', que é a representação matemática dos padrões aprendidos, pronto para ser usado em novos dados.</p>" }
             ],
             question: "Qual a diferença fundamental entre a programação tradicional e o Machine Learning?",
-            answer: "Na programação tradicional, o programador escreve regras explícitas para o computador seguir. No Machine Learning, o programador fornece dados e uma resposta esperada, e o computador 'aprende' as regras sozinho."
+            answer: "Na programação tradicional, o programador escreve regras explícitas para o computador seguir. No Machine Learning, o programador fornece dados e uma resposta esperada, e o computador 'aprende' as regras sozinho.",
+            details: {
+                subtitle: "// Pilares do ML:",
+                points: [
+                    "<strong>Aprendizado por Exemplo:</strong> Em vez de programar regras explícitas, o desenvolvedor 'mostra' milhares de exemplos ao algoritmo, e ele infere as regras por conta própria.",
+                    "<strong>Dados são o Combustível:</strong> A qualidade e a quantidade dos dados de treinamento são os fatores mais importantes para o sucesso de um modelo de ML. 'Garbage in, garbage out'.",
+                    "<strong>Modelo:</strong> O resultado do treinamento é um 'modelo', que é a representação matemática dos padrões aprendidos, pronto para ser usado em novos dados."
+                ]
+            }
         },
         {
             id: 3,
             title: "Tipos de ML",
             tip: "O professor, o detetive e o explorador.",
-            description: "O Machine Learning é geralmente dividido em três categorias principais, de acordo com a forma como o algoritmo aprende: Supervisionado, Não Supervisionado e por Reforço.",
+            description: "O Machine Learning é geralmente dividido em três categorias principais, de acordo com a forma como o algoritmo aprende.",
             topics: ["Supervisionado", "Não Supervisionado", "Por Reforço"],
             topicsDetails: [
                 { title: "Aprendizado Supervisionado", content: "<p>O algoritmo aprende a partir de dados rotulados (com a 'resposta certa'). Como um aluno com um gabarito. Ex: prever preços de casas usando um histórico com preços conhecidos.</p>" },
@@ -47,7 +63,15 @@ export const ai = {
                 { title: "Aprendizado por Reforço", content: "<p>O algoritmo aprende através de tentativa e erro, recebendo recompensas por ações corretas e punições por ações erradas. Como adestrar um cão. Ex: treinar uma IA para jogar um videogame.</p>" }
             ],
             question: "Para criar um sistema de detecção de spam em e-mails, qual tipo de aprendizado de máquina seria mais adequado?",
-            answer: "Aprendizado Supervisionado. Você treinaria o modelo com uma grande quantidade de e-mails já rotulados como 'spam' ou 'não spam'."
+            answer: "Aprendizado Supervisionado. Você treinaria o modelo com uma grande quantidade de e-mails já rotulados como 'spam' ou 'não spam'.",
+            details: {
+                subtitle: "// As 3 Categorias:",
+                points: [
+                    "<strong>Aprendizado Supervisionado:</strong> O algoritmo aprende a partir de dados rotulados (com a 'resposta certa'). Como um aluno com um gabarito. Ex: prever preços de casas usando um histórico com preços conhecidos.",
+                    "<strong>Aprendizado Não Supervisionado:</strong> O algoritmo recebe dados não rotulados e tenta encontrar estruturas ou padrões por conta própria. Como um detetive buscando pistas. Ex: agrupar clientes em segmentos de mercado (clusterização).",
+                    "<strong>Aprendizado por Reforço:</strong> O algoritmo aprende através de tentativa e erro, recebendo recompensas por ações corretas e punições por ações erradas. Como adestrar um cão. Ex: treinar uma IA para jogar um videogame."
+                ]
+            }
         },
         {
             id: 4,
@@ -61,7 +85,15 @@ export const ai = {
                 { title: "Deep Learning", content: "<p>Quando uma rede neural tem muitas camadas ocultas, ela é chamada de 'profunda' (Deep Neural Network). O Deep Learning é o que impulsiona as IAs mais avançadas hoje, como reconhecimento de imagem e modelos de linguagem.</p>" }
             ],
             question: "Por que o Deep Learning é tão poderoso para tarefas como reconhecimento de imagem?",
-            answer: "Porque as múltiplas camadas permitem que a rede aprenda hierarquias de características. As primeiras camadas podem aprender a detectar bordas e cantos, as camadas intermediárias combinam isso para detectar olhos e narizes, e as camadas finais combinam tudo para reconhecer um rosto."
+            answer: "Porque as múltiplas camadas permitem que a rede aprenda hierarquias de características. As primeiras camadas podem aprender a detectar bordas e cantos, as camadas intermediárias combinam isso para detectar olhos e narizes, e as camadas finais combinam tudo para reconhecer um rosto.",
+            details: {
+                subtitle: "// Componentes:",
+                points: [
+                    "<strong>Neurônio Artificial:</strong> Uma unidade matemática que recebe múltiplas entradas, aplica pesos a elas, soma tudo e passa o resultado por uma 'função de ativação' para gerar uma saída.",
+                    "<strong>Camadas (Layers):</strong> Os neurônios são organizados em camadas. Uma rede neural tem uma camada de entrada, uma ou mais camadas ocultas e uma camada de saída. É nas camadas ocultas que a 'mágica' do aprendizado de padrões complexos acontece.",
+                    "<strong>Deep Learning:</strong> Quando uma rede neural tem muitas camadas ocultas, ela é chamada de 'profunda' (Deep Neural Network). O Deep Learning é o que impulsiona as IAs mais avançadas hoje, como reconhecimento de imagem e modelos de linguagem."
+                ]
+            }
         },
         {
             id: 5,
@@ -75,7 +107,15 @@ export const ai = {
                 { title: "Modelos de Linguagem (LLMs)", content: "<p>São modelos de Deep Learning gigantes, como o GPT, treinados com vastas quantidades de texto para prever a próxima palavra em uma sequência, o que lhes dá uma incrível capacidade de gerar texto coerente e responder perguntas.</p>" }
             ],
             question: "O que é 'análise de sentimento' e como ela se encaixa no PLN?",
-            answer: "Análise de sentimento é uma técnica de PLN usada para identificar e extrair a polaridade emocional (positiva, negativa, neutra) de um texto. É muito usada para analisar reviews de produtos, comentários em redes sociais, etc."
+            answer: "Análise de sentimento é uma técnica de PLN usada para identificar e extrair a polaridade emocional (positiva, negativa, neutra) de um texto. É muito usada para analisar reviews de produtos, comentários em redes sociais, etc.",
+            details: {
+                subtitle: "// Conceitos de PLN:",
+                points: [
+                    "<strong>Análise Sintática e Semântica:</strong> A Sintaxe lida com a estrutura gramatical da frase. A Semântica lida com o significado.",
+                    "<strong>Aplicações:</strong> Tradutores automáticos (Google Translate), chatbots, assistentes virtuais (Siri, Alexa), análise de sentimentos e resumo de textos.",
+                    "<strong>Modelos de Linguagem (LLMs):</strong> Modelos de Deep Learning gigantes, como o GPT, treinados com vastas quantidades de texto para prever a próxima palavra em uma sequência."
+                ]
+            }
         },
         {
             id: 6,
@@ -89,7 +129,15 @@ export const ai = {
                 { title: "Aplicações", content: "<p>Carros autônomos (para 'ler' placas e ver pedestres), reconhecimento facial, diagnóstico médico por imagem, controle de qualidade em linhas de produção e realidade aumentada.</p>" }
             ],
             question: "Como um carro autônomo usa a Visão Computacional?",
-            answer: "Ele usa a Visão Computacional para processar o fluxo de vídeo de suas câmeras em tempo real, permitindo identificar e rastrear outros veículos, pedestres, semáforos, placas de trânsito e as faixas da pista, tomando decisões de direção com base nessas informações visuais."
+            answer: "Ele usa a Visão Computacional para processar o fluxo de vídeo de suas câmeras em tempo real, permitindo identificar e rastrear outros veículos, pedestres, semáforos, placas de trânsito e as faixas da pista, tomando decisões de direção com base nessas informações visuais.",
+            details: {
+                subtitle: "// Tarefas de Visão Computacional:",
+                points: [
+                    "<strong>Reconhecimento de Objetos:</strong> Identificar e localizar objetos dentro de uma imagem (ex: 'há um carro e duas pessoas na foto').",
+                    "<strong>Segmentação de Imagem:</strong> Classifica cada pixel da imagem, permitindo, por exemplo, separar o primeiro plano do fundo.",
+                    "<strong>Aplicações:</strong> Carros autônomos, reconhecimento facial, diagnóstico médico por imagem, e controle de qualidade."
+                ]
+            }
         },
         {
             id: 7,
@@ -103,7 +151,15 @@ export const ai = {
                 { title: "Privacidade", content: "<p>As IAs precisam de muitos dados, o que levanta enormes preocupações sobre como os dados pessoais são coletados, usados e protegidos, como visto no caso da Cambridge Analytica.</p>" }
             ],
             question: "Explique o que é viés algorítmico em IA e dê um exemplo.",
-            answer: "Viés algorítmico ocorre quando um sistema de IA reflete os preconceitos existentes nos dados com os quais foi treinado. Por exemplo, se um software de reconhecimento facial for treinado majoritariamente com rostos de pessoas brancas, ele terá uma performance muito pior para reconhecer rostos de pessoas negras, perpetuando uma falha sistêmica."
+            answer: "Viés algorítmico ocorre quando um sistema de IA reflete os preconceitos existentes nos dados com os quais foi treinado. Por exemplo, se um software de reconhecimento facial for treinado majoritariamente com rostos de pessoas brancas, ele terá uma performance muito pior para reconhecer rostos de pessoas negras, perpetuando uma falha sistêmica.",
+            details: {
+                subtitle: "// Dilemas Éticos:",
+                points: [
+                    "<strong>Viés (Bias):</strong> Se uma IA é treinada com dados enviesados, ela aprenderá e amplificará esses preconceitos.",
+                    "<strong>Transparência (Caixa-Preta):</strong> Muitos modelos de Deep Learning são 'caixas-pretas', dificultando a explicação de suas decisões, um problema sério em áreas como medicina e justiça.",
+                    "<strong>Privacidade:</strong> As IAs precisam de muitos dados, o que levanta enormes preocupações sobre como os dados pessoais são coletados, usados e protegidos."
+                ]
+            }
         },
         {
             id: 8,
@@ -117,7 +173,15 @@ export const ai = {
                 { title: "Revolução Criativa", content: "<p>Essas ferramentas estão revolucionando áreas criativas, permitindo a criação rápida de protótipos, a geração de arte, a composição de música e a escrita de roteiros, atuando como um 'copiloto' para a criatividade humana.</p>" }
             ],
             question: "Qual a diferença fundamental entre um modelo de IA que classifica imagens e um que gera imagens?",
-            answer: "Um modelo de classificação (discriminativo) aprende a mapear uma entrada a um rótulo (ex: 'esta imagem é um gato'). Um modelo generativo aprende a distribuição dos dados para criar novas amostras do zero (ex: 'crie uma imagem de um gato')."
+            answer: "Um modelo de classificação (discriminativo) aprende a mapear uma entrada a um rótulo (ex: 'esta imagem é um gato'). Um modelo generativo aprende a distribuição dos dados para criar novas amostras do zero (ex: 'crie uma imagem de um gato').",
+            details: {
+                subtitle: "// Tipos de Modelos Generativos:",
+                points: [
+                    "<strong>GANs (Redes Adversárias Generativas):</strong> Duas redes neurais (Gerador e Discriminador) que competem para criar conteúdo realista.",
+                    "<strong>Modelos de Linguagem (LLMs):</strong> Treinados para prever a próxima palavra em um texto, permitindo escrever, responder e programar.",
+                    "<strong>Revolução Criativa:</strong> Ferramentas que atuam como 'copiloto' para a criatividade humana em arte, música e escrita."
+                ]
+            }
         },
         {
             id: 9,
@@ -131,7 +195,15 @@ export const ai = {
                 { title: "Algoritmos", content: "<p>Algoritmos de Regressão comuns incluem Regressão Linear e Polinomial. Algoritmos de Classificação comuns incluem Regressão Logística, K-NN e Máquinas de Vetores de Suporte (SVM).</p>" }
             ],
             question: "Você quer construir um modelo para prever se um cliente vai ou não cancelar a assinatura de um serviço. Isso é um problema de Regressão ou Classificação?",
-            answer: "É um problema de Classificação, pois a saída é uma categoria discreta com duas classes possíveis: 'vai cancelar' ou 'não vai cancelar'."
+            answer: "É um problema de Classificação, pois a saída é uma categoria discreta com duas classes possíveis: 'vai cancelar' ou 'não vai cancelar'.",
+            details: {
+                subtitle: "// Diferenças Chave:",
+                points: [
+                    "<strong>Regressão:</strong> Prever um valor numérico contínuo (ex: preço de uma casa).",
+                    "<strong>Classificação:</strong> Prever uma categoria discreta (ex: 'spam' ou 'não spam').",
+                    "<strong>Algoritmos:</strong> Cada tarefa tem seus algoritmos específicos, como Regressão Linear para regressão e Regressão Logística para classificação."
+                ]
+            }
         },
         {
             id: 10,
@@ -145,7 +217,15 @@ export const ai = {
                 { title: "Pré-processamento", content: "<p>É a etapa mais demorada de um projeto de ML, conhecida como 'faxina de dados'. Inclui limpar, formatar, tratar valores ausentes e normalizar os dados para que o modelo possa 'entendê-los' corretamente.</p>" }
             ],
             question: "Por que a etapa de pré-processamento de dados é considerada tão crucial em um projeto de Machine Learning?",
-            answer: "Porque os algoritmos de ML são sensíveis a inconsistências, erros e escalas diferentes nos dados. O pré-processamento (limpeza, normalização) garante que os dados estejam em um formato de alta qualidade, permitindo que o modelo aprenda padrões reais em vez de 'ruído', o que impacta diretamente sua precisão e confiabilidade."
+            answer: "Porque os algoritmos de ML são sensíveis a inconsistências, erros e escalas diferentes nos dados. O pré-processamento (limpeza, normalização) garante que os dados estejam em um formato de alta qualidade, permitindo que o modelo aprenda padrões reais em vez de 'ruído', o que impacta diretamente sua precisão e confiabilidade.",
+            details: {
+                subtitle: "// A Base de Tudo:",
+                points: [
+                    "<strong>Qualidade vs. Quantidade:</strong> Qualidade supera quantidade. Dados limpos e relevantes são mais valiosos do que muitos dados sujos.",
+                    "<strong>Fontes de Dados:</strong> Podem vir de bancos de dados, APIs, web scraping, sensores, etc.",
+                    "<strong>Pré-processamento:</strong> A etapa mais demorada, conhecida como 'faxina de dados', é crucial para garantir que o modelo aprenda padrões reais."
+                ]
+            }
         }
     ]
 };

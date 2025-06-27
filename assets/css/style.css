@@ -1,42 +1,36 @@
 /*
  * Arquivo: style.css
  * Descrição: Folha de estilos principal para a aplicação Clube do Estudante.
- * VERSÃO FINAL: Layout responsivo, scroll estilizado e TODOS os temas.
+ * VERSÃO FINAL: Layout simplificado, scroll natural e TODOS os temas.
  */
 
 /* --- ESTILOS BASE E LAYOUT --- */
-html { scroll-behavior: smooth; }
-body { font-family: 'Exo 2', sans-serif; background-color: #0d1117; }
-.main-wrapper { display: flex; }
-#sidebar-menu { width: 280px; flex-shrink: 0; position: fixed; top: 0; left: 0; bottom: 0; background-color: #0d1117; border-right: 1px solid #30363d; display: flex; flex-direction: column; z-index: 10; }
-#page-content { flex-grow: 1; margin-left: 280px; }
-#main-hub { min-height: 100vh; }
-
-/* --- ESTILOS DO MENU LATERAL --- */
-.sidebar-header { padding: 1.5rem; border-bottom: 1px solid #30363d; }
-.sidebar-content { padding: 1.5rem; flex-grow: 1; }
-.search-container { margin-bottom: 2rem; }
-#card-search { background-color: #161b22; border: 1px solid #30363d; color: #e6edf3; width: 100%; padding: 0.5rem 0.75rem 0.5rem 2.5rem; border-radius: 6px; transition: all 0.2s ease-in-out; }
-#card-search:focus { outline: none; border-color: #a855f7; box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3); }
-#create-card-btn { width: 100%; display: flex; align-items: center; justify-content: center; padding: 0.6rem 1rem; background-color: rgba(168, 85, 247, 0.2); color: #d8b4fe; border: 1px solid #a855f7; border-radius: 6px; font-weight: bold; transition: all 0.2s ease-in-out; }
-#create-card-btn:hover { background-color: rgba(168, 85, 247, 0.4); color: #fff; }
-.sidebar-footer { padding: 1.5rem; border-top: 1px solid #30363d; font-size: 0.75rem; color: #484f58; text-align: center; }
-
-/* --- SCROLLBAR ESTILIZADO NO BODY --- */
-body::-webkit-scrollbar { width: 12px; }
-body::-webkit-scrollbar-track { background: #161b22; }
-body::-webkit-scrollbar-thumb { background-color: #a855f7; border-radius: 20px; border: 3px solid #161b22; animation: hue-rotate-scrollbar 10s linear infinite; }
-@keyframes hue-rotate-scrollbar { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(360deg); } }
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Exo 2', sans-serif;
+    background-color: #0d1117;
+}
+.tech-font {
+    font-family: 'Share Tech Mono', monospace;
+}
 
 /* --- GRID RESPONSIVO PARA OS CARDS DE MATÉRIA --- */
-#subject-selection { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; justify-content: center; }
+#subject-selection {
+    display: grid;
+    /* Mágica da responsividade: cria colunas de no mínimo 250px
+       e no máximo 1 fração do espaço, ajustando automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+}
 
 /* --- ANIMAÇÕES E EFEITOS DE FUNDO --- */
 @keyframes move-twink-back { from { background-position: 0 0; } to { background-position: -10000px 5000px; } }
-.stars, .twinkling, .scanlines { position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; display: block; }
+.stars, .twinkling, .scanlines { position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; display: block; z-index: -1; }
 .stars { background: #000 url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center; z-index: -3; }
 .twinkling { background: transparent url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center; z-index: -2; animation: move-twink-back 200s linear infinite; }
-.scanlines { z-index: -1; background: linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%); background-size: 100% 4px; pointer-events: none; }
 .glitch { font-size: 3rem; font-weight: 900; text-transform: uppercase; position: relative; color: #fff; text-shadow: 0.05em 0 0 rgba(192, 132, 252, 0.75), -0.025em -0.05em 0 rgba(244, 114, 182, 0.75), 0.025em 0.05em 0 rgba(59, 130, 246, 0.75); animation: glitch 500ms infinite; }
 @keyframes glitch { 0%{text-shadow:.05em 0 0 #00fffc,-.025em -.05em 0 #fc00ff,.025em .05em 0 #fffc00}15%{text-shadow:.05em 0 0 #00fffc,-.025em -.05em 0 #fc00ff,.025em .05em 0 #fffc00}16%{text-shadow:-.05em -.025em 0 #00fffc,.025em .05em 0 #fc00ff,-.05em -.05em 0 #fffc00}49%{text-shadow:-.05em -.025em 0 #00fffc,.025em .05em 0 #fc00ff,-.05em -.05em 0 #fffc00}50%{text-shadow:.05em .025em 0 #00fffc,.05em -.05em 0 #fc00ff,0 -.025em 0 #fffc00}99%{text-shadow:.05em .025em 0 #00fffc,.05em -.05em 0 #fc00ff,0 -.025em 0 #fffc00}100%{text-shadow:-.05em 0 0 #00fffc,-.025em -.05em 0 #fc00ff,-.025em -.05em 0 #fffc00} }
 

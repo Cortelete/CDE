@@ -1,5 +1,5 @@
 // Arquivo: data/java.js
-// Contém os dados exclusivamente para o deck de "Princípios de Java".
+// Contém os dados para o baralho de "Princípios de Java", com o campo 'details' reestruturado.
 
 export const java = {
     title: "Princípios de Java",
@@ -19,7 +19,15 @@ export const java = {
                 { title: "JDK (Java Development Kit)", content: "<p>É o 'kit de desenvolvimento'. Contém o JRE, o compilador (javac) e outras ferramentas. Essencial para **desenvolver** aplicações Java.</p>" }
             ],
             question: "Um usuário final precisa do JDK para rodar uma aplicação Java em seu computador? Por quê?",
-            answer: "Não. Ele precisa apenas do JRE (Java Runtime Environment), que contém a JVM e as bibliotecas necessárias para executar a aplicação. O JDK é necessário apenas para os desenvolvedores."
+            answer: "Não. Ele precisa apenas do JRE (Java Runtime Environment), que contém a JVM e as bibliotecas necessárias para executar a aplicação. O JDK é necessário apenas para os desenvolvedores.",
+            details: {
+                subtitle: "// A Santíssima Trindade do Java:",
+                points: [
+                    "<strong>JVM (Java Virtual Machine):</strong> O 'motor' que executa o código Java e garante a portabilidade.",
+                    "<strong>JRE (Java Runtime Environment):</strong> O 'kit de execução' para utilizadores finais. Contém a JVM e as bibliotecas necessárias para rodar aplicações Java.",
+                    "<strong>JDK (Java Development Kit):</strong> O 'kit de desenvolvimento' para programadores. Inclui o JRE, o compilador (javac) e outras ferramentas."
+                ]
+            }
         },
         {
             id: 2,
@@ -34,7 +42,16 @@ export const java = {
                 { title: "Abstração", content: "<p>É focar nos aspectos essenciais de um objeto, ignorando os detalhes irrelevantes. Classes abstratas e interfaces são os mecanismos para aplicar a abstração em Java.</p>" }
             ],
             question: "O que é Encapsulamento e qual sua principal vantagem?",
-            answer: "Encapsulamento é a prática de proteger os atributos de um objeto, permitindo o acesso a eles apenas através de métodos públicos (getters e setters). Sua principal vantagem é a segurança e o controle sobre os dados do objeto."
+            answer: "Encapsulamento é a prática de proteger os atributos de um objeto, permitindo o acesso a eles apenas através de métodos públicos (getters e setters). Sua principal vantagem é a segurança e o controle sobre os dados do objeto.",
+            details: {
+                subtitle: "// Os 4 Superpoderes de um Objeto:",
+                points: [
+                    "<strong>Encapsulamento:</strong> Proteger os dados de um objeto, controlando o acesso através de métodos.",
+                    "<strong>Herança:</strong> Permitir que uma classe herde características de outra, promovendo o reaproveitamento de código.",
+                    "<strong>Polimorfismo:</strong> Permitir que objetos de diferentes classes respondam à mesma mensagem de maneiras distintas.",
+                    "<strong>Abstração:</strong> Focar nos aspetos essenciais de um objeto, escondendo detalhes complexos."
+                ]
+            }
         },
         {
             id: 3,
@@ -48,7 +65,15 @@ export const java = {
                 { title: "Instanciação", content: "<p>É o processo de criar um objeto a partir de uma classe usando a palavra-chave `new`. Ex: `Carro meuCarro = new Carro();`</p>" }
             ],
             question: "Usando a analogia da planta da casa, explique a diferença entre Classe e Objeto.",
-            answer: "A **Classe** é como a planta de uma casa: ela define todas as especificações (número de quartos, banheiros, etc.), mas não é uma casa de verdade. O **Objeto** é a casa construída a partir daquela planta. Podemos construir várias casas (objetos) a partir da mesma planta (classe)."
+            answer: "A **Classe** é como a planta de uma casa: ela define todas as especificações (número de quartos, banheiros, etc.), mas não é uma casa de verdade. O **Objeto** é a casa construída a partir daquela planta. Podemos construir várias casas (objetos) a partir da mesma planta (classe).",
+            details: {
+                subtitle: "// A Planta e a Construção:",
+                points: [
+                    "<strong>Classe:</strong> O molde, a planta, a definição de um tipo de coisa. Contém atributos e métodos.",
+                    "<strong>Objeto:</strong> A instância concreta criada a partir de uma classe. É a 'coisa' em si, com estado e comportamento.",
+                    "<strong>Instanciação:</strong> O ato de criar um objeto a partir de uma classe, usando a palavra-chave `new`."
+                ]
+            }
         },
         {
             id: 4,
@@ -63,7 +88,16 @@ export const java = {
                 { title: "Tipo Booleano", content: "<p>`boolean`. Armazena apenas dois valores possíveis: `true` ou `false`.</p>" }
             ],
             question: "Qual a diferença entre `int` e `Integer` em Java?",
-            answer: "`int` é um tipo primitivo, que armazena o valor diretamente e é mais performático. `Integer` é uma classe 'wrapper', um objeto que 'embrulha' um valor `int`, oferecendo métodos úteis e a capacidade de ser nulo (`null`)."
+            answer: "`int` é um tipo primitivo, que armazena o valor diretamente e é mais performático. `Integer` é uma classe 'wrapper', um objeto que 'embrulha' um valor `int`, oferecendo métodos úteis e a capacidade de ser nulo (`null`).",
+            details: {
+                subtitle: "// Os Blocos Fundamentais:",
+                points: [
+                    "<strong>Tipos Inteiros:</strong> `byte`, `short`, `int`, `long` para números inteiros.",
+                    "<strong>Tipos de Ponto Flutuante:</strong> `float`, `double` para números decimais.",
+                    "<strong>Tipo Caractere:</strong> `char` para um único caractere.",
+                    "<strong>Tipo Booleano:</strong> `boolean` para valores `true` ou `false`."
+                ]
+            }
         },
         {
             id: 5,
@@ -77,7 +111,15 @@ export const java = {
                 { title: "Tipo de Retorno", content: "<p>É o tipo de dado que o método 'devolve' após sua execução. Se não devolve nada, o tipo de retorno é `void`.</p>" }
             ],
             question: "O que significa um método com tipo de retorno `void`?",
-            answer: "Significa que o método executa uma ação, mas não retorna nenhum valor para quem o chamou. Ele simplesmente 'faz alguma coisa' e encerra."
+            answer: "Significa que o método executa uma ação, mas não retorna nenhum valor para quem o chamou. Ele simplesmente 'faz alguma coisa' e encerra.",
+            details: {
+                subtitle: "// Comportamentos de um Objeto:",
+                points: [
+                    "<strong>Assinatura do Método:</strong> O nome do método e a lista de tipos de seus parâmetros, que o identificam de forma única.",
+                    "<strong>Parâmetros:</strong> As informações de entrada que um método precisa para trabalhar.",
+                    "<strong>Tipo de Retorno:</strong> O tipo de dado que o método retorna após a sua execução. `void` significa que nada é retornado."
+                ]
+            }
         },
         {
             id: 6,
@@ -91,7 +133,15 @@ export const java = {
                 { title: "Construtor Padrão", content: "<p>Se você não definir nenhum construtor em sua classe, o Java fornece um automaticamente (o construtor padrão, sem parâmetros).</p>" }
             ],
             question: "Qual o principal objetivo de um construtor?",
-            answer: "O principal objetivo é inicializar o estado de um novo objeto, ou seja, atribuir valores iniciais aos seus atributos no momento da criação."
+            answer: "O principal objetivo é inicializar o estado de um novo objeto, ou seja, atribuir valores iniciais aos seus atributos no momento da criação.",
+            details: {
+                subtitle: "// Inicializando um Objeto:",
+                points: [
+                    "<strong>Mesmo Nome da Classe:</strong> Um construtor deve ter sempre o mesmo nome da sua classe.",
+                    "<strong>Sem Tipo de Retorno:</strong> Construtores não possuem tipo de retorno, nem mesmo `void`.",
+                    "<strong>Construtor Padrão:</strong> Se você não criar um, o Java fornece um construtor vazio por padrão."
+                ]
+            }
         },
         {
             id: 7,
@@ -106,7 +156,16 @@ export const java = {
                 { title: "default (ou package-private)", content: "<p>Acessível apenas por classes no mesmo pacote. É o que se aplica quando nenhum modificador é especificado.</p>" }
             ],
             question: "Qual modificador de acesso é o mais indicado para os atributos de uma classe, seguindo o princípio do encapsulamento?",
-            answer: "O modificador `private`, pois ele garante que os atributos só possam ser acessados e modificados através dos métodos da própria classe (getters e setters)."
+            answer: "O modificador `private`, pois ele garante que os atributos só possam ser acessados e modificados através dos métodos da própria classe (getters e setters).",
+            details: {
+                subtitle: "// Níveis de Visibilidade:",
+                points: [
+                    "<strong>public:</strong> Acessível de qualquer lugar. Totalmente aberto.",
+                    "<strong>private:</strong> Acessível apenas de dentro da própria classe. Ideal para proteger dados.",
+                    "<strong>protected:</strong> Acessível dentro do mesmo pacote e por subclasses.",
+                    "<strong>default:</strong> Acessível apenas por classes no mesmo pacote."
+                ]
+            }
         },
         {
             id: 8,
@@ -120,7 +179,15 @@ export const java = {
                 { title: "Qual Usar?", content: "<p>Use Arrays para um número fixo e conhecido de elementos onde a performance é crítica. Use Collections para quase todo o resto, pela flexibilidade e conveniência.</p>" }
             ],
             question: "Cite a principal vantagem de uma `List` (Collection) sobre um `Array`.",
-            answer: "A principal vantagem é o tamanho dinâmico. Uma `List` pode crescer e encolher conforme elementos são adicionados ou removidos, enquanto um `Array` tem seu tamanho fixado no momento da criação."
+            answer: "A principal vantagem é o tamanho dinâmico. Uma `List` pode crescer e encolher conforme elementos são adicionados ou removidos, enquanto um `Array` tem seu tamanho fixado no momento da criação.",
+            details: {
+                subtitle: "// Armazenando Grupos de Dados:",
+                points: [
+                    "<strong>Array:</strong> Tem tamanho fixo e pode armazenar tipos primitivos. Mais rápido para acesso direto.",
+                    "<strong>Collections Framework:</strong> Interfaces como `List` e `Set`. São dinâmicas em tamanho, mais flexíveis e ricas em métodos.",
+                    "<strong>Quando Usar:</strong> Use `Array` para tamanho fixo e performance. Use `Collections` para flexibilidade e conveniência."
+                ]
+            }
         },
         {
             id: 9,
@@ -134,7 +201,15 @@ export const java = {
                 { title: "Bloco `finally`", content: "<p>É executado sempre, ocorrendo uma exceção ou não. Ideal para liberar recursos, como fechar arquivos ou conexões de banco de dados.</p>" }
             ],
             question: "Para que serve o bloco `finally` em um tratamento de exceções?",
-            answer: "O bloco `finally` serve para garantir que um determinado trecho de código seja executado, independentemente de uma exceção ter sido lançada ou não. É crucial para liberar recursos e evitar 'vazamentos'."
+            answer: "O bloco `finally` serve para garantir que um determinado trecho de código seja executado, independentemente de uma exceção ter sido lançada ou não. É crucial para liberar recursos e evitar 'vazamentos'.",
+            details: {
+                subtitle: "// Lidando com Erros:",
+                points: [
+                    "<strong>try:</strong> Envolve o código que pode lançar um erro.",
+                    "<strong>catch:</strong> Captura e trata um erro específico quando ele acontece.",
+                    "<strong>finally:</strong> Executa um bloco de código sempre, com ou sem erro. Essencial para liberar recursos."
+                ]
+            }
         },
         {
             id: 10,
@@ -148,7 +223,15 @@ export const java = {
                 { title: "Constantes em Java", content: "<p>A combinação `public static final` é usada para criar constantes globais. Ex: `public static final double PI = 3.14159;`</p>" }
             ],
             question: "O que significa declarar um método como `static`?",
-            answer: "Significa que o método pertence à classe e pode ser chamado diretamente através do nome da classe, sem a necessidade de criar um objeto dela. Ex: `Math.sqrt(25)`."
+            answer: "Significa que o método pertence à classe e pode ser chamado diretamente através do nome da classe, sem a necessidade de criar um objeto dela. Ex: `Math.sqrt(25)`.",
+            details: {
+                subtitle: "// Palavras-chave Especiais:",
+                points: [
+                    "<strong>static:</strong> Indica que um membro pertence à classe, não a um objeto. É compartilhado por todas as instâncias.",
+                    "<strong>final:</strong> Para variáveis, cria constantes. Para métodos, impede a sobrescrita. Para classes, impede a herança.",
+                    "<strong>Combinação:</strong> `public static final` é a forma padrão de criar constantes em Java."
+                ]
+            }
         }
     ]
 };

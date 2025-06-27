@@ -1,5 +1,5 @@
 // Arquivo: data/comms.js
-// Contém os dados exclusivamente para o deck de "Comunicação e Apresentação".
+// Contém os dados para o baralho de "Comunicação e Apresentação", com o campo 'details' reestruturado.
 
 export const comms = {
     title: "Comunicação e Apresentação",
@@ -19,7 +19,15 @@ export const comms = {
                 { title: "Congruência", content: "O mais importante é que sua comunicação verbal e não verbal estejam alinhadas. Dizer 'estou confiante' com os ombros curvados e sem contato visual não convence ninguém." }
             ],
             question: "Qual é mais impactante na percepção da audiência, a comunicação verbal ou a não verbal?",
-            answer: "A comunicação não verbal. Estudos indicam que a linguagem corporal e o tom de voz têm um impacto muito maior na forma como a mensagem é recebida do que as palavras exatas que são ditas."
+            answer: "A comunicação não verbal. Estudos indicam que a linguagem corporal e o tom de voz têm um impacto muito maior na forma como a mensagem é recebida do que as palavras exatas que são ditas.",
+            details: {
+                subtitle: "// Pilares da Comunicação:",
+                points: [
+                    "<strong>Verbal:</strong> Refere-se às palavras que você escolhe, ao tom de voz, ritmo e clareza da sua fala.",
+                    "<strong>Não Verbal:</strong> Inclui sua postura, gestos, contato visual, expressões faciais. É responsável por uma grande parte da impressão que você causa.",
+                    "<strong>Congruência:</strong> O mais importante é que sua comunicação verbal e não verbal estejam alinhadas. Dizer 'estou confiante' com os ombros curvados e sem contato visual não convence ninguém."
+                ]
+            }
         },
         {
             id: 2,
@@ -33,7 +41,15 @@ export const comms = {
                 { title: "Parafrasear", content: "Repita o que você entendeu com suas próprias palavras. 'Então, se eu entendi bem, o que você está dizendo é que...' Isso mostra que você estava ouvindo e confirma seu entendimento." }
             ],
             question: "Qual a diferença entre 'ouvir' e 'escutar'?",
-            answer: "'Ouvir' é um ato passivo, a percepção física do som. 'Escutar' é um ato ativo e cognitivo, que envolve interpretar, entender e dar sentido ao que foi ouvido. A escuta ativa é a forma mais elevada de escutar."
+            answer: "'Ouvir' é um ato passivo, a percepção física do som. 'Escutar' é um ato ativo e cognitivo, que envolve interpretar, entender e dar sentido ao que foi ouvido. A escuta ativa é a forma mais elevada de escutar.",
+            details: {
+                subtitle: "// Como Praticar a Escuta Ativa:",
+                points: [
+                    "<strong>Foco Total:</strong> Elimine distrações. Guarde o celular. Mantenha contato visual. Mostre que você está presente.",
+                    "<strong>Sem Interrupções:</strong> Deixe a pessoa terminar de falar antes de formular sua resposta. A pausa é sua aliada.",
+                    "<strong>Parafrasear:</strong> Repita o que você entendeu com suas próprias palavras. 'Então, se eu entendi bem...' Isso mostra que você estava ouvindo e confirma seu entendimento."
+                ]
+            }
         },
         {
             id: 3,
@@ -47,7 +63,15 @@ export const comms = {
                 { title: "O Fechamento (Call-to-Action)", content: "Resuma sua mensagem principal e diga à audiência o que você quer que eles façam a seguir (ex: 'Visitem nosso site', 'Aprovem o orçamento')." }
             ],
             question: "Por que começar uma apresentação com 'Olá, meu nome é...' é uma má ideia?",
-            answer: "Porque é previsível e não gera interesse. Você desperdiça os segundos mais preciosos da sua apresentação, quando a atenção da audiência está no auge, com uma informação que poderia ser dita depois. Comece com um gancho que desperte a curiosidade."
+            answer: "Porque é previsível e não gera interesse. Você desperdiça os segundos mais preciosos da sua apresentação, quando a atenção da audiência está no auge, com uma informação que poderia ser dita depois. Comece com um gancho que desperte a curiosidade.",
+            details: {
+                subtitle: "// A Estrutura Clássica:",
+                points: [
+                    "<strong>A Abertura (Gancho):</strong> Você tem 30 segundos para capturar a atenção. Comece com uma pergunta, estatística ou história.",
+                    "<strong>O Desenvolvimento:</strong> Organize seu conteúdo em 3 a 5 pontos principais com uma lógica clara.",
+                    "<strong>O Fechamento (Call-to-Action):</strong> Resuma sua mensagem principal e diga à audiência o que você quer que eles façam a seguir."
+                ]
+            }
         },
         {
             id: 4,
@@ -61,7 +85,15 @@ export const comms = {
                 { title: "A Resolução", content: "Como o seu produto ou serviço (a 'arma mágica') ajuda o herói a superar o conflito e alcançar um estado melhor." }
             ],
             question: "Como o storytelling pode ser mais eficaz do que apenas apresentar dados?",
-            answer: "Dados ativam as partes lógicas do cérebro, enquanto histórias ativam as partes lógicas E emocionais. Uma história cria um contexto para os dados, tornando-os mais fáceis de entender, lembrar e, o mais importante, de se importar com eles."
+            answer: "Dados ativam as partes lógicas do cérebro, enquanto histórias ativam as partes lógicas E emocionais. Uma história cria um contexto para os dados, tornando-os mais fáceis de entender, lembrar e, o mais importante, de se importar com eles.",
+            details: {
+                subtitle: "// A Jornada do Herói:",
+                points: [
+                    "<strong>O Herói:</strong> O herói da sua história não é você ou sua empresa, é o seu cliente.",
+                    "<strong>O Conflito:</strong> O problema ou desafio que o seu cliente (o herói) enfrenta. É a dor que você vai resolver.",
+                    "<strong>A Resolução:</strong> Como o seu produto ou serviço (a 'arma mágica') ajuda o herói a superar o conflito e alcançar um estado melhor."
+                ]
+            }
         },
         {
             id: 5,
@@ -75,7 +107,15 @@ export const comms = {
                 { title: "Transmitir Confiança", content: "Falar rápido e sem parar é um sinal de nervosismo. Pausar demonstra controle e confiança no seu próprio conteúdo." }
             ],
             question: "Onde é o melhor momento para usar uma pausa em uma apresentação?",
-            answer: "Logo antes de revelar a informação mais importante (para criar suspense) ou logo depois (para dar tempo para a informação 'afundar' na mente da audiência)."
+            answer: "Logo antes de revelar a informação mais importante (para criar suspense) ou logo depois (para dar tempo para a informação 'afundar' na mente da audiência).",
+            details: {
+                subtitle: "// Benefícios do Silêncio Estratégico:",
+                points: [
+                    "<strong>Criar Ênfase:</strong> Uma pausa antes ou depois de uma declaração importante a torna muito mais impactante.",
+                    "<strong>Dar Tempo para Absorver:</strong> Após apresentar uma ideia complexa, uma pausa dá à audiência tempo para processar a informação.",
+                    "<strong>Transmitir Confiança:</strong> Falar rápido e sem parar é um sinal de nervosismo. Pausar demonstra controle e confiança."
+                ]
+            }
         },
         {
             id: 6,
@@ -89,7 +129,15 @@ export const comms = {
                 { title: "Ponte para sua Mensagem", content: "Responda à pergunta diretamente e, se possível, use-a como uma 'ponte' para reforçar um dos pontos principais da sua apresentação." }
             ],
             question: "O que fazer se alguém fizer uma pergunta agressiva ou hostil?",
-            answer: "Mantenha a calma e não leve para o lado pessoal. Responda ao conteúdo da pergunta, não à emoção. Seja respeitoso, conciso e volte para sua mensagem principal. Ex: 'Entendo sua preocupação com X. O que nossos dados mostram é que...'"
+            answer: "Mantenha a calma e não leve para o lado pessoal. Responda ao conteúdo da pergunta, não à emoção. Seja respeitoso, conciso e volte para sua mensagem principal. Ex: 'Entendo sua preocupação com X. O que nossos dados mostram é que...'",
+            details: {
+                subtitle: "// Técnica de 3 Passos:",
+                points: [
+                    "<strong>Agradeça e Repita:</strong> Comece com 'Ótima pergunta'. Repita a pergunta para garantir que todos ouviram e para ganhar tempo para pensar.",
+                    "<strong>Seja Honesto:</strong> Se você não sabe a resposta, admita. É melhor dizer 'Não tenho essa informação agora, mas posso pesquisar e te retornar' do que inventar algo.",
+                    "<strong>Ponte para sua Mensagem:</strong> Responda à pergunta diretamente e, se possível, use-a como uma 'ponte' para reforçar um dos pontos principais da sua apresentação."
+                ]
+            }
         },
         {
             id: 7,
@@ -103,7 +151,15 @@ export const comms = {
                 { title: "30 Pontos de Fonte", content: "Usar uma fonte grande força você a usar menos texto e a focar nas ideias principais, além de garantir que todos na sala consigam ler." }
             ],
             question: "Por que a regra dos 20 minutos é tão importante, mesmo que a reunião seja de uma hora?",
-            answer: "Porque permite que a maior parte do tempo seja gasta em conversa e perguntas. Um pitch não é um monólogo, é o início de um diálogo. A discussão é onde o verdadeiro engajamento e convencimento acontecem."
+            answer: "Porque permite que a maior parte do tempo seja gasta em conversa e perguntas. Um pitch não é um monólogo, é o início de um diálogo. A discussão é onde o verdadeiro engajamento e convencimento acontecem.",
+            details: {
+                subtitle: "// A Regra de Ouro de Guy Kawasaki:",
+                points: [
+                    "<strong>10 Slides:</strong> É o número máximo de conceitos que uma pessoa consegue absorver em uma reunião. Seja conciso.",
+                    "<strong>20 Minutos:</strong> Faça sua apresentação em 20 minutos, mesmo que tenha uma hora. O resto é para discussão.",
+                    "<strong>30 Pontos de Fonte:</strong> Use uma fonte grande. Isso força o uso de menos texto e garante a legibilidade."
+                ]
+            }
         },
         {
             id: 8,
@@ -117,7 +173,15 @@ export const comms = {
                 { title: "Adapte a Linguagem", content: "Use analogias e exemplos que ressoem com a experiência da sua audiência." }
             ],
             question: "Como você adaptaria a mesma apresentação sobre um novo software para investidores e para engenheiros?",
-            answer: "Para investidores, focaria nos resultados de negócio: tamanho do mercado, modelo de receita e potencial de crescimento. Para engenheiros, focaria nos detalhes técnicos: a arquitetura do sistema, a stack de tecnologia e os desafios de implementação."
+            answer: "Para investidores, focaria nos resultados de negócio: tamanho do mercado, modelo de receita e potencial de crescimento. Para engenheiros, focaria nos detalhes técnicos: a arquitetura do sistema, a stack de tecnologia e os desafios de implementação.",
+            details: {
+                subtitle: "// Adapte sua Mensagem:",
+                points: [
+                    "<strong>Nível de Conhecimento:</strong> Eles são especialistas ou leigos? Isso define a profundidade e o uso de jargões.",
+                    "<strong>Interesses e Dores:</strong> Como sua mensagem pode ajudá-los a resolver seus problemas ou atingir seus objetivos?",
+                    "<strong>Adapte a Linguagem:</strong> Use analogias e exemplos que ressoem com a experiência da sua audiência."
+                ]
+            }
         },
         {
             id: 9,
@@ -131,7 +195,15 @@ export const comms = {
                 { title: "Torne Fácil", content: "Deixe claro qual é o próximo passo e facilite para a audiência tomá-lo." }
             ],
             question: "Por que 'Qualquer dúvida, estou à disposição' é um fechamento fraco?",
-            answer: "Porque é passivo e não direciona a audiência para uma ação. Um bom fechamento é proativo e diz claramente o que deve acontecer a seguir, mantendo o controle da narrativa."
+            answer: "Porque é passivo e não direciona a audiência para uma ação. Um bom fechamento é proativo e diz claramente o que deve acontecer a seguir, mantendo o controle da narrativa.",
+            details: {
+                subtitle: "// Como Finalizar com Impacto:",
+                points: [
+                    "<strong>Seja Específico:</strong> Não diga 'Espero que tenham gostado'. Diga 'Peço a aprovação do orçamento de X para iniciarmos a fase 1'.",
+                    "<strong>Seja Confiante:</strong> Faça o pedido com confiança, como se você esperasse um 'sim'.",
+                    "<strong>Torne Fácil:</strong> Deixe claro qual é o próximo passo e facilite para a audiência tomá-lo."
+                ]
+            }
         },
         {
             id: 10,
@@ -145,7 +217,15 @@ export const comms = {
                 { title: "Simule o Ambiente Real", content: "Se possível, pratique no local da apresentação ou em um ambiente similar. Apresente para colegas ou amigos e peça feedback honesto." }
             ],
             question: "Qual a diferença entre decorar o texto e internalizar a mensagem?",
-            answer: "Decorar leva a uma apresentação robótica e frágil (se você esquece uma palavra, pode se perder). Internalizar significa que você conhece tão bem suas ideias principais que pode falar sobre elas naturalmente, adaptando-se à audiência e às perguntas sem precisar seguir um script fixo."
+            answer: "Decorar leva a uma apresentação robótica e frágil (se você esquece uma palavra, pode se perder). Internalizar significa que você conhece tão bem suas ideias principais que pode falar sobre elas naturalmente, adaptando-se à audiência e às perguntas sem precisar seguir um script fixo.",
+            details: {
+                subtitle: "// Como Praticar Eficazmente:",
+                points: [
+                    "<strong>Pratique em Voz Alta:</strong> Falar é muito diferente de ler. Praticar em voz alta ajuda a encontrar as melhores palavras e o ritmo certo.",
+                    "<strong>Grave-se:</strong> Grave áudio ou vídeo da sua apresentação. É a melhor maneira de identificar tiques e áreas para melhorar.",
+                    "<strong>Simule o Ambiente Real:</strong> Pratique no local da apresentação ou em um ambiente similar e peça feedback honesto."
+                ]
+            }
         }
     ]
 };

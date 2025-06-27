@@ -1,5 +1,5 @@
 // Arquivo: data/pitch.js
-// Contém os dados exclusivamente para o deck de "O Pitch Perfeito".
+// Contém os dados para o baralho de "O Pitch Perfeito", com o campo 'details' reestruturado.
 
 export const pitch = {
     title: "O Pitch Perfeito",
@@ -19,7 +19,15 @@ export const pitch = {
                 { title: "Storytelling", content: "Crie uma narrativa. Apresente um personagem (ex: 'Esta é a Ana. Ela perde 3 horas por dia com...') para humanizar o problema." }
             ],
             question: "Qual o erro mais comum ao apresentar o problema em um pitch?",
-            answer: "O erro mais comum é apresentar um problema que não é significativo ou que a audiência não consegue entender a relevância. Se o problema parece pequeno ou de nicho demais, a solução, não importa quão brilhante, parecerá irrelevante."
+            answer: "O erro mais comum é apresentar um problema que não é significativo ou que a audiência não consegue entender a relevância. Se o problema parece pequeno ou de nicho demais, a solução, não importa quão brilhante, parecerá irrelevante.",
+            details: {
+                subtitle: "// A Dor Que Justifica a Solução:",
+                points: [
+                    "<strong>Clareza e Relevância:</strong> Seja direto. Em uma frase, qual é a dor que você resolve? Evite jargões. A avó do investidor precisa entender.",
+                    "<strong>Dados de Impacto:</strong> Mostre que não é um problema só seu. Use estatísticas: 'X milhões de pessoas sofrem com Y, custando Z bilhões ao mercado anualmente'.",
+                    "<strong>Storytelling:</strong> Crie uma narrativa. Apresente um personagem (ex: 'Esta é a Ana. Ela perde 3 horas por dia com...') para humanizar o problema."
+                ]
+            }
         },
         {
             id: 2,
@@ -33,7 +41,15 @@ export const pitch = {
                 { title: "Proposta de Valor", content: "Qual é o principal benefício que sua solução oferece? (ex: 'Economizamos 50% do tempo dos nossos clientes')." }
             ],
             question: "Devo focar nas características técnicas da minha solução durante o pitch?",
-            answer: "Não, a menos que a audiência seja extremamente técnica. Foque nos **benefícios** que a solução gera para o usuário. O investidor não quer saber sobre sua stack de tecnologia, ele quer saber como você resolve o problema e ganha dinheiro."
+            answer: "Não, a menos que a audiência seja extremamente técnica. Foque nos **benefícios** que a solução gera para o usuário. O investidor não quer saber sobre sua stack de tecnologia, ele quer saber como você resolve o problema e ganha dinheiro.",
+            details: {
+                subtitle: "// Apresentando a Cura:",
+                points: [
+                    "<strong>Simplicidade:</strong> Explique o que sua solução faz em termos simples. Foco nos benefícios, não nas features.",
+                    "<strong>Demonstração (Demo):</strong> Se possível, mostre a solução funcionando, mesmo que seja um protótipo. 'Mostrar é melhor que falar'.",
+                    "<strong>Proposta de Valor:</strong> Qual é o principal benefício que sua solução oferece? (ex: 'Economizamos 50% do tempo dos nossos clientes')."
+                ]
+            }
         },
         {
             id: 3,
@@ -47,7 +63,15 @@ export const pitch = {
                 { title: "Tendências", content: "Quais tendências (tecnológicas, sociais) estão impulsionando o crescimento deste mercado?" }
             ],
             question: "O que significa o conceito de 'bottom-up' para calcular o tamanho do mercado?",
-            answer: "Significa calcular o mercado a partir da base: (Número de clientes em potencial) x (Preço médio do seu produto). É uma abordagem mais realista e confiável do que a 'top-down', que pega uma porcentagem de um mercado gigantesco (ex: 'vamos pegar 1% do mercado de alimentos')."
+            answer: "Significa calcular o mercado a partir da base: (Número de clientes em potencial) x (Preço médio do seu produto). É uma abordagem mais realista e confiável do que a 'top-down', que pega uma porcentagem de um mercado gigantesco (ex: 'vamos pegar 1% do mercado de alimentos').",
+            details: {
+                subtitle: "// O Tamanho da Oportunidade:",
+                points: [
+                    "<strong>TAM, SAM, SOM:</strong> Defina o Mercado Total, o Mercado Endereçável e sua meta realista de captura.",
+                    "<strong>Crescimento do Mercado:</strong> Este mercado está crescendo, estagnado ou encolhendo? Mostre dados que indiquem uma tendência de alta.",
+                    "<strong>Tendências:</strong> Quais tendências (tecnológicas, sociais) estão impulsionando o crescimento deste mercado?"
+                ]
+            }
         },
         {
             id: 4,
@@ -61,7 +85,15 @@ export const pitch = {
                 { title: "Métricas Chave", content: "Quais são as métricas mais importantes para o seu modelo? (Ex: LTV - Lifetime Value, CAC - Custo de Aquisição de Cliente)." }
             ],
             question: "Qual a diferença entre LTV (Lifetime Value) e CAC (Custo de Aquisição de Cliente)?",
-            answer: "CAC é quanto você gasta para adquirir um novo cliente. LTV é o valor total que você espera que esse cliente gere para sua empresa ao longo do tempo. Um modelo de negócio saudável precisa ter um LTV significativamente maior que o CAC."
+            answer: "CAC é quanto você gasta para adquirir um novo cliente. LTV é o valor total que você espera que esse cliente gere para sua empresa ao longo do tempo. Um modelo de negócio saudável precisa ter um LTV significativamente maior que o CAC.",
+            details: {
+                subtitle: "// Como Gerar Receita:",
+                points: [
+                    "<strong>Fontes de Receita:</strong> Como você gera receita? (Assinatura, venda única, freemium, etc.).",
+                    "<strong>Estratégia de Preços:</strong> Por que você escolheu esse preço? Baseado em custo, valor ou concorrência?",
+                    "<strong>Métricas Chave:</strong> Quais são as métricas mais importantes? (Ex: LTV - Lifetime Value, CAC - Custo de Aquisição de Cliente)."
+                ]
+            }
         },
         {
             id: 5,
@@ -75,7 +107,15 @@ export const pitch = {
                 { title: "Matriz de Concorrência", content: "Use um gráfico 2x2 para se posicionar visualmente contra seus concorrentes, destacando seus dois diferenciais mais fortes nos eixos." }
             ],
             question: "Dizer 'não temos concorrentes' é uma boa estratégia em um pitch?",
-            answer: "Não, é péssima. Sugere que ou você não pesquisou o mercado direito, ou não há mercado para sua solução. Sempre há concorrência, mesmo que seja uma forma alternativa do cliente resolver o problema (ex: uma planilha de Excel)."
+            answer: "Não, é péssima. Sugere que ou você não pesquisou o mercado direito, ou não há mercado para sua solução. Sempre há concorrência, mesmo que seja uma forma alternativa do cliente resolver o problema (ex: uma planilha de Excel).",
+            details: {
+                subtitle: "// O Cenário Competitivo:",
+                points: [
+                    "<strong>Concorrentes Diretos/Indiretos:</strong> Liste quem já resolve o mesmo problema, mesmo que de forma diferente.",
+                    "<strong>Diferencial Competitivo:</strong> O que torna sua solução única e difícil de ser copiada?",
+                    "<strong>Matriz de Concorrência:</strong> Use um gráfico 2x2 para se posicionar visualmente contra seus concorrentes."
+                ]
+            }
         },
         {
             id: 6,
@@ -89,7 +129,15 @@ export const pitch = {
                 { title: "Complementaridade", content: "Mostre que a equipe tem habilidades complementares que cobrem as principais áreas do negócio (ex: técnico, negócios, marketing)." }
             ],
             question: "O que é mais importante para um investidor: uma ótima ideia com uma equipe mediana, ou uma ideia mediana com uma ótima equipe?",
-            answer: "Uma ótima equipe. A maioria dos investidores concorda que uma equipe excepcional pode transformar uma ideia mediana em um sucesso, enquanto uma equipe fraca pode arruinar a melhor das ideias."
+            answer: "Uma ótima equipe. A maioria dos investidores concorda que uma equipe excepcional pode transformar uma ideia mediana em um sucesso, enquanto uma equipe fraca pode arruinar a melhor das ideias.",
+            details: {
+                subtitle: "// As Pessoas por Trás da Ideia:",
+                points: [
+                    "<strong>Experiência Relevante:</strong> Destaque experiências e habilidades que se conectam com o desafio do projeto.",
+                    "<strong>Paixão e Comprometimento:</strong> Mostre que vocês estão 100% dedicados a resolver este problema.",
+                    "<strong>Complementaridade:</strong> Mostre que a equipe tem habilidades complementares que cobrem as principais áreas do negócio."
+                ]
+            }
         },
         {
             id: 7,
@@ -103,7 +151,15 @@ export const pitch = {
                 { title: "Próximos Marcos", content: "O que você vai conquistar nos próximos 6-18 meses? (ex: Lançar versão 2.0, atingir 10 mil usuários)." }
             ],
             question: "O que é um MVP e por que ele é uma forma de tração?",
-            answer: "MVP (Minimum Viable Product) é a versão mais simples do seu produto que ainda resolve o problema central do cliente. Lançar um MVP e ter os primeiros usuários (mesmo que poucos) é uma forma poderosa de tração, pois prova que você consegue construir e que alguém está disposto a usar sua solução."
+            answer: "MVP (Minimum Viable Product) é a versão mais simples do seu produto que ainda resolve o problema central do cliente. Lançar um MVP e ter os primeiros usuários (mesmo que poucos) é uma forma poderosa de tração, pois prova que você consegue construir e que alguém está disposto a usar sua solução.",
+            details: {
+                subtitle: "// Provas de Progresso:",
+                points: [
+                    "<strong>O que já foi feito:</strong> Protótipo construído? Primeiros usuários? Parcerias fechadas?",
+                    "<strong>Métricas de Tração:</strong> Apresente números que provem seu progresso: número de usuários, crescimento semanal, receita inicial, etc.",
+                    "<strong>Próximos Marcos:</strong> O que você vai conquistar nos próximos 6-18 meses?"
+                ]
+            }
         },
         {
             id: 8,
@@ -117,7 +173,15 @@ export const pitch = {
                 { title: "Objetivos com o Investimento", content: "O que esse dinheiro vai te permitir alcançar? (ex: 'Com este investimento, vamos atingir X usuários e Y de faturamento em 18 meses')." }
             ],
             question: "Qual erro deve ser evitado ao fazer 'The Ask'?",
-            answer: "Ser vago ou parecer desesperado. Você precisa mostrar que tem um plano claro e que o dinheiro é o combustível para executar esse plano, não um salva-vidas. A confiança na sua projeção é fundamental."
+            answer: "Ser vago ou parecer desesperado. Você precisa mostrar que tem um plano claro e que o dinheiro é o combustível para executar esse plano, não um salva-vidas. A confiança na sua projeção é fundamental.",
+            details: {
+                subtitle: "// O Pedido:",
+                points: [
+                    "<strong>Quanto Dinheiro?:</strong> Seja específico. 'Estamos buscando R$500.000'.",
+                    "<strong>Alocação dos Recursos:</strong> Mostre um plano de como o dinheiro será gasto (ex: 40% em marketing, 50% em desenvolvimento).",
+                    "<strong>Objetivos com o Investimento:</strong> O que esse dinheiro vai te permitir alcançar? (ex: 'Atingir X usuários e Y de faturamento')."
+                ]
+            }
         },
         {
             id: 9,
@@ -131,7 +195,15 @@ export const pitch = {
                 { title: "Gatilho de Curiosidade", content: "O objetivo não é explicar tudo, mas gerar interesse suficiente para que a pessoa queira saber mais." }
             ],
             question: "Crie um Elevator Pitch para o Spotify usando a fórmula.",
-            answer: "Para amantes de música que odeiam a pirataria e a inconveniência, o Spotify é um serviço de streaming que dá acesso a todas as músicas do mundo instantaneamente. Diferente de comprar CDs ou baixar MP3, nós oferecemos uma experiência legal, barata e personalizada."
+            answer: "Para amantes de música que odeiam a pirataria e a inconveniência, o Spotify é um serviço de streaming que dá acesso a todas as músicas do mundo instantaneamente. Diferente de comprar CDs ou baixar MP3, nós oferecemos uma experiência legal, barata e personalizada.",
+            details: {
+                subtitle: "// A Versão de 30 Segundos:",
+                points: [
+                    "<strong>A Fórmula:</strong> Para [público-alvo] que tem o [problema], nossa [solução] é um [produto] que oferece o [benefício]. Diferente de [concorrente], nós [diferencial].",
+                    "<strong>Clareza:</strong> Sem jargões. A mensagem deve ser instantaneamente compreensível.",
+                    "<strong>Gatilho de Curiosidade:</strong> O objetivo não é explicar tudo, mas gerar interesse para uma conversa mais longa."
+                ]
+            }
         },
         {
             id: 10,
@@ -145,7 +217,15 @@ export const pitch = {
                 { title: "Consistência Visual", content: "Mantenha a mesma paleta de cores, fontes e estilo de design em todos os slides para criar uma apresentação profissional e coesa." }
             ],
             question: "Qual é a 'regra dos 10/20/30' de Guy Kawasaki para pitches?",
-            answer: "É uma diretriz clássica: um pitch deve ter no máximo **10 slides**, durar no máximo **20 minutos** e usar uma fonte de no mínimo **30 pontos**. É um ótimo lembrete para ser conciso e visual."
+            answer: "É uma diretriz clássica: um pitch deve ter no máximo **10 slides**, durar no máximo **20 minutos** e usar uma fonte de no mínimo **30 pontos**. É um ótimo lembrete para ser conciso e visual.",
+            details: {
+                subtitle: "// Menos é Mais:",
+                points: [
+                    "<strong>Um Conceito por Slide:</strong> Cada slide deve ter apenas uma ideia central.",
+                    "<strong>Visual > Texto:</strong> Use imagens e gráficos para transmitir informações. Evite parágrafos longos.",
+                    "<strong>Consistência Visual:</strong> Mantenha a mesma paleta de cores, fontes e estilo em todos os slides."
+                ]
+            }
         }
     ]
 };
