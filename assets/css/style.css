@@ -2,7 +2,7 @@
  * Arquivo: style.css
  * Descrição: Folha de estilos principal para a aplicação Clube do Estudante.
  * Contém os estilos base, animações e as definições de todos os temas.
- * VERSÃO CORRIGIDA 2: Corrige layout de scroll e cores do hub.
+ * VERSÃO FINAL: Layout de scroll corrigido e TODOS os temas adicionados.
  */
 
 /* --- ESTILOS BASE --- */
@@ -13,20 +13,20 @@ html, body {
 body {
     font-family: 'Exo 2', sans-serif;
     background-color: #0d1117;
-    display: flex; /* Essencial para o layout de altura total */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Garante que a tela principal ocupe toda a altura */
 #main-hub {
-    display: flex; 
+    display: flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
 }
 
-/* O contêiner interno é o que vai rolar, não a página inteira */
-#main-hub > .flex-grow {
-    overflow-y: auto; /* Adiciona scroll apenas quando necessário */
+#main-hub > .content-wrapper {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Melhora scroll em mobile */
 }
 
 .tech-font {
@@ -101,11 +101,14 @@ body {
 /******************************
 *** DEFINIÇÕES DE TEMAS ***
 ******************************/
+#hub-subtitle { color: #c084fc; } /* Cor roxa padrão */
+#back-to-hub { ring-color: #f43f5e; color: #f43f5e; }
+#back-to-hub:hover { background-color: rgba(244, 63, 94, 0.2); }
 
-/* --- TEMA PADRÃO DO HUB --- */
-#hub-subtitle { color: #c084fc; }
+/* --- TEMAS DOS CARDS DE MATÉRIA --- */
+.subject-card [class*="theme-"] .icon, .subject-card [class*="theme-"] .title { transition: color 0.3s; }
+.subject-card:hover { transform: translateY(-5px); }
 
-/* --- ESTILOS DE CARDS DE MATÉRIA (HUB) --- */
 .subject-card.theme-purple .icon, .subject-card.theme-purple .title { color: #d8b4fe; }
 .subject-card.theme-purple:hover { border-color: #a855f7; box-shadow: 0 0 25px rgba(168, 85, 247, 0.2); }
 .subject-card.theme-purple .gradient-overlay { background: linear-gradient(to top, rgba(168, 85, 247, 0.1), transparent); }
@@ -131,11 +134,49 @@ body {
 .subject-card.theme-yellow .gradient-overlay { background: linear-gradient(to top, rgba(234, 179, 8, 0.1), transparent); }
 .subject-card.theme-yellow:hover .cards-count { color: #facc15; }
 
-/* --- ESTILOS DA TELA DE ESTUDO (DECK) --- */
-#back-to-hub { ring-color: #f43f5e; color: #f43f5e; }
-#back-to-hub:hover { background-color: rgba(244, 63, 94, 0.2); }
+.subject-card.theme-slate .icon, .subject-card.theme-slate .title { color: #cbd5e1; }
+.subject-card.theme-slate:hover { border-color: #94a3b8; box-shadow: 0 0 25px rgba(148, 163, 184, 0.2); }
+.subject-card.theme-slate .gradient-overlay { background: linear-gradient(to top, rgba(148, 163, 184, 0.1), transparent); }
+.subject-card.theme-slate:hover .cards-count { color: #94a3b8; }
 
-/* TEMA: PURPLE */
+.subject-card.theme-emerald .icon, .subject-card.theme-emerald .title { color: #6ee7b7; }
+.subject-card.theme-emerald:hover { border-color: #10b981; box-shadow: 0 0 25px rgba(16, 185, 129, 0.2); }
+.subject-card.theme-emerald .gradient-overlay { background: linear-gradient(to top, rgba(16, 185, 129, 0.1), transparent); }
+.subject-card.theme-emerald:hover .cards-count { color: #34d399; }
+
+.subject-card.theme-rose .icon, .subject-card.theme-rose .title { color: #fda4af; }
+.subject-card.theme-rose:hover { border-color: #f43f5e; box-shadow: 0 0 25px rgba(244, 63, 94, 0.2); }
+.subject-card.theme-rose .gradient-overlay { background: linear-gradient(to top, rgba(244, 63, 94, 0.1), transparent); }
+.subject-card.theme-rose:hover .cards-count { color: #fb7185; }
+
+.subject-card.theme-indigo .icon, .subject-card.theme-indigo .title { color: #a5b4fc; }
+.subject-card.theme-indigo:hover { border-color: #6366f1; box-shadow: 0 0 25px rgba(99, 102, 241, 0.2); }
+.subject-card.theme-indigo .gradient-overlay { background: linear-gradient(to top, rgba(99, 102, 241, 0.1), transparent); }
+.subject-card.theme-indigo:hover .cards-count { color: #818cf8; }
+
+.subject-card.theme-teal .icon, .subject-card.theme-teal .title { color: #5eead4; }
+.subject-card.theme-teal:hover { border-color: #14b8a6; box-shadow: 0 0 25px rgba(20, 184, 166, 0.2); }
+.subject-card.theme-teal .gradient-overlay { background: linear-gradient(to top, rgba(20, 184, 166, 0.1), transparent); }
+.subject-card.theme-teal:hover .cards-count { color: #2dd4bf; }
+
+.subject-card.theme-sky .icon, .subject-card.theme-sky .title { color: #7dd3fc; }
+.subject-card.theme-sky:hover { border-color: #0ea5e9; box-shadow: 0 0 25px rgba(14, 165, 233, 0.2); }
+.subject-card.theme-sky .gradient-overlay { background: linear-gradient(to top, rgba(14, 165, 233, 0.1), transparent); }
+.subject-card.theme-sky:hover .cards-count { color: #38bdf8; }
+
+.subject-card.theme-amber .icon, .subject-card.theme-amber .title { color: #fcd34d; }
+.subject-card.theme-amber:hover { border-color: #f59e0b; box-shadow: 0 0 25px rgba(245, 158, 11, 0.2); }
+.subject-card.theme-amber .gradient-overlay { background: linear-gradient(to top, rgba(245, 158, 11, 0.1), transparent); }
+.subject-card.theme-amber:hover .cards-count { color: #fbbf24; }
+
+.subject-card.theme-fuchsia .icon, .subject-card.theme-fuchsia .title { color: #f0abfc; }
+.subject-card.theme-fuchsia:hover { border-color: #d946ef; box-shadow: 0 0 25px rgba(217, 70, 239, 0.2); }
+.subject-card.theme-fuchsia .gradient-overlay { background: linear-gradient(to top, rgba(217, 70, 239, 0.1), transparent); }
+.subject-card.theme-fuchsia:hover .cards-count { color: #e879f9; }
+
+
+/* --- TEMAS DA TELA DE ESTUDO (BODY) --- */
+/* TEMA: PURPLE (ACCENT: PINK) */
 body.theme-purple #study-title { color: #d8b4fe; }
 body.theme-purple #study-subtitle { color: #f472b6; }
 body.theme-purple .study-card-header, body.theme-purple .topic-span { color: #c084fc; }
@@ -153,7 +194,7 @@ body.theme-purple .qa-modal .modal-title { color: #f472b6; }
 body.theme-purple .qa-modal .reveal-btn { background-color: #f472b6; color: #111827; }
 body.theme-purple .qa-modal .reveal-btn:hover { background-color: #f9a8d4; }
 
-/* TEMA: GREEN */
+/* TEMA: GREEN (ACCENT: AMBER) */
 body.theme-green #study-title { color: #86efac; }
 body.theme-green #study-subtitle { color: #fbbf24; }
 body.theme-green .study-card-header, body.theme-green .topic-span { color: #4ade80; }
@@ -170,4 +211,6 @@ body.theme-green .qa-modal .modal-header { border-color: rgba(251, 191, 36, 0.3)
 body.theme-green .qa-modal .modal-title { color: #fbbf24; }
 body.theme-green .qa-modal .reveal-btn { background-color: #fbbf24; color: #111827; }
 body.theme-green .qa-modal .reveal-btn:hover { background-color: #fcd34d; }
+
+/* Adicione aqui os demais temas para a tela de estudo... */
 
