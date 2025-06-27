@@ -25,14 +25,14 @@
 
     <!-- Tela Principal (Hub de Matérias) -->
     <div id="main-hub" class="relative h-screen w-full flex flex-col items-center">
-        <!-- Div wrapper para controle de scroll e layout -->
         <div class="content-wrapper flex-grow flex flex-col items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <header class="text-center py-12 flex-shrink-0">
                 <h1 class="glitch" data-text="Clube do Estudante">Clube do Estudante</h1>
                 <p id="hub-subtitle" class="tech-font mt-2">// Selecione a matéria para iniciar os estudos.</p>
             </header>
             
-            <div id="subject-selection" class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-center">
+            <!-- CORREÇÃO: Removidas as classes de grid do Tailwind para controle via CSS -->
+            <div id="subject-selection" class="w-full">
                 <!-- Cards das matérias serão inseridos aqui pelo JavaScript -->
             </div>
             
@@ -80,7 +80,7 @@
     <!-- Contêiner para os Modais -->
     <div id="modal-container"></div>
 
-    <!-- Nosso script principal (Caminho corrigido) -->
+    <!-- Nosso script principal -->
     <script src="assets/js/script.js" type="module"></script>
 </body>
 </html>
