@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Clube do Estudante - Portal de Estudos</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
 </head>
-<body class="bg-gray-900 text-gray-200">
+<body class="bg-gray-900 text-gray-200 relative">
 
     <!-- Efeitos de Fundo -->
     <div class="stars"></div>
@@ -20,26 +25,119 @@
     <!-- Tela Principal (Hub de Matérias) -->
     <div id="main-hub" class="relative min-h-screen w-full flex flex-col items-center">
         <div class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
-             <header class="text-center py-12 flex-shrink-0">
+            <header class="text-center py-12 flex-shrink-0">
                 <h1 class="glitch" data-text="Clube do Estudante">Clube do Estudante</h1>
                 <p id="hub-subtitle" class="tech-font mt-2">// Selecione a matéria para iniciar os estudos.</p>
             </header>
-            
+
             <div id="subject-selection" class="flex-grow w-full">
                 <!-- Cards das matérias serão inseridos aqui pelo JavaScript -->
             </div>
+
+        <div class="py-16 text-center flex-shrink-0">
+        <button id="open-readme-btn" class="tech-font text-gray-400 border border-gray-600 rounded-full px-4 py-2 text-sm hover:bg-gray-800 hover:text-white transition-all duration-300">
+            Leia-me (Sobre o Projeto)
+        </button>
+        </div>
+        </div>
+
+
+    </div>
+
+    <!-- CORREÇÃO: Adicionada a classe 'flex' para ativar o alinhamento -->
+    <main
+        id="study-deck-view"
+    class="hidden min-h-screen w-full flex flex-col justify-between items-center p-4 bg-gray-900/50 backdrop-blur-sm relative"
+    >
+        <button
+            id="back-to-hub"
+            class="p-3 bg-gray-800/70 rounded-full transition-all duration-300 focus:outline-none ring-1 ring-gray-600 backdrop-blur-sm hover:bg-gray-700 hover:ring-gray-400"
+            aria-label="Voltar para a página principal"
+            title="Voltar para a página principal"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-6 h-6"
+            >
+                <path d="m12 19-7-7 7-7" />
+                <path d="M19 12H5" />
+            </svg>
+        </button>
+
+        <header class="text-center mb-4 md:mb-8">
+            <h1 id="study-title" class="text-4xl font-black uppercase"></h1>
+            <p id="study-subtitle" class="tech-font mt-2">// Navegue pelos cards e domine os conceitos!</p>
+        </header>
+        <div
+            id="card-deck"
+            class="relative w-full max-w-sm h-[420px] md:h-[450px] flex items-center justify-center"
             
-            <div class="py-16 text-center flex-shrink-0">
-                <button id="open-readme-btn" class="tech-font text-gray-400 border border-gray-600 rounded-full px-4 py-2 text-sm hover:bg-gray-800 hover:text-white transition-all duration-300">
-                    // Leia-me (Sobre o Projeto)
-                </button>
-            </div>
+        ></div>
+        
+        <div class="mt-4 md:mt-8 flex items-center space-x-4 md:space-x-8">
+            <button
+                id="prev-btn"
+                class="p-3 bg-gray-800/50 rounded-full transition-all duration-300 focus:outline-none ring-1 backdrop-blur-sm"
+                aria-label="Card anterior"
+                title="Card anterior"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-6 h-6"
+                >
+                    <path d="m15 18-6-6 6-6" />
+                </svg>
+            </button>
+            <span
+                id="card-counter"
+                class="text-xl font-bold tech-font text-gray-300"
+                aria-live="polite"
+                aria-atomic="true"
+            ></span>
+            <button
+                id="next-btn"
+                class="p-3 bg-gray-800/50 rounded-full transition-all duration-300 focus:outline-none ring-1 backdrop-blur-sm"
+                aria-label="Próximo card"
+                title="Próximo card"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-6 h-6"
+                >
+                    <path d="m9 18 6-6-6-6" />
+                </svg>
+            </button>
         </div>
         
+    </main>
         <footer class="w-full text-center p-4 flex-shrink-0 bg-[#0d1117] relative">
             <div class="max-w-4xl mx-auto text-xs tech-font text-gray-500 space-y-1">
                 <p>
-                    Desenvolvido por Davi Cortelete (CEO & Founder
+                    Desenvolvido por Davi Cortelete (CEO &amp; Founder
                     <a href="https://www.instagram.com/inteligenciarte.ia/" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-pink-400 transition-colors">@inteligenciarte.ia</a>).
                 </p>
                 <p>
@@ -47,40 +145,45 @@
                 </p>
             </div>
         </footer>
-    </div>
-
-    <!-- CORREÇÃO: Adicionada a classe 'flex' para ativar o alinhamento -->
-    <main id="study-deck-view" class="hidden fixed inset-0 flex flex-col items-center justify-center p-4 overflow-hidden z-20 bg-gray-900/50 backdrop-blur-sm">
-        <header class="text-center mb-4 md:mb-8">
-            <h1 id="study-title" class="text-4xl font-black uppercase"></h1>
-            <p id="study-subtitle" class="tech-font mt-2">// Navegue pelos cards e domine os conceitos!</p>
-        </header>
-        <div id="card-deck" class="relative w-full max-w-sm h-[420px] md:h-[450px] flex items-center justify-center"></div>
-        <div class="mt-4 md:mt-8 flex items-center space-x-4 md:space-x-8">
-            <button id="back-to-hub" class="p-3 bg-gray-800/50 rounded-full transition-all duration-300 focus:outline-none ring-1 backdrop-blur-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-            </button>
-            <button id="prev-btn" class="p-3 bg-gray-800/50 rounded-full transition-all duration-300 focus:outline-none ring-1 backdrop-blur-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="m15 18-6-6 6-6"/></svg>
-            </button>
-            <span id="card-counter" class="text-xl font-bold tech-font text-gray-300"></span>
-            <button id="next-btn" class="p-3 bg-gray-800/50 rounded-full transition-all duration-300 focus:outline-none ring-1 backdrop-blur-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="m9 18 6-6-6-6"/></svg>
-            </button>
-        </div>
-    </main>
-    
     <div id="modal-container">
-        <div id="details-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
-             <div class="modal-content-wrapper bg-[#161b22] rounded-lg shadow-2xl w-full max-w-2xl transform scale-95">
-                <header class="modal-header p-4 flex justify-between items-center">
-                    <h2 id="details-modal-title" class="modal-title text-2xl font-bold tech-font"></h2>
-                    <button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button>
+        <div
+            id="details-modal"
+            class="modal-wrapper fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden"
+        >
+            <div
+                class="modal-content-wrapper bg-[#161b22] rounded-lg shadow-2xl w-full max-w-2xl transform scale-95 flex flex-col"
+            >
+                <header
+                    class="modal-header p-4 flex justify-between items-center border-b border-gray-700"
+                >
+                    <h2
+                        id="details-modal-title"
+                        class="modal-title text-2xl font-bold tech-font text-gray-100"
+                    ></h2>
+                    <button
+                        class="close-modal-btn text-gray-400 hover:text-white text-3xl"
+                        aria-label="Fechar modal"
+                        title="Fechar"
+                    >
+                        &times;
+                    </button>
                 </header>
-                <div id="details-modal-content" class="modal-content p-6 max-h-[60vh] overflow-y-auto text-gray-300 prose prose-invert prose-p:my-2 prose-strong:text-white"></div>
+                <div
+                    id="details-modal-content"
+                    class="modal-content p-6 max-h-[60vh] overflow-y-auto text-gray-300 prose prose-invert prose-p:my-2 prose-strong:text-white flex-grow"
+                ></div>
+                    <footer class="w-full text-center p-4 flex-shrink-0 bg-[#0d1117] relative">
+                        <div class="max-w-4xl mx-auto text-xs tech-font text-gray-500 space-y-1">
+                            <p>
+                                <a href="https://www.instagram.com/inteligenciarte.ia/" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-pink-400 transition-colors">@inteligenciarte.ia</a>
+                            </p>
+                        </div>
+                    </footer>
             </div>
         </div>
     </div>
-    <script src="assets/js/script.js" type="module"></script>
+
+    <script type="module" src="assets/js/script.js"></script>
+
 </body>
 </html>

@@ -91,7 +91,42 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderAllModals() {
         let modalsHTML = '';
         for (const key in studyDecks) { const deck = studyDecks[key]; modalsHTML += `<div id="${deck.theme}-topic-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-[51] hidden"><div class="modal-content-wrapper bg-[#161b22] rounded-lg shadow-2xl w-full max-w-2xl transform scale-95"><header class="modal-header p-4 flex justify-between items-center"><h2 class="modal-title text-2xl font-bold tech-font"></h2><button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button></header><div class="modal-content p-6 max-h-[60vh] overflow-y-auto text-gray-300 prose prose-invert prose-p:my-2 prose-strong:text-white"></div></div></div><div id="${deck.theme}-qa-modal" class="modal-wrapper qa-modal fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden"><div class="modal-content-wrapper bg-[#161b22] rounded-lg shadow-2xl w-full max-w-2xl transform scale-95"><header class="modal-header p-4 flex justify-between items-center"><h2 class="modal-title text-2xl font-bold tech-font">// Teste seu Conhecimento</h2><button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button></header><div class="p-6"><div class="qa-question mb-4 text-gray-200"></div><div class="qa-answer hidden p-4 bg-black/30 rounded-md border border-gray-700"></div><div class="mt-6 text-center"><button class="reveal-btn font-bold py-2 px-6 rounded-md transition-all duration-200 tech-font">Revelar Resposta</button></div></div></div></div>`; }
-        modalsHTML += `<div id="readme-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden"><div class="modal-content-wrapper bg-[#161b22] border border-gray-500/50 rounded-lg shadow-2xl w-full max-w-3xl transform scale-95"><header class="p-4 border-b border-gray-500/30 flex justify-between items-center"><h2 class="text-2xl font-bold tech-font text-gray-300">// Sobre o Projeto: Clube do Estudante</h2><button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button></header><div class="modal-content p-6 max-h-[70vh] overflow-y-auto theme-gray"><div class="space-y-4 text-gray-300 tech-font"><p>O <strong>Clube do Estudante</strong> é uma plataforma de aprendizado gamificada...</p></div></div></div></div>`;
+        modalsHTML += `
+        <div id="readme-modal" class="modal-wrapper fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
+            <div class="modal-content-wrapper bg-[#161b22] border border-gray-500/50 rounded-lg shadow-2xl w-full max-w-3xl transform scale-95">
+                <header class="p-4 border-b border-gray-500/30 flex justify-between items-center">
+                    <h2 class="text-2xl font-bold tech-font text-gray-300">// Sobre o Projeto: Clube do Estudante</h2>
+                    <button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button>
+                </header>
+                <div class="modal-content p-6 max-h-[70vh] overflow-y-auto text-gray-300 tech-font space-y-6">
+
+                    <section>
+                        <p><strong class="text-white">O <span class="text-purple-400">Clube do Estudante</span></strong> é uma plataforma de aprendizado gamificada, desenhada para tornar o estudo de temas complexos mais dinâmico e eficiente. A metodologia é baseada em <strong>flashcards</strong>, uma técnica comprovada para memorização e fixação de conteúdo.</p>
+                    </section>
+
+                    <hr class="border-gray-600" />
+
+                    <section>
+                        <h3 class="text-lg font-semibold text-purple-400">// Como Usar</h3>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                            <li><strong>Seleção de Matéria:</strong> Na tela inicial, escolha um dos decks de estudo disponíveis.</li>
+                            <li><strong>Navegação:</strong> Use as setas (ou as teclas do teclado) para navegar entre os cards do deck.</li>
+                            <li><strong>Tópicos-Chave:</strong> Clique em um tópico-chave dentro de um card para abrir um modal com a explicação detalhada.</li>
+                            <li><strong>Teste Rápido:</strong> Use o botão com ícone de interrogação (?) para testar seu conhecimento com uma pergunta e resposta sobre o tema do card.</li>
+                        </ul>
+                    </section>
+
+                    <hr class="border-gray-600" />
+
+                    <section>
+                        <h3 class="text-lg font-semibold text-green-400">// O Conceito</h3>
+                        <p class="mt-2">A ideia central é quebrar grandes volumes de informação em pedaços menores e gerenciáveis. Cada card funciona como um gatilho mental, apresentando um conceito, uma dica e os tópicos essenciais. Essa abordagem facilita a revisão e o reforço do aprendizado.</p>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+        `;
         modalContainer.innerHTML += modalsHTML;
     }
     
@@ -177,13 +212,70 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- EVENT LISTENERS ---
-    subjectSelection.addEventListener('click', (e) => { const subjectCard = e.target.closest('.subject-card'); if (subjectCard) startStudyDeck(subjectCard.dataset.subjectKey); });
+
+    // Seleção de matéria (deck de estudo)
+    subjectSelection.addEventListener('click', (e) => {
+        const subjectCard = e.target.closest('.subject-card');
+        if (subjectCard) {
+            startStudyDeck(subjectCard.dataset.subjectKey);
+        }
+    });
+
+    // Voltar para o hub principal
     backToHubBtn.addEventListener('click', showMainHub);
-    prevBtn.addEventListener('click', () => { if (!currentDeckKey) return; const cardCount = studyDecks[currentDeckKey].cards.length; currentIndex = (currentIndex - 1 + cardCount) % cardCount; updateDeckView(); });
-    nextBtn.addEventListener('click', () => { if (!currentDeckKey) return; const cardCount = studyDecks[currentDeckKey].cards.length; currentIndex = (currentIndex + 1) % cardCount; updateDeckView(); });
-    readmeBtn.addEventListener('click', () => { showModal(document.getElementById('readme-modal')); });
-    modalContainer.addEventListener('click', (e) => { if (e.target.classList.contains('close-modal-btn')) closeModal(e.target.closest('.modal-wrapper')); if (e.target.classList.contains('modal-wrapper')) closeModal(e.target); });
-    window.addEventListener('keydown', (e) => { const isModalOpen = document.querySelector('.modal-wrapper:not(.hidden)'); if (e.key === 'Escape') { if (isModalOpen) closeModal(isModalOpen); else if (!studyDeckView.classList.contains('hidden')) showMainHub(); } if (isModalOpen) return; if (!studyDeckView.classList.contains('hidden')) { if (e.key === 'ArrowLeft') prevBtn.click(); if (e.key === 'ArrowRight') nextBtn.click(); } });
+
+    // Navegar para o card anterior
+    prevBtn.addEventListener('click', () => {
+        if (!currentDeckKey) return;
+        const cardCount = studyDecks[currentDeckKey].cards.length;
+        currentIndex = (currentIndex - 1 + cardCount) % cardCount;
+        updateDeckView();
+    });
+
+    // Navegar para o próximo card
+    nextBtn.addEventListener('click', () => {
+        if (!currentDeckKey) return;
+        const cardCount = studyDecks[currentDeckKey].cards.length;
+        currentIndex = (currentIndex + 1) % cardCount;
+        updateDeckView();
+    });
+
+    // Abrir o modal "Sobre o Projeto"
+    readmeBtn.addEventListener('click', () => {
+        showModal(document.getElementById('readme-modal'));
+    });
+
+    // Fechar modal ao clicar no "X" ou fora da área de conteúdo
+    modalContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('close-modal-btn')) {
+            closeModal(e.target.closest('.modal-wrapper'));
+        }
+        if (e.target.classList.contains('modal-wrapper')) {
+            closeModal(e.target);
+        }
+    });
+
+    // Teclas de atalho (Escape, setas)
+    window.addEventListener('keydown', (e) => {
+        const isModalOpen = document.querySelector('.modal-wrapper:not(.hidden)');
+
+        // ESC fecha modal ou volta ao hub
+        if (e.key === 'Escape') {
+            if (isModalOpen) {
+                closeModal(isModalOpen);
+            } else if (!studyDeckView.classList.contains('hidden')) {
+                showMainHub();
+            }
+        }
+
+        // Navegação por teclado (setas esquerda/direita)
+        if (isModalOpen) return;
+
+        if (!studyDeckView.classList.contains('hidden')) {
+            if (e.key === 'ArrowLeft') prevBtn.click();
+            if (e.key === 'ArrowRight') nextBtn.click();
+        }
+    });
 
     // --- INICIALIZAÇÃO ---
     function init() {

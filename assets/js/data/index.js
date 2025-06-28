@@ -15,6 +15,9 @@ import { comms } from './comms.js';
 import { exams } from './exams.js';
 import { bizauto } from './bizauto.js';
 import { branding } from './branding.js';
+import { direitoMilitar } from './direitoMilitar.js';
+import { direitoMilitarAvancado } from './direitoMilitarAvancado.js';
+
 
 export const studyDecks = {
     gp,
@@ -29,5 +32,7 @@ export const studyDecks = {
     comms,
     exams,
     bizauto,
-    branding
+    branding,
+    direitoMilitar,
+    direitoMilitarAvancado
 };

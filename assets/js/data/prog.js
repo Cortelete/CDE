@@ -19,7 +19,15 @@ export const prog = {
                 { title: "Independente de Linguagem", content: "<p>Um algoritmo é uma ideia, um conceito lógico. Ele pode ser implementado em qualquer linguagem de programação (Python, Java, C++, etc.).</p>" }
             ],
             question: "Por que um algoritmo precisa ser 'finito'?",
-            answer: "Porque ele foi criado para resolver um problema. Se ele não termina, ele nunca entrega a solução e consome recursos indefinidamente, tornando-se inútil."
+            answer: "Porque ele foi criado para resolver um problema. Se ele não termina, ele nunca entrega a solução e consome recursos indefinidamente, tornando-se inútil.",
+            details: {
+                subtitle: "// Pontos importantes sobre Algoritmos:",
+                points: [
+                    "Sequência clara e lógica de passos.",
+                    "Deve ser finito, evitando loops infinitos.",
+                    "Independente da linguagem de programação."
+                ]
+            }
         },
         {
             id: 2,
@@ -33,7 +41,15 @@ export const prog = {
                 { title: "Pilhas (Stacks) e Filas (Queues)", content: "<p><strong>Pilha (LIFO - Last-In, First-Out):</strong> Pense numa pilha de pratos. O último a entrar é o primeiro a sair. <strong>Fila (FIFO - First-In, First-Out):</strong> Pense numa fila de banco. O primeiro a chegar é o primeiro a ser atendido.</p>" }
             ],
             question: "Quando você usaria uma Pilha (Stack) em vez de uma Fila (Queue)? Dê um exemplo.",
-            answer: "Você usaria uma Pilha quando a ordem de processamento precisa ser inversa à de chegada. Um exemplo clássico é o botão 'Desfazer' (Undo) em um editor de texto, que desfaz a última ação realizada."
+            answer: "Você usaria uma Pilha quando a ordem de processamento precisa ser inversa à de chegada. Um exemplo clássico é o botão 'Desfazer' (Undo) em um editor de texto, que desfaz a última ação realizada.",
+            details: {
+                subtitle: "// Aspectos fundamentais das Estruturas de Dados:",
+                points: [
+                    "Arrays: acesso rápido, tamanho fixo.",
+                    "Listas Ligadas: tamanho flexível, acesso sequencial.",
+                    "Pilhas e Filas: controle de ordem LIFO e FIFO."
+                ]
+            }
         },
         {
             id: 3,
@@ -47,7 +63,15 @@ export const prog = {
                 { title: "O(n²) - Quadrática", content: "<p>Performance ruim. O tempo de execução cresce exponencialmente com a entrada. Geralmente envolve loops aninhados. Fica muito lento para entradas grandes.</p>" }
             ],
             question: "Um algoritmo com complexidade O(n²) é uma boa escolha para processar uma base de dados com milhões de registros? Por quê?",
-            answer: "Não, é uma péssima escolha. A complexidade O(n²) significa que o tempo de execução cresce ao quadrado do número de registros. Para milhões de registros, o tempo de execução se tornaria proibitivamente longo."
+            answer: "Não, é uma péssima escolha. A complexidade O(n²) significa que o tempo de execução cresce ao quadrado do número de registros. Para milhões de registros, o tempo de execução se tornaria proibitivamente longo.",
+            details: {
+                subtitle: "// Conceitos-chave da Complexidade Big O:",
+                points: [
+                    "O(1): tempo constante, ideal.",
+                    "O(n): crescimento linear, aceitável.",
+                    "O(n²): crescimento quadrático, ruim para grandes dados."
+                ]
+            }
         },
         {
             id: 4,
@@ -61,7 +85,15 @@ export const prog = {
                 { title: "Branch", content: "<p>É uma linha de desenvolvimento independente. Permite que você trabalhe em uma nova funcionalidade ('feature branch') sem bagunçar a linha principal ('main' ou 'master').</p>" }
             ],
             question: "Para que servem os 'branches' no Git?",
-            answer: "Branches servem para permitir o desenvolvimento paralelo de funcionalidades. Você pode criar um branch para trabalhar em uma nova feature ou corrigir um bug sem afetar a versão estável do código (que geralmente fica no branch 'main')."
+            answer: "Branches servem para permitir o desenvolvimento paralelo de funcionalidades. Você pode criar um branch para trabalhar em uma nova feature ou corrigir um bug sem afetar a versão estável do código (que geralmente fica no branch 'main').",
+            details: {
+                subtitle: "// Elementos essenciais do Git:",
+                points: [
+                    "Repositório: armazena o projeto e histórico.",
+                    "Commit: registro de mudanças com mensagem.",
+                    "Branch: desenvolvimento paralelo seguro."
+                ]
+            }
         },
         {
             id: 5,
@@ -75,7 +107,15 @@ export const prog = {
                 { title: "Exemplo Prático", content: "<p>Quando você usa um app de previsão do tempo, ele não tem os dados do clima. Ele faz uma chamada a uma API de um serviço de meteorologia (o servidor), pedindo os dados para sua cidade, e exibe a resposta para você.</p>" }
             ],
             question: "Usando a analogia do restaurante, explique o papel da API.",
-            answer: "No restaurante, você (o cliente) não vai até a cozinha (o servidor) para pegar sua comida. Você usa o menu (a documentação da API) para ver as opções e faz seu pedido para o garçom (a API). O garçom leva seu pedido à cozinha e traz o prato pronto de volta para você. A API faz essa intermediação no mundo do software."
+            answer: "No restaurante, você (o cliente) não vai até a cozinha (o servidor) para pegar sua comida. Você usa o menu (a documentação da API) para ver as opções e faz seu pedido para o garçom (a API). O garçom leva seu pedido à cozinha e traz o prato pronto de volta para você. A API faz essa intermediação no mundo do software.",
+            details: {
+                subtitle: "// Funções principais de uma API:",
+                points: [
+                    "Contrato claro entre sistemas.",
+                    "Comunicação cliente-servidor.",
+                    "Abstração e simplificação do acesso a dados."
+                ]
+            }
         },
         {
             id: 6,
@@ -89,7 +129,15 @@ export const prog = {
                 { title: "Quando Usar", content: "<p>Assíncrono é essencial para aplicações que precisam permanecer responsivas, como interfaces de usuário (para não travar a tela) e servidores web (para atender a múltiplos clientes simultaneamente).</p>" }
             ],
             question: "Por que a programação assíncrona é crucial para a interface de um aplicativo de celular?",
-            answer: "Porque se uma operação demorada (como baixar uma imagem da internet) fosse síncrona, ela 'travaria' toda a interface do usuário até terminar. Com a programação assíncrona, o download acontece em segundo plano, e o usuário pode continuar interagindo com o aplicativo normalmente."
+            answer: "Porque se uma operação demorada (como baixar uma imagem da internet) fosse síncrona, ela 'travaria' toda a interface do usuário até terminar. Com a programação assíncrona, o download acontece em segundo plano, e o usuário pode continuar interagindo com o aplicativo normalmente.",
+            details: {
+                subtitle: "// Diferenças entre síncrono e assíncrono:",
+                points: [
+                    "Síncrono: tarefas sequenciais, bloqueantes.",
+                    "Assíncrono: tarefas paralelas, não bloqueantes.",
+                    "Assíncrono mantém a interface responsiva."
+                ]
+            }
         },
         {
             id: 7,
@@ -103,7 +151,15 @@ export const prog = {
                 { title: "Programação Procedural", content: "<p>Baseia-se no conceito de chamar procedimentos ou funções. É uma série de passos sequenciais para executar uma tarefa. Ex: C, Pascal.</p>" }
             ],
             question: "Qual a principal característica que diferencia a Programação Orientada a Objetos da Procedural?",
-            answer: "A principal diferença é a forma de organizar o código. A Procedural organiza o código em uma sequência de procedimentos (funções) que manipulam dados. A Orientada a Objetos agrupa dados e os procedimentos que os manipulam dentro de 'objetos', promovendo o encapsulamento."
+            answer: "A principal diferença é a forma de organizar o código. A Procedural organiza o código em uma sequência de procedimentos (funções) que manipulam dados. A Orientada a Objetos agrupa dados e os procedimentos que os manipulam dentro de 'objetos', promovendo o encapsulamento.",
+            details: {
+                subtitle: "// Paradigmas principais e suas características:",
+                points: [
+                    "Orientado a Objetos: encapsula dados e métodos.",
+                    "Funcional: foco em funções puras e imutabilidade.",
+                    "Procedural: sequência de passos e funções."
+                ]
+            }
         },
         {
             id: 8,
@@ -117,7 +173,15 @@ export const prog = {
                 { title: "Comentários: O Porquê, não O Quê", content: "<p>Um bom código deve ser autoexplicativo. Use comentários não para explicar 'o que' o código faz, mas 'por que' ele faz algo de uma maneira específica e não óbvia.</p>" }
             ],
             question: "Por que a prática de dar nomes significativos a variáveis e funções é tão importante no Clean Code?",
-            answer: "Porque o código é lido muito mais vezes do que é escrito. Nomes significativos tornam o código mais legível e autoexplicativo, reduzindo drasticamente o tempo necessário para que outro desenvolvedor (ou você mesmo no futuro) entenda o que ele faz."
+            answer: "Porque o código é lido muito mais vezes do que é escrito. Nomes significativos tornam o código mais legível e autoexplicativo, reduzindo drasticamente o tempo necessário para que outro desenvolvedor (ou você mesmo no futuro) entenda o que ele faz.",
+            details: {
+                subtitle: "// Princípios essenciais do Clean Code:",
+                points: [
+                    "Nomes claros e expressivos.",
+                    "Funções pequenas e focadas.",
+                    "Comentários explicando 'porquê', não 'o quê'."
+                ]
+            }
         },
         {
             id: 9,
@@ -131,7 +195,15 @@ export const prog = {
                 { title: "Debugger", content: "<p>Uma ferramenta que permite executar o código linha por linha, inspecionar o valor das variáveis em tempo real e entender o fluxo de execução. É a ferramenta mais poderosa para o debugging.</p>" }
             ],
             question: "O que são 'breakpoints' e como eles ajudam no processo de debugging?",
-            answer: "Um breakpoint é um ponto de parada intencional que você coloca no seu código usando um debugger. Quando a execução do programa atinge um breakpoint, ela pausa, permitindo que o desenvolvedor inspecione o estado do programa (valores de variáveis, pilha de chamadas, etc.) naquele exato momento, ajudando a isolar a causa do bug."
+            answer: "Um breakpoint é um ponto de parada intencional que você coloca no seu código usando um debugger. Quando a execução do programa atinge um breakpoint, ela pausa, permitindo que o desenvolvedor inspecione o estado do programa (valores de variáveis, pilha de chamadas, etc.) naquele exato momento, ajudando a isolar a causa do bug.",
+            details: {
+                subtitle: "// Etapas e ferramentas para Debugging:",
+                points: [
+                    "Reproduzir o bug consistentemente.",
+                    "Isolar a área do problema.",
+                    "Usar breakpoints e debuggers para investigação."
+                ]
+            }
         },
         {
             id: 10,
@@ -145,7 +217,15 @@ export const prog = {
                 { title: "Tipagem", content: "<p>Refere-se a como uma linguagem de programação lida com os tipos de dados (número, texto, etc.). Pode ser <strong>Estática</strong> (tipos verificados em compilação, como em Java) ou <strong>Dinâmica</strong> (verificados em execução, como em Python).</p>" }
             ],
             question: "Qual a vantagem de usar uma constante em vez de uma variável para um valor que não deveria mudar?",
-            answer: "Usar uma constante torna o código mais seguro e legível. Garante que o valor não seja alterado acidentalmente em outra parte do programa (segurança) e sinaliza para outros desenvolvedores que aquele valor é fixo e importante (legibilidade)."
+            answer: "Usar uma constante torna o código mais seguro e legível. Garante que o valor não seja alterado acidentalmente em outra parte do programa (segurança) e sinaliza para outros desenvolvedores que aquele valor é fixo e importante (legibilidade).",
+            details: {
+                subtitle: "// Conceitos sobre Variáveis e Constantes:",
+                points: [
+                    "Variáveis: valores mutáveis durante a execução.",
+                    "Constantes: valores fixos e imutáveis.",
+                    "Tipagem pode ser estática ou dinâmica."
+                ]
+            }
         }
     ]
 };
